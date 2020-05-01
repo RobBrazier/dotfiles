@@ -1,0 +1,12 @@
+[user]
+	name = Rob Brazier
+	email = sourcehut@brzr.co
+
+[includeIf "gitdir:~/Code/github.com/"]
+	path = config-github
+[includeIf "gitdir:~/Code/git.sr.ht/"]
+	path = config-srht
+[pull]
+	rebase = true
+[push]
+	default = current

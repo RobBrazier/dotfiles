@@ -1,0 +1,10 @@
+add_path() {
+    for i in "$@"; do
+        export PATH="$i:$PATH"
+    done
+}
+
+add_path $LINUXBREW_DIR/sbin $LINUXBREW_DIR/bin $LINUXBREW_DIR/opt/python/libexec/bin
+add_path $XDG_CONFIG_HOME/composer/vendor/bin
+add_path $XDG_CONFIG_HOME/poetry/bin
+add_path $LINUXBREW_DIR/opt/mysql-client@5.7/bin

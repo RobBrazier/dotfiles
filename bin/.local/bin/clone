@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+repository="$1"
+
+set -u pipefail
+
+currentDir="$PWD"
+sourceHome="${GIT_SOURCE_HOME:-$HOME/source}"
+sourceDirChildPath="${currentDir##$sourceHome}"
+echo $currentDir $sourceHome $sourceDirChildPath
+if test "$sourceDirChildPath" == "$currentDir"; then
+  echo "$(basename $0) must be run within \$GIT_SOURCE_HOME ($sourceHome)"
+  echo "e.g. cd $sourceHome/github.com/Netflix; clone zuul"
+  exit 1
+else
+  gitParts=(${sourceDirChildPath//\// })
+  gitHost="${gitParts[0]}"
+  gitUser="${gitParts[1]}"
+  set -x
+  git clone "git@$gitHost:$gitUser/$repository" $repository
+fi
