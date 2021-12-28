@@ -13,6 +13,10 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 
+export GIT_SOURCE_HOME="$HOME/Code"
+export PKG_CONFIG_PATH="/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/share/pkgconfig:$PKG_CONFIG_PATH"
+export PYTHONDONTWRITEBYTECODE=1
+
 if [ -f $HOME/.path_profile ]; then
     source $HOME/.path_profile
 else

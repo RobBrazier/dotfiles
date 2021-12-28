@@ -1,0 +1,1 @@
+set -g -x DOTFILES_DIR (dirname (dirname (readlink -f $HOME/.path_profile)))

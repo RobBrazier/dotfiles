@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-exclusions=()
+exclusions=(setup zsh)
 SCRIPT_DIR="$(cd `dirname $0` && pwd)"
 enabled_config=""
 for i in $(ls -d $SCRIPT_DIR/*/); do

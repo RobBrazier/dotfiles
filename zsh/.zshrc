@@ -31,11 +31,13 @@ if ! type open > /dev/null; then
   alias open="open_command"
 fi
 
-export DOTFILES_DIR=$(dirname $(dirname $(readlink -f $HOME/.zshrc)))
-export GIT_SOURCE_HOME=$HOME/Code
-export PKG_CONFIG_PATH="/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/share/pkgconfig:$PKG_CONFIG_PATH"
+export DOTFILES_DIR=$(dirname $(dirname $(readlink -f $HOME/.path_profile)))
 
 source $LINUXBREW_DIR/opt/asdf/libexec/asdf.sh
+
+if [ -d $HOME/.cargo ]; then
+  source $HOME/.cargo/env
+fi
 
 export stow_regenerate() {
   bash $DOTFILES_DIR/stow.sh
@@ -48,20 +50,4 @@ export dotfiles_update() {
     git pull --recurse-submodules
   )
   stow_regenerate
-}
-
-export deployr() {
-  if [ -n "$(whence -p deployr)" ]; then
-    command deployr "$@"
-  else
-    (
-      cd $HOME/.local/bin
-      curl -Lo deployr https://github.com/skx/deployr/releases/download/release-0.10/deployr-linux-amd64
-      chmod +x deployr
-    )
-  fi
-}
-
-export dokku() {
-  ssh dokku@apps.robb.dev "$@"
 }
