@@ -20,5 +20,5 @@ export PYTHONDONTWRITEBYTECODE=1
 if [ -f $HOME/.path_profile ]; then
     source $HOME/.path_profile
 else
-    source ./zsh/.path_profile
+    source ./shell/.path_profile
 fi

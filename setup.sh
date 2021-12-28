@@ -51,28 +51,28 @@ else
     echo "Skipping brew installation as already exists"
 fi
 
-# echo "> brew update"
-# brew update
-# echo "> brew upgrade"
-# brew upgrade
-# brew_install() {
-#     local formulae=$(brew list --formulae)
-#     local items=""
-#     for item in $@; do
-#         if [[ $formulae =~ (^|[[:space:]])"$item"($|[[:space:]]) ]]; then
-#             echo "$item already exists"
-#         else
-#             local items="$items $item"
-#         fi
-#     done
-#     if [ "${#items}" -gt 0 ]; then
-#         echo "Running [brew install $items]"
-#         brew install $items
-#     else
-#         echo "Skipping [brew install] as all packages already are installed"
-#     fi
-# }
-# brew_install docker-compose jq python@3.9 the_silver_searcher pyenv awscli asdf
+echo "> brew update"
+brew update
+echo "> brew upgrade"
+brew upgrade
+brew_install() {
+    local formulae=$(brew list --formulae)
+    local items=""
+    for item in $@; do
+        if [[ $formulae =~ (^|[[:space:]])"$item"($|[[:space:]]) ]]; then
+            echo "$item already exists"
+        else
+            local items="$items $item"
+        fi
+    done
+    if [ "${#items}" -gt 0 ]; then
+        echo "Running [brew install $items]"
+        brew install $items
+    else
+        echo "Skipping [brew install] as all packages already are installed"
+    fi
+}
+brew_install docker-compose jq python@3.9 the_silver_searcher pyenv awscli asdf
 
 asdf plugin add poetry
 asdf plugin add nodejs
