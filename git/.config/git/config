@@ -1,6 +1,7 @@
 [user]
 	name = Rob Brazier
 	email = git@brzr.co
+	signingkey = 2B926B8AFE88337DEE64EED22B284FEBE03ED3EA
 
 [includeIf "gitdir:~/Code/github.com/"]
 	path = config-github
@@ -8,7 +9,9 @@
 	path = config-srht
 [includeIf "gitdir:~/Code/codeberg.org/"]
   path = config-codeberg
+
 [pull]
 	rebase = true
+
 [push]
 	default = current

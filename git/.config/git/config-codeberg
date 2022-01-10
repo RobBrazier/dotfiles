@@ -1,6 +1,5 @@
 [user]
 	email = codeberg@brzr.co
-	signingkey = 3B926B8AFE88337DEE64EED22B284FEBE03ED3EA
 
 [commit]
   gpgsign = false
