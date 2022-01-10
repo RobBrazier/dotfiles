@@ -1,4 +1,5 @@
 set -gx DOTFILES_DIR (dirname (dirname (readlink -f $HOME/.vimrc)))
+set -gx LINUXBREW_DIR "/home/linuxbrew/.linuxbrew"
 
 ########
 # PATH #
@@ -7,7 +8,7 @@ set -gx DOTFILES_DIR (dirname (dirname (readlink -f $HOME/.vimrc)))
 set PATH $LINUXBREW_DIR/sbin $LINUXBREW_DIR/bin $LINUXBREW_DIR/opt/python/libexec/bin $PATH
 # set PATH $PATH $XDG_CONFIG_HOME/composer/vendor/bin
 # set PATH $PATH $LINUXBREW_DIR/opt/mysql-client@5.7/bin
-set PATH $PATH $HOME/.asdf/shims
+set PATH $HOME/.asdf/shims $PATH
 # set PATH $PATH $HOME/.pyenv/shims
 
 set PATH $HOME/.local/bin/(hostname) $HOME/.local/bin/(uname -m) $HOME/bin $HOME/.local/bin $PATH
@@ -24,7 +25,6 @@ set -gx PKG_CONFIG_PATH /usr/lib/x86_64-linux-gnu/pkgconfig /usr/share/pkgconfig
 # BASE DIRS #
 #############
 
-set -gx LINUXBREW_DIR "/home/linuxbrew/.linuxbrew"
 # export HOMEBREW_CELLAR="$LINUXBREW_DIR/Cellar"
 # export HOMEBREW_PREFIX="$LINUXBREW_DIR"
 # export HOMEBREW_REPOSITORY="$LINUXBREW_DIR/Homebrew"
