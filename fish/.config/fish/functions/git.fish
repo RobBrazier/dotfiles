@@ -33,7 +33,7 @@ function clone
 
         set -l repository $argv[2]
         if contains '/' $repository 
-            command git clone $argv[2..]
+            command git $argv
         else
             if contains -- "--help" $repository
                 command $argv
