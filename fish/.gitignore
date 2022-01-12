@@ -1,2 +1,5 @@
 .config/omf/*
+.config/fish/conf.d/*
 !.config/omf/theme
+!.config/fish/conf.d/environment.fish
+!.config/fish/conf.d/asdf.fish

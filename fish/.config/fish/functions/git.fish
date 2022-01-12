@@ -7,9 +7,9 @@ function git
         case commit
           if not contains -- '--help' $argv
             if contains (uname -n) $signed_hosts
-                command git commit -S $argv[2..]
+                command git $argv -S
             else
-                command git commit $argv[2..]
+                command git $argv
             end
           else
             echo "git $argv"
