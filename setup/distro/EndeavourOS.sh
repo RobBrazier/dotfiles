@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-yay -Syu git curl fish stow git htop kitty vim mullvad-vpn-bin --answerclean N --answerdiff N
+bash $(dirname -- "${BASH_SOURCE[0]}")/ArchLinux.sh
+
+yay -Syu mullvad-vpn-bin 
