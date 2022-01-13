@@ -20,9 +20,9 @@ if [[ "$SHELL" -ne "/usr/bin/fish" ]]; then
   chsh -s /usr/bin/fish
 fi
 
-if [[ ! -h $HOME/.profile ]]; then
-  mv $HOME/.profile $HOME/.profile.bak
-fi
+#if [[ ! -h $HOME/.profile ]]; then
+#  mv $HOME/.profile $HOME/.profile.bak
+#fi
 bash ./stow.sh
 
 source ./shell/.profile
@@ -72,7 +72,7 @@ brew_install() {
         echo "Skipping [brew install] as all packages already are installed"
     fi
 }
-brew_install docker-compose jq python@3.9 the_silver_searcher pyenv awscli asdf
+brew_install docker-compose jq python@3.9 the_silver_searcher pyenv asdf
 
 asdf plugin add poetry
 asdf plugin add nodejs
@@ -82,15 +82,6 @@ asdf plugin add python
 
 asdf install poetry latest
 asdf install nodejs lts-fermium
-asdf install php latest
-asdf install python latest
-asdf install golang latest
-# if [ ! -d $XDG_CONFIG_HOME/poetry ]; then
-#     temp_dir=$(mktemp -d)
-#     poetry_script=$temp_dir/install-poetry.py
-#     curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py -o $poetry_script
-#     POETRY_HOME="${XDG_CONFIG_HOME}/poetry" python $poetry_script
-#     rm -rf $temp_dir
-# else
-#     echo "Skipping poetry installation as already exists"
-# fi
+#asdf install php latest
+#asdf install python latest
+#asdf install golang latest

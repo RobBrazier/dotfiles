@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-yay -Syu auto-cpufreq
+yay -Syu auto-cpufreq vscodium-bin librewolf-bin
