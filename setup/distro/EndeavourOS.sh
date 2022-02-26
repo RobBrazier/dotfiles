@@ -2,4 +2,4 @@
 
 bash $(dirname -- "${BASH_SOURCE[0]}")/ArchLinux.sh
 
-yay -Syu mullvad-vpn-bin librewolf-bin 
+yay -Syu --noconfirm mullvad-vpn-bin librewolf-bin 

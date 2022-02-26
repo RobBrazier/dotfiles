@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-sudo pacman -Syu git curl fish stow htop kitty vim
+sudo pacman --needed -Syu git curl fish stow htop kitty vim direnv
 

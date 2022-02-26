@@ -1,5 +1,6 @@
 set -gx DOTFILES_DIR (dirname (dirname (readlink -f $HOME/.vimrc)))
 set -gx LINUXBREW_DIR "/home/linuxbrew/.linuxbrew"
+set -gx LD_LIBRARY_PATH "/home/linuxbrew/.linuxbrew/lib" "/usr/local/lib64" "/usr/lib64" $LD_LIBRARY_PATH
 
 ########
 # PATH #
