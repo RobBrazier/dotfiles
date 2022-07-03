@@ -5,5 +5,5 @@ sudo pacman --needed -Syu --noconfirm {{ .commonPackages }} jq the_silver_search
 
 {{ if eq .chezmoi.osRelease.id "endeavouros" -}}
 echo "Installing packages for EndeavourOS"
-yay -Syu --noconfirm librewolf-bin 
+yay -Syu --noconfirm librewolf-bin trizen
 {{ end -}}
