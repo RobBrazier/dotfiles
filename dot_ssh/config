@@ -7,6 +7,9 @@ Host *.runners.sr.ht
 Host github.com
   IdentityFile ~/.ssh/git_ed25519
 
+Host codeberg.org
+  IdentityFile ~/.ssh/git_ed25519
+
 Host start
   User start
   Hostname start
