@@ -1,0 +1,5 @@
+.asdf:
+  type: git-repo
+  url: https://github.com/asdf-vm/asdf.git
+  exact: true
+  refreshPeriod: 24h

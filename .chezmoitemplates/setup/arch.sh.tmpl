@@ -1,0 +1,9 @@
+{{ if eq .chezmoi.osRelease.idLike "arch" -}}
+echo "Installing packages for Arch"
+sudo pacman --needed -Syu --noconfirm {{ .commonPackages }} jq the_silver_searcher
+{{ end -}}
+
+{{ if eq .chezmoi.osRelease.id "endeavouros" -}}
+echo "Installing packages for EndeavourOS"
+yay -Syu --noconfirm librewolf-bin 
+{{ end -}}

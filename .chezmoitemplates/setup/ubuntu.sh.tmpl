@@ -1,0 +1,5 @@
+{{ if eq .chezmoi.osRelease.idLike "ubuntu" -}}
+echo "Installing packages for Ubuntu"
+sudo apt update
+sudo apt install -y {{ .commonPackages }} build-essential apt-transport-https file locate
+{{ end -}}

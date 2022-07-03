@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+echo "Installing pre-requisite packages"
+
+# Distros
+{{ if eq .chezmoi.osRelease.idLike "arch" -}}
+{{ template "setup/arch.sh.tmpl" . }}
+{{ end -}}
+
+{{ if eq .chezmoi.osRelease.idLike "ubuntu" -}}
+{{ template "setup/ubuntu.sh.tmpl" . }}
+{{ end -}}
+
+# Machines
+{{ if eq .chezmoi.hostname "tsukuyomi" -}}
+echo "Installing packages for Machine: tsukuyomi"
+yay -Syu --noconfirm vscodium-bin
+{{ end -}}

@@ -1,0 +1,5 @@
+[user]
+	email = RobBrazier@users.noreply.github.com
+
+[commit]
+  gpgsign = true

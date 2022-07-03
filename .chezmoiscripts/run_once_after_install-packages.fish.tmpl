@@ -1,0 +1,34 @@
+#!/usr/bin/env fish
+
+echo "Running install-packages.fish"
+
+if [ "$SHELL" != "/usr/bin/fish" ]
+  echo "Changing default shell to /usr/bin/fish"
+  chsh -s /usr/bin/fish
+end
+
+if ! test -d $HOME/.local/share/omf
+    set temp_dir (mktemp -d)
+    set installer $temp_dir/install
+    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > $installer
+    fish $installer --path=~/.local/share/omf --config=~/.config/omf --noninteractive
+    fish -c 'omf install bobthefish'
+else
+    echo "Skipping Oh My Fish installation as already exists"
+end
+
+if ! test -f $HOME/.ssh/id_ed25519
+  echo "Generating id_ed25519"
+  ssh-keygen -t ed25519 -f $HOME/.ssh/id_ed25519 -N ''
+else
+  echo "id_ed25519 already generated"
+end
+
+if ! test -f $HOME/.ssh/git_ed25519
+  echo "Generating git_ed25519"
+  ssh-keygen -t ed25519 -f $HOME/.ssh/git_ed25519 -N ''
+else
+  echo "git_ed25519 already generated"
+end
+
+chezmoi completion fish --output=~/.config/fish/completions/chezmoi.fish

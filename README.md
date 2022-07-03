@@ -1,9 +1,9 @@
-Dotfiles
-========
+# dotfiles
 
-This is my collection of [configuration files](http://dotfiles.github.io/).
+Powered by [chezmoi](https://www.chezmoi.io/)
 
-License
--------
-
-[MIT](http://opensource.org/licenses/MIT).
+```bash
+sudo sh -c "$(curl -fsLS chezmoi.io/get)" -- -b /usr/local/bin 
+chezmoi init --apply RobBrazier
+chezmoi apply
+```

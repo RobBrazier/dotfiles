@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-exclusions=(setup zsh shell)
+exclusions=(setup zsh shell vim librewolf asdf bin ssh git fish)
 SCRIPT_DIR="$(cd `dirname $0` && pwd)"
 enabled_config=""
 for i in $(ls -d $SCRIPT_DIR/*/); do
