@@ -9,7 +9,7 @@ echo "Installing pre-requisite packages"
 {{ template "setup/arch.sh.tmpl" . }}
 {{ end -}}
 
-{{ if eq .chezmoi.osRelease.idLike "ubuntu" -}}
+{{ if eq .chezmoi.osRelease.idLike "ubuntu debian" -}}
 {{ template "setup/ubuntu.sh.tmpl" . }}
 {{ end -}}
 
