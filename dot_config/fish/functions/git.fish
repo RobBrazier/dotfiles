@@ -32,14 +32,13 @@ function clone
         set -l gitUser $gitParts[3]
 
         set -l repository $argv[2]
-        if contains '/' $repository 
+        switch $repository
+        case "*/*"
             command git $argv
-        else
-            if contains -- "--help" $repository
-                command $argv
-            else
-                command git clone "git@$gitHost:$gitUser/$repository" "$sourceHome/$gitHost/$gitUser/$repository"
-            end
+        case "*--help"
+            command git $argv
+        case "*"
+            command git clone "git@$gitHost:$gitUser/$repository" "$sourceHome/$gitHost/$gitUser/$repository"
         end
     end
 end
