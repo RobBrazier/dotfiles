@@ -11,6 +11,8 @@ echo "
 Include = /etc/pacman.d/chaotic-mirrorlist
 " > /etc/pacman.conf
 
+sudo pacman --needed -Syu --noconfirm librewolf
+
 {{ if eq .chezmoi.osRelease.id "endeavouros" -}}
 # echo "Installing packages for EndeavourOS"
 # yay -Syu --noconfirm librewolf-bin trizen
