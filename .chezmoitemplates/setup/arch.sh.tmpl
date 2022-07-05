@@ -21,7 +21,3 @@ sudo pacman --needed -Syu --noconfirm {{ .commonPackages }} jq the_silver_search
 # echo "Installing packages for EndeavourOS"
 # yay -Syu --noconfirm librewolf-bin trizen
 {{ end -}}
-
-{{ if eq .chezmoi.hostname "tsukyuyomi" -}}
-yay -Syu chaotic-aur/auto-cpufreq
-{{ end -}}

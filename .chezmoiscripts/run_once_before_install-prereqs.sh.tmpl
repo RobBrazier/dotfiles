@@ -16,5 +16,6 @@ echo "Installing pre-requisite packages"
 # Machines
 {{ if eq .chezmoi.hostname "tsukuyomi" -}}
 echo "Installing packages for Machine: tsukuyomi"
-yay -Syu --noconfirm vscodium-bin
+yay -Syu --noconfirm chaotic-aur/auto-cpufreq chaotic-aur/vscodium
+sudo systemctl enable --now auto-cpufreq
 {{ end -}}
