@@ -23,5 +23,5 @@ sudo pacman --needed -Syu --noconfirm {{ .commonPackages }} jq the_silver_search
 {{ end -}}
 
 {{ if eq .chezmoi.hostname "tsukyuyomi" -}}
-yay -Syu auto-cpufreq
+yay -Syu chaotic-aur/auto-cpufreq
 {{ end -}}
