@@ -1,12 +1,14 @@
-set -gx DOTFILES_DIR (dirname (dirname (readlink -f $HOME/.vimrc)))
-set -gx LINUXBREW_DIR "/home/linuxbrew/.linuxbrew"
-set -gx LD_LIBRARY_PATH "/home/linuxbrew/.linuxbrew/lib" "/usr/local/lib64" "/usr/lib64" $LD_LIBRARY_PATH
+if test -d /home/linuxbrew
+    set -gx LINUXBREW_DIR "/home/linuxbrew/.linuxbrew"
+    set -gx LD_LIBRARY_PATH "/home/linuxbrew/.linuxbrew/lib" $LD_LIBRARY_PATH
+    set PATH $LINUXBREW_DIR/sbin $LINUXBREW_DIR/bin $LINUXBREW_DIR/opt/python/libexec/bin $PATH
+end
 
+set -gx LD_LIBRARY_PATH "/usr/local/lib64" "/usr/lib64" $LD_LIBRARY_PATH
 ########
 # PATH #
 ########
 
-set PATH $LINUXBREW_DIR/sbin $LINUXBREW_DIR/bin $LINUXBREW_DIR/opt/python/libexec/bin $PATH
 # set PATH $PATH $XDG_CONFIG_HOME/composer/vendor/bin
 # set PATH $PATH $LINUXBREW_DIR/opt/mysql-client@5.7/bin
 set PATH $HOME/.asdf/shims $PATH
