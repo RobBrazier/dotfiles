@@ -1,5 +1,5 @@
 echo "Installing packages for Arch"
-sudo pacman --needed -Syu --noconfirm {{ .commonPackages }} kitty jq the_silver_searcher
+sudo pacman -Syu
 
 echo "Installing Chaotic AUR"
 sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
@@ -11,7 +11,7 @@ echo "
 Include = /etc/pacman.d/chaotic-mirrorlist
 " > /etc/pacman.conf
 
-sudo pacman --needed -Syu --noconfirm librewolf
+sudo pacman --needed -Syu --noconfirm {{ .commonPackages }} jq the_silver_searcher librewolf
 
 {{ if eq .chezmoi.osRelease.id "endeavouros" -}}
 # echo "Installing packages for EndeavourOS"
