@@ -3,10 +3,10 @@
   url: https://github.com/asdf-vm/asdf.git
   refreshPeriod: 24h
 
-.config/polybar:
-  type: git-repo
-  url: https://github.com/raven2cz/polybar-config
-
-.config/polybar-themes:
-  type: git-repo
-  url: https://github.com/adi1090x/polybar-themes.git
+#.config/polybar:
+#  type: git-repo
+#  url: https://github.com/raven2cz/polybar-config
+#
+#.config/polybar-themes:
+#  type: git-repo
+#  url: https://github.com/adi1090x/polybar-themes.git
