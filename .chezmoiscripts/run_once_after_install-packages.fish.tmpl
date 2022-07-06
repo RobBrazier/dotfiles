@@ -12,7 +12,7 @@ if ! test -d $HOME/.local/share/omf
     set installer $temp_dir/install
     curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > $installer
     fish $installer --path=~/.local/share/omf --config=~/.config/omf --noninteractive
-    fish -c 'omf install bobthefish'
+    fish -c 'omf install'
 else
     echo "Skipping Oh My Fish installation as already exists"
 end

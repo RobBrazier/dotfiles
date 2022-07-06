@@ -3,6 +3,9 @@
 asdf plugin add nodejs
 asdf plugin add python
 
+asdf list all nodejs > /dev/null
+asdf list all python > /dev/null
+
 asdf install nodejs lts-gallium
 asdf install python latest
 

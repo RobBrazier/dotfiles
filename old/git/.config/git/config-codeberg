@@ -1,5 +1,0 @@
-[user]
-	email = codeberg@brzr.co
-
-[commit]
-  gpgsign = false

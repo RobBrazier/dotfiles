@@ -1,1 +1,0 @@
-source $LINUXBREW_DIR/opt/asdf/libexec/asdf.fish
