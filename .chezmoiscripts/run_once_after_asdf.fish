@@ -11,3 +11,6 @@ asdf install python latest
 
 asdf global nodejs (asdf list nodejs | grep '*' | xargs echo | sed 's/*//g')
 asdf global python (asdf list python | grep '*' | xargs echo | sed 's/*//g')
+
+python -m pip install --user pipx
+python -m pipx ensurepath

@@ -1,5 +1,3 @@
 echo "Installing packages for Ubuntu"
 sudo apt update
-sudo apt install -y {{ .commonPackages }} build-essential apt-transport-https file locate
-
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+sudo apt install -y {{ .commonPackages }} build-essential apt-transport-https file locate jq silversearcher-ag
