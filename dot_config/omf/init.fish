@@ -31,6 +31,8 @@ set -gx PYTHONSTARTUP "$XDG_CONFIG_HOME/python/pythonrc"
 set -gx WORKON_HOME "$XDG_DATA_HOME/virtualenvs"
 # Java
 set -gx _JAVA_OPTIONS "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
+# Go
+set -gx GOPATH "$XDG_DATA_HOME/go"
 # AWS CLI
 set -gx AWS_SHARED_CREDENTIALS_FILE "$XDG_CONFIG_HOME/aws/credentials"
 set -gx AWS_CONFIG_FILE "$XDG_CONFIG_HOME/aws/config"
