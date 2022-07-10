@@ -7,6 +7,8 @@ if [ "$SHELL" != "/usr/bin/fish" ]
   chsh -s /usr/bin/fish
 end
 
+chezmoi completion fish --output=~/.config/fish/completions/chezmoi.fish
+
 if ! test -d $HOME/.local/share/omf
     set temp_dir (mktemp -d)
     set installer $temp_dir/install
@@ -31,4 +33,3 @@ else
   echo "git_ed25519 already generated"
 end
 
-# chezmoi completion fish --output=~/.config/fish/completions/chezmoi.fish
