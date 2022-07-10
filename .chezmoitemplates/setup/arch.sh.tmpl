@@ -15,7 +15,7 @@ Include = /etc/pacman.d/chaotic-mirrorlist
 " | sudo tee -a /etc/pacman.conf
 fi
 
-sudo pacman --needed -Syu --noconfirm {{ .commonPackages }} jq the_silver_searcher librewolf
+sudo pacman --needed -Syu --noconfirm {{ .commonPackages }} jq the_silver_searcher librewolf udisks2
 
 {{ if eq .chezmoi.osRelease.id "endeavouros" -}}
 # echo "Installing packages for EndeavourOS"
