@@ -20,24 +20,9 @@ Host hass
   Hostname hass
   IdentityFile ~/.ssh/id_ed25519
 
-Host plex
+Host apps
   User root
-  Hostname plex
-  IdentityFile ~/.ssh/id_ed25519
-
-Host sabnzbd
-  User sabnzbd
-  Hostname sabnzbd
-  IdentityFile ~/.ssh/id_ed25519
-
-Host sonarr
-  User sonarr
-  Hostname sonarr
-  IdentityFile ~/.ssh/id_ed25519
-
-Host radarr
-  User radarr
-  Hostname radarr
+  Hostname 192.168.1.197
   IdentityFile ~/.ssh/id_ed25519
 
 Host pve
@@ -45,8 +30,3 @@ Host pve
   Hostname 192.168.1.210
   IdentityFile ~/.ssh/id_ed25519
 
-Host r0b.dev
-  User rob
-  Hostname 49.12.10.152
-  Port 49322
-  IdentityFile ~/.ssh/id_ed25519
