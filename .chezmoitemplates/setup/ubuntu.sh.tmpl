@@ -1,3 +1,25 @@
 echo "Installing packages for Ubuntu"
+
+if [ ! -f "/etc/apt/sources.list.d/librewolf.sources" ]; then
+    distro=$(if echo " bullseye focal impish jammy uma una " | grep -q " $(lsb_release -sc) "; then echo $(lsb_release -sc); else echo jammy; fi)
+
+    wget -O- https://deb.librewolf.net/keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/librewolf.gpg
+
+    sudo tee /etc/apt/sources.list.d/librewolf.sources << EOF > /dev/null
+Types: deb
+URIs: https://deb.librewolf.net
+Suites: $distro
+Components: main
+Architectures: amd64
+Signed-By: /usr/share/keyrings/librewolf.gpg
+EOF
+fi
+
+if [ ! -f "/etc/apt/sources.list.d/volian-archive-scar-unstable.list" ]; then
+    echo "deb https://deb.volian.org/volian/ scar main" | sudo tee /etc/apt/sources.list.d/volian-archive-scar-unstable.list
+    wget -qO - https://deb.volian.org/volian/scar.key | sudo tee /etc/apt/trusted.gpg.d/volian-archive-scar-unstable.gpg > /dev/null
+fi
+
+
 sudo apt update
-sudo apt install -y {{ .commonPackages }} build-essential apt-transport-https file locate jq silversearcher-ag
+sudo apt install -y {{ .commonPackages }} build-essential apt-transport-https file locate jq silversearcher-ag librewolf nala

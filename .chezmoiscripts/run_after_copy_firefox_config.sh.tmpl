@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+firefoxInstallHome="/usr/lib/firefox"
+
+sudo mkdir -p $firefoxInstallHome/default/pref
+sudo cp -R {{.chezmoi.sourceDir}}/firefox/* $firefoxInstallHome

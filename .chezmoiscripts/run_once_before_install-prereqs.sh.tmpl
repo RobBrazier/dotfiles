@@ -16,10 +16,10 @@ echo "Installing pre-requisite packages"
 # Machines
 {{ if eq .chezmoi.hostname "tsukuyomi" -}}
 echo "Installing packages for Machine: tsukuyomi"
-yay -Syu --noconfirm chaotic-aur/auto-cpufreq chaotic-aur/vscodium
+#yay -Syu --noconfirm chaotic-aur/auto-cpufreq chaotic-aur/vscodium
 
-sudo systemctl disable power-profiles-daemon
-sudo systemctl mask power-profiles-daemon
+#sudo systemctl disable power-profiles-daemon
+#sudo systemctl mask power-profiles-daemon
 
-sudo systemctl enable --now auto-cpufreq
+#sudo systemctl enable --now auto-cpufreq
 {{ end -}}
