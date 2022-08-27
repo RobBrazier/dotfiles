@@ -3,8 +3,10 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "rob";
-  home.homeDirectory = "/home/rob";
+  home.username = "{{ .chezmoi.username }}";
+  home.homeDirectory = "{{ .chezmoi.homeDir }}";
+  
+  nixpkgs.config.allowUnfree = true;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -34,6 +36,7 @@
     pkgs.php81Packages.composer
     pkgs.rustup
     # Applications
+    pkgs.discord
   ];
 
   programs.jq.enable = true;
