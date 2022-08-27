@@ -30,6 +30,7 @@
     pkgs.silver-searcher
     # Languages
     pkgs.nodejs-16_x
+    pkgs.nodePackages.pnpm
     pkgs.python39
     pkgs.python39Packages.pipx
     pkgs.php81
@@ -40,9 +41,9 @@
   ];
 
   # Desktop Icons
-  xdg.enable=true;
-  xdg.mime.enable=true;
-  targets.genericLinux.enable=true;
+  xdg.enable = true;
+  xdg.mime.enable = true;
+  targets.genericLinux.enable = true;
 
   home.activation = {
     linkDesktopApplications = {
@@ -67,11 +68,17 @@
     vimdiffAlias = true;
   };
 
+#  programs.vscode = {
+#    enable = true;
+#    package = pkgs.vscodium;
+#  };
+
   programs.fish = {
     enable = true;
     shellAliases = {
       vim = "nvim";
       wget = "wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\"";
+      code = "codium";
     };
     plugins = [
       {
