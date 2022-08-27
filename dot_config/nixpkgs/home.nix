@@ -32,6 +32,8 @@
     pkgs.python39Packages.pipx
     pkgs.php81
     pkgs.php81Packages.composer
+    pkgs.rustup
+    # Applications
   ];
 
   programs.jq.enable = true;
