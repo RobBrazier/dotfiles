@@ -39,6 +39,18 @@
     pkgs.discord
   ];
 
+  xdg.desktopEntries = {
+    discord = {
+      name = "Discord";
+      genericName = "All-in-one cross-platform voice and text chat for gamers";
+      exec = "discord";
+      terminal = false;
+      categories = ["Network" "InstantMessaging"];
+      mimeType = ["x-scheme-handler/discord"];
+      icon = "discord";
+    };
+  };
+
   programs.jq.enable = true;
   programs.topgrade.enable = true;
 
