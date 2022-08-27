@@ -5,11 +5,5 @@ if [ ! -f "/etc/apt/sources.list.d/vscodium.list" ]; then
   echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main' | sudo tee /etc/apt/sources.list.d/vscodium.list
 fi
 
-if [ ! -f "/etc/apt/sources.list.d/volian-archive-scar-unstable.list" ]; then
-    echo "deb https://deb.volian.org/volian/ scar main" | sudo tee /etc/apt/sources.list.d/volian-archive-scar-unstable.list
-    wget -qO - https://deb.volian.org/volian/scar.key | sudo tee /etc/apt/trusted.gpg.d/volian-archive-scar-unstable.gpg > /dev/null
-fi
-
-
 sudo apt update
-sudo apt install -y {{ .commonPackages }} build-essential apt-transport-https file locate jq silversearcher-ag firefox nala codium
+sudo apt install -y build-essential apt-transport-https file locate firefox codium

@@ -1,7 +1,3 @@
-if test -e ~/.profile
-  fenv source ~/.profile
-end
-
 set -gx EDITOR vim
 set -gx LANG en_GB.UTF-8
 set -gx PYTHONDONTWRITEBYTECODE 1
