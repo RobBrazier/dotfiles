@@ -1,10 +1,7 @@
 set -gx EDITOR vim
 set -gx LANG en_GB.UTF-8
 set -gx PYTHONDONTWRITEBYTECODE 1
-set PATH $HOME/bin $HOME/.local/bin $PATH
-
-#fish_add_path --path $HOME/bin
-#fish_add_path --path $HOME/.local/bin
+set PATH $HOME/bin $HOME/.local/bin $HOME/.cargo/bin $PATH
 
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx XDG_DATA_HOME "$HOME/.local/share"

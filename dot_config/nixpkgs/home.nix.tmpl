@@ -28,6 +28,8 @@
     pkgs.curl
     pkgs.direnv
     pkgs.silver-searcher
+    pkgs.ripgrep
+    pkgs.fd
     # Languages
     pkgs.nodejs-16_x
     pkgs.nodePackages.pnpm
@@ -36,9 +38,14 @@
     pkgs.php81
     pkgs.php81Packages.composer
     pkgs.rustup
+    # Fonts
+    pkgs.nerdfonts
     # Applications
     pkgs.discord
   ];
+
+  # Manage Fonts
+  fonts.fontconfig.enable = true;
 
   # Desktop Icons
   xdg.enable = true;
@@ -66,6 +73,21 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    extraConfig = ''
+      source ${config.xdg.configHome}/nvim/config.vim
+    '';
+    plugins = with pkgs.vimPlugins; [
+      telescope-nvim
+      barbar-nvim
+      (nvim-treesitter.withPlugins (
+        plugins: with plugins; [
+          tree-sitter-nix
+          tree-sitter-python
+        ]
+      ))
+      nvim-web-devicons
+      lualine-nvim
+    ];
   };
 
 #  programs.vscode = {
