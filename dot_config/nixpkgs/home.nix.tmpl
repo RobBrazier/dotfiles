@@ -39,18 +39,24 @@
     pkgs.discord
   ];
 
-  xdg.desktopEntries = {
-    discord = {
-      name = "Discord";
-      genericName = "All-in-one cross-platform voice and text chat for gamers";
-      exec = "discord";
-      terminal = false;
-      categories = ["Network" "InstantMessaging"];
-      mimeType = ["x-scheme-handler/discord"];
-      icon = "discord";
+  # Desktop Icons
+  xdg.enable=true;
+  xdg.mime.enable=true;
+  targets.genericLinux.enable=true;
+
+  home.activation = {
+    linkDesktopApplications = {
+      after = [ "writeBoundary" "createXdgUserDirectories" ];
+      before = [ ];
+      data = ''
+        rm -rf ${config.xdg.dataHome}/"applications/home-manager"
+        mkdir -p ${config.xdg.dataHome}/"applications/home-manager"
+        cp -Lr ${config.home.homeDirectory}/.nix-profile/share/applications/* ${config.xdg.dataHome}/"applications/home-manager/"
+      '';
     };
   };
 
+  # Applications
   programs.jq.enable = true;
   programs.topgrade.enable = true;
 

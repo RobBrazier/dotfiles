@@ -11,6 +11,8 @@ set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx XDG_STATE_HOME "$HOME/.local/state"
 set -gx XDG_CACHE_HOME "$HOME/.cache"
 
+set XDG_DATA_DIRS "$HOME/.nix-profile/share":$XDG_DATA_DIRS
+
 set -gx GIT_SOURCE_HOME "$HOME/Code"
 
 set -gx LD_LIBRARY_PATH $LD_LIBRARY_PATH /usr/local/lib64 /usr/lib64
