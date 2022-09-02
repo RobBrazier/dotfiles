@@ -8,7 +8,7 @@ set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx XDG_STATE_HOME "$HOME/.local/state"
 set -gx XDG_CACHE_HOME "$HOME/.cache"
 
-set XDG_DATA_DIRS "$HOME/.nix-profile/share":$XDG_DATA_DIRS
+set -gx XDG_DATA_DIRS "$HOME/.nix-profile/share:$XDG_DATA_DIRS"
 set NIX_PATH $HOME/.nix-defexpr/channels /nix/var/nix/profiles/per-user/root/channels $NIX_PATH
 
 set -gx GIT_SOURCE_HOME "$HOME/Code"
