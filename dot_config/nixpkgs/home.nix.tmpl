@@ -96,10 +96,12 @@
     ];
   };
 
+  {{ if ne .chezmoi.hostname "Tet" }}
   programs.vscode = {
     enable = true;
     # package = pkgs.vscodium;
   };
+  {{ end }}
 
   programs.fish = {
     enable = true;
