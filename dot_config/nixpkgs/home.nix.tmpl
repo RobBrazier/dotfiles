@@ -47,8 +47,17 @@
     # Fonts
     pkgs.nerdfonts
     # Applications
+  {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+    # WSL-only stuff
+  ];
+  {{ else }}
+    # Linux-only stuff
     pkgs.discord
   ];
+  programs.vscode = {
+    enable = true; 
+  };
+  {{ end }}
 
   # Manage Fonts
   fonts.fontconfig.enable = true;
@@ -95,14 +104,7 @@
       lualine-nvim
     ];
   };
-
-  {{ if ne .chezmoi.hostname "Tet" }}
-  programs.vscode = {
-    enable = true;
-    # package = pkgs.vscodium;
-  };
-  {{ end }}
-
+ 
   programs.fish = {
     enable = true;
     shellAliases = {
