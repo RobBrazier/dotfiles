@@ -1,9 +1,4 @@
 echo "Installing packages for Ubuntu"
 
-if [ ! -f "/etc/apt/sources.list.d/vscodium.list" ]; then
-  wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | gpg --dearmor | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
-  echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main' | sudo tee /etc/apt/sources.list.d/vscodium.list
-fi
-
 sudo apt update
-sudo apt install -y build-essential apt-transport-https firefox codium
+sudo apt install -y build-essential apt-transport-https firefox
