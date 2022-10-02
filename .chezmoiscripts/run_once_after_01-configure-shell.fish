@@ -2,6 +2,15 @@
 
 echo "Running install-packages.fish"
 
+if ! test -f $HOME/.config/fish/functions/fisher.fish
+  set fisher_install $(mktemp -d)
+  curl -sL https://git.io/fisher -o "$fisher_install/fisher.fish"
+  source $fisher_install/fisher.fish
+  fisher update
+else
+  echo "Fisher already installed"
+end
+
 if ! grep -c /etc/shells $(which fish)
   echo "$(which fish)" | sudo tee -a /etc/shells
 end

@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-home-manager switch
+#home-manager switch

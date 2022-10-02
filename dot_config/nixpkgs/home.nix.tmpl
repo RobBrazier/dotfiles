@@ -82,28 +82,6 @@
   # Applications
   programs.jq.enable = true;
   programs.topgrade.enable = true;
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    extraConfig = ''
-      source ${config.xdg.configHome}/nvim/config.vim
-    '';
-    plugins = with pkgs.vimPlugins; [
-      telescope-nvim
-      barbar-nvim
-      (nvim-treesitter.withPlugins (
-        plugins: with plugins; [
-          tree-sitter-nix
-          tree-sitter-python
-        ]
-      ))
-      nvim-web-devicons
-      lualine-nvim
-    ];
-  };
  
   programs.fish = {
     enable = true;

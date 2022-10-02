@@ -15,4 +15,16 @@ Include = /etc/pacman.d/chaotic-mirrorlist
 " | sudo tee -a /etc/pacman.conf
 fi
 
-sudo pacman --needed -Syu --noconfirm firefox udisks2 codium
+install_packages() {
+    sudo pacman --needed -Syu --noconfirm $@
+}
+
+# GUI applications
+install_packages firefox visual-studio-code-bin
+
+# System Utilities
+install_packages btop git curl direnv the_silver_searcher ripgrep fd helix udisks2 jq topgrade
+
+if [ -x "$(command -v yay)" ]; then
+    yay -Syu nerd-fonts-complete
+fi
