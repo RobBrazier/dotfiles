@@ -1,4 +1,5 @@
 {
     "telemetry.telemetryLevel": "off",
-    "window.titleBarStyle": "custom"
+    "window.titleBarStyle": "custom",
+    "git.autofetch": true
 }
