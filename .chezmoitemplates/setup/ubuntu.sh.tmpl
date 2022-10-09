@@ -1,4 +1,64 @@
 echo "Installing packages for Ubuntu"
 
 sudo apt update
-sudo apt install -y build-essential apt-transport-https firefox
+
+install_packages() {
+    sudo apt install -y $@
+}
+
+# System Utilities
+install_packages build-essential apt-transport-https btop git curl wget direnv fish silversearcher-ag ripgrep jq flatpak
+
+# GUI applications
+install_packages firefox
+
+# Install packages outside Package Managers
+
+github_download() {
+    repo="$1"
+    assetEnd="$2"
+    extension="$3"
+    query=".[0].assets | map(select(.name | endswith(\"$assetEnd\")))[0].id"
+    githubResponse=$(curl -s https://api.github.com/repos/$repo/releases)
+    assetId=`echo $githubResponse | jq "$query"`
+    tempDir=$(mktemp -d)
+    assetPath="$tempDir/$assetId.$extension"
+    wget -q --auth-no-challenge --header='Accept:application/octet-stream' "https://api.github.com/repos/$repo/releases/assets/$assetId" -O "$assetPath"
+    tar -xsf $assetPath -C $tempDir
+    echo $tempDir
+}
+
+# Topgrade
+if [ -f /usr/local/bin/topgrade ]; then
+    echo "Topgrade already installed. Skipping"
+else
+    echo "Installing Topgrade"
+    topgrade=$(github_download "r-darwish/topgrade" "-x86_64-unknown-linux-gnu.tar.gz" "tgz")
+    chmod +x $topgrade/topgrade
+    sudo mv $topgrade/topgrade /usr/local/bin
+fi
+
+# Helix
+if [ -f /usr/local/bin/hx ]; then
+    echo "Helix already installed. Skipping"
+else
+    echo "Installing Helix"
+    helix=$(github_download "helix-editor/helix" "-x86_64-linux.tar.xz" "txz")
+    chmod +x $helix/helix-*/hx
+    sudo mkdir -p /usr/lib/helix
+    sudo rm -r /usr/lib/helix/*
+    sudo mv $helix/helix-*/* /usr/lib/helix
+    echo '#!/usr/bin/env sh
+
+HELIX_RUNTIME=/usr/lib/helix/runtime exec /usr/lib/helix/hx "$@"' | sudo tee /usr/local/bin/hx
+    sudo chmod +x /usr/local/bin/hx
+fi
+
+# VS Code
+if [ -x "$(command -v code)"    ]; then
+    echo "VS Code already installed. Skipping"
+else
+    tempDir=$(mktemp -d)
+    curl -o vscode.deb -L 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64'
+    install_packages ./vscode.deb
+fi

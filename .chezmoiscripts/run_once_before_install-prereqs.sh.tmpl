@@ -26,8 +26,8 @@ echo "Installing pre-requisite packages"
 # Distros
 {{ if eq (get .chezmoi.osRelease "idLike") "arch" -}}
 {{ template "setup/arch.sh.tmpl" . }}
-{{ end -}}
-
-{{ if eq (get .chezmoi.osRelease "idLike") "ubuntu debian" -}}
+{{ else if eq (get .chezmoi.osRelease "idLike") "ubuntu debian" -}}
+{{ template "setup/ubuntu.sh.tmpl" . }}
+{{ else if eq (get .chezmoi.osRelease "id") "ubuntu" -}}
 {{ template "setup/ubuntu.sh.tmpl" . }}
 {{ end -}}
