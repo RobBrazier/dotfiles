@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
+echo "Applying Firefox default config"
+
 firefoxInstallHome="/usr/lib/firefox"
 
 sudo mkdir -p $firefoxInstallHome/defaults/pref
+# firefox.cfg hash: {{ include "firefox/firefox.cfg" | sha256sum }}
 sudo cp -R {{.chezmoi.sourceDir}}/firefox/* $firefoxInstallHome
