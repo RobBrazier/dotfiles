@@ -3,7 +3,7 @@
 echo "Running install-packages.fish"
 
 if ! test -f $HOME/.config/fish/functions/fisher.fish
-  set fisher_install $(mktemp -d)
+  set fisher_install (mktemp -d)
   curl -sL https://git.io/fisher -o "$fisher_install/fisher.fish"
   source $fisher_install/fisher.fish
   fisher update
@@ -11,13 +11,12 @@ else
   echo "Fisher already installed"
 end
 
-if ! grep -c /etc/shells $(which fish)
-  echo "$(which fish)" | sudo tee -a /etc/shells
-end
-
-if [ "$SHELL" != "$(which fish)" ]
-  echo "Changing default shell to $(which fish)"
-  chsh -s $(which fish)
+set fish_location (which fish)
+if [ "$SHELL" != "$fish_location" ]
+  echo "Changing default shell to $fish_location"
+  chsh -s $fish_location
+else
+  echo "Shell already configured as $fish_location"
 end
 
 chezmoi completion fish --output=~/.config/fish/completions/chezmoi.fish

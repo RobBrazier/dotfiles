@@ -7,7 +7,7 @@ install_packages() {
 }
 
 # System Utilities
-install_packages build-essential apt-transport-https btop git curl wget direnv fish silversearcher-ag ripgrep jq flatpak
+install_packages build-essential apt-transport-https btop git curl wget direnv fish silversearcher-ag ripgrep jq flatpak fonts-jetbrains-mono
 
 # GUI applications
 install_packages firefox
@@ -46,7 +46,7 @@ else
     helix=$(github_download "helix-editor/helix" "-x86_64-linux.tar.xz" "txz")
     chmod +x $helix/helix-*/hx
     sudo mkdir -p /usr/lib/helix
-    sudo rm -r /usr/lib/helix/*
+    sudo rm -rf /usr/lib/helix/*
     sudo mv $helix/helix-*/* /usr/lib/helix
     echo '#!/usr/bin/env sh
 
