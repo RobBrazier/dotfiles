@@ -7,7 +7,14 @@ install_packages() {
 }
 
 # System Utilities
-install_packages build-essential apt-transport-https btop git curl wget direnv fish silversearcher-ag ripgrep jq flatpak fonts-jetbrains-mono
+install_packages build-essential apt-transport-https btop git curl wget direnv silversearcher-ag ripgrep jq flatpak fonts-jetbrains-mono
+
+# Install fish from PPA
+if [ "$(add-apt-repository -L | grep -c fish-shell)" -eq "0" ]; then
+    sudo apt-add-repository -y ppa:fish-shell/release-3
+    sudo apt update
+    install_packages fish
+fi
 
 # GUI applications
 install_packages firefox
