@@ -1,4 +1,4 @@
-set -gx EDITOR helix
+set -gx EDITOR hx
 set -gx LANG en_GB.UTF-8
 set -gx PYTHONDONTWRITEBYTECODE 1
 set PATH $HOME/bin $HOME/.local/bin $HOME/.cargo/bin $HOME/.local/share/npm/bin $PATH
