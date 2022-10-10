@@ -6,14 +6,21 @@ install_packages() {
     sudo apt install -y $@
 }
 
-# System Utilities
-install_packages build-essential apt-transport-https btop git curl wget direnv silversearcher-ag ripgrep jq flatpak fonts-jetbrains-mono
-
-# Install fish from PPA
+# Add fish PPA
 if [ "$(add-apt-repository -L | grep -c fish-shell)" -eq "0" ]; then
+    echo "Installing fish PPA"
     sudo apt-add-repository -y ppa:fish-shell/release-3
     sudo apt update
-    install_packages fish
+fi
+
+# System Utilities
+install_packages build-essential apt-transport-https btop git curl wget direnv fish silversearcher-ag ripgrep jq flatpak fonts-jetbrains-mono
+
+# Add firefox PPA
+if [ "$(add-apt-repository -L | grep -c mozillateam)" -eq "0" ]; then
+    echo "Installing firefox PPA"
+    sudo apt-add-repository -y ppa:mozillateam/ppa
+    sudo apt update
 fi
 
 # GUI applications
