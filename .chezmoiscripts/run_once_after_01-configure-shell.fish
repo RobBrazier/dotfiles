@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-echo "Running install-packages.fish"
+echo "Running configure-shell.fish"
 
 if ! test -f $HOME/.config/fish/functions/fisher.fish
   set fisher_install (mktemp -d)
@@ -35,3 +35,7 @@ else
   echo "git_ed25519 already generated"
 end
 
+if command -q asdf
+  echo "Updating asdf"
+  asdf update
+end
