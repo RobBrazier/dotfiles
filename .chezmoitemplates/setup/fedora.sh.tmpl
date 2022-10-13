@@ -4,8 +4,12 @@ install_packages() {
     sudo dnf -y install $@
 }
 
-if 
-sudo dnf copr enable varlad/helix -y
+if dnf repolist | grep -c 'varlad:helix' >/dev/null; then
+    echo "Helix COPR repo already installed. Skipping"
+else
+    echo "Installing Helix COPR repo"
+    sudo dnf copr enable varlad/helix -y
+fi
 
 if [ -x "$(command -v code)" ]; then
     echo "VS Code already installed. Skipping"
