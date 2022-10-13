@@ -14,7 +14,7 @@ if [ "$(apt-cache policy | grep -c fish-shell)" -eq "0" ]; then
 fi
 
 # System Utilities
-install_packages build-essential apt-transport-https git curl wget direnv fish silversearcher-ag ripgrep jq flatpak
+install_packages {{ .packages }} build-essential apt-transport-https silversearcher-ag
 
 # Add firefox PPA
 if [ "$(apt-cache policy | grep -c mozillateam)" -eq "0" ]; then
@@ -88,10 +88,12 @@ fi
 
 # Nerd Fonts
 nerdFontsLatestVersion=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases | jq .[0].id)
-if [ ! -f $HOME/.local/share/fonts/.version ] || [[ "$(cat $HOME/.local/share/fonts/.version)"=="$nerdFontsLatestVersion" ]]; then
+if [ ! -f $HOME/.local/share/fonts/.version ] || [ "$(cat $HOME/.local/share/fonts/.version)" -ne "$nerdFontsLatestVersion" ]; then
     tmpDir=$(mktemp -d)
     rm -rf $tmpDir
     git clone https://github.com/ryanoasis/nerd-fonts.git $tmpDir
     (cd $tmpDir && bash $tmpDir/install.sh)
     echo "$nerdFontsLatestVersion" > $HOME/.local/share/fonts/.version
+else
+    echo "Nerd Fonts already up-to-date. Skipping"
 fi
