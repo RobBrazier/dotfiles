@@ -1,0 +1,46 @@
+echo "Installing packages for Fedora"
+
+install_packages() {
+    sudo dnf -y install $@
+}
+
+sudo dnf copr enable varlad/helix -y
+
+github_download() {
+    repo="$1"
+    assetEnd="$2"
+    extension="$3"
+    query=".[0].assets | map(select(.name | endswith(\"$assetEnd\")))[0].id"
+    githubResponse=$(curl -s https://api.github.com/repos/$repo/releases)
+    assetId=`echo $githubResponse | jq "$query"`
+    tempDir=$(mktemp -d)
+    assetPath="$tempDir/$assetId.$extension"
+    wget -q --auth-no-challenge --header='Accept:application/octet-stream' "https://api.github.com/repos/$repo/releases/assets/$assetId" -O "$assetPath"
+    tar -xsf $assetPath -C $tempDir
+    echo $tempDir
+}
+
+if [ -x "$(command -v code)" ]; then
+    echo "VS Code already installed. Skipping"
+else
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+fi
+
+sudo dnf update -y
+
+# System Utilities
+install_packages {{ .packages }} btop the_silver_searcher helix
+
+# Topgrade
+if [ -f /usr/local/bin/topgrade ]; then
+    echo "Topgrade already installed. Skipping"
+else
+    echo "Installing Topgrade"
+    topgrade=$(github_download "r-darwish/topgrade" "-x86_64-unknown-linux-gnu.tar.gz" "tgz")
+    chmod +x $topgrade/topgrade
+    sudo mv $topgrade/topgrade /usr/local/bin
+fi
+
+# GUI applications
+install_packages firefox code

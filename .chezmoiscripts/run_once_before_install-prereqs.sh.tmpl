@@ -30,4 +30,6 @@ echo "Installing pre-requisite packages"
 {{ template "setup/ubuntu.sh.tmpl" . }}
 {{ else if eq (get .chezmoi.osRelease "id") "ubuntu" -}}
 {{ template "setup/ubuntu.sh.tmpl" . }}
+{{ else if eq (get .chezmoi.osRelease "id") "fedora" -}}
+{{ template "setup/fedora.sh.tmpl" . }}
 {{ end -}}
