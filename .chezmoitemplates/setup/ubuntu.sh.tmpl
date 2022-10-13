@@ -7,17 +7,17 @@ install_packages() {
 }
 
 # Add fish PPA
-if [ "$(add-apt-repository -L | grep -c fish-shell)" -eq "0" ]; then
+if [ "$(apt-cache policy | grep -c fish-shell)" -eq "0" ]; then
     echo "Installing fish PPA"
     sudo apt-add-repository -y ppa:fish-shell/release-3
     sudo apt update
 fi
 
 # System Utilities
-install_packages build-essential apt-transport-https btop git curl wget direnv fish silversearcher-ag ripgrep jq flatpak fonts-jetbrains-mono
+install_packages build-essential apt-transport-https git curl wget direnv fish silversearcher-ag ripgrep jq flatpak
 
 # Add firefox PPA
-if [ "$(add-apt-repository -L | grep -c mozillateam)" -eq "0" ]; then
+if [ "$(apt-cache policy | grep -c mozillateam)" -eq "0" ]; then
     echo "Installing firefox PPA"
     sudo apt-add-repository -y ppa:mozillateam/ppa
     sudo apt update
@@ -68,11 +68,30 @@ HELIX_RUNTIME=/usr/lib/helix/runtime exec /usr/lib/helix/hx "$@"' | sudo tee /us
     sudo chmod +x /usr/local/bin/hx
 fi
 
+# btop
+if [ -f /usr/local/bin/btop ]; then
+    echo "btop already installed. Skipping"
+else
+    echo "Installing btop"
+    btop=$(github_download "aristocratos/btop" "-x86_64-linux-musl.tbz" "tbz")
+    (cd $btop; bash $btop/install.sh)
+fi
+
 # VS Code
-if [ -x "$(command -v code)"    ]; then
+if [ -x "$(command -v code)" ]; then
     echo "VS Code already installed. Skipping"
 else
     tempDir=$(mktemp -d)
     curl -o vscode.deb -L 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64'
     install_packages ./vscode.deb
+fi
+
+# Nerd Fonts
+nerdFontsLatestVersion=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases | jq .[0].id)
+if [ ! -f $HOME/.local/share/fonts/.version ] || [[ "$(cat $HOME/.local/share/fonts/.version)"=="$nerdFontsLatestVersion" ]]; then
+    tmpDir=$(mktemp -d)
+    rm -rf $tmpDir
+    git clone https://github.com/ryanoasis/nerd-fonts.git $tmpDir
+    (cd $tmpDir && bash $tmpDir/install.sh)
+    echo "$nerdFontsLatestVersion" > $HOME/.local/share/fonts/.version
 fi
