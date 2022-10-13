@@ -28,20 +28,6 @@ install_packages firefox
 
 # Install packages outside Package Managers
 
-github_download() {
-    repo="$1"
-    assetEnd="$2"
-    extension="$3"
-    query=".[0].assets | map(select(.name | endswith(\"$assetEnd\")))[0].id"
-    githubResponse=$(curl -s https://api.github.com/repos/$repo/releases)
-    assetId=`echo $githubResponse | jq "$query"`
-    tempDir=$(mktemp -d)
-    assetPath="$tempDir/$assetId.$extension"
-    wget -q --auth-no-challenge --header='Accept:application/octet-stream' "https://api.github.com/repos/$repo/releases/assets/$assetId" -O "$assetPath"
-    tar -xsf $assetPath -C $tempDir
-    echo $tempDir
-}
-
 # Topgrade
 if [ -f /usr/local/bin/topgrade ]; then
     echo "Topgrade already installed. Skipping"
