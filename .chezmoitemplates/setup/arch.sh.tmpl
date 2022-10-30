@@ -34,6 +34,6 @@ if [ -x "$(command -v yay)" ]; then
         done
         echo $packages
     }
-    packages="$(get_yay_packages nerd-fonts-complete)"
+    packages="$(get_yay_packages nerd-fonts-git)"
     yay -Syu $packages
 fi
