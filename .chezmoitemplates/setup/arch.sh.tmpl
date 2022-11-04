@@ -1,28 +1,15 @@
 echo "Installing packages for Arch"
 sudo pacman -Syu
 
-if grep -q chaotic-mirrorlist /etc/pacman.conf; then
-    echo "Chaotic AUR already installed. Skipping"
-else
-    echo "Installing Chaotic AUR"
-    sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
-    sudo pacman-key --lsign-key FBA220DFC880C036
-    sudo pacman --needed -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-    echo "
-[chaotic-aur]
-Include = /etc/pacman.d/chaotic-mirrorlist
-" | sudo tee -a /etc/pacman.conf
-fi
-
 install_packages() {
     sudo pacman --needed -Syu --noconfirm $@
 }
 
 # GUI applications
-install_packages firefox visual-studio-code-bin
+install_packages firefox 
 
 # System Utilities
-install_packages {{ .packages }} btop the_silver_searcher fd helix udisks2 topgrade
+install_packages {{ .packages }} btop the_silver_searcher fd helix udisks2
 
 if [ -x "$(command -v yay)" ]; then
     get_yay_packages() {
@@ -34,6 +21,6 @@ if [ -x "$(command -v yay)" ]; then
         done
         echo $packages
     }
-    packages="$(get_yay_packages nerd-fonts-git)"
+    packages="$(get_yay_packages nerd-fonts-git visual-studio-code-bin topgrade)"
     yay -Syu $packages
 fi
