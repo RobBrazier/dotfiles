@@ -29,7 +29,7 @@ install_packages firefox
 # Install packages outside Package Managers
 
 # Topgrade
-if [ -f /usr/local/bin/topgrade ]; then
+if [ -x "$(command -v topgrade)" ]; then
     echo "Topgrade already installed. Skipping"
 else
     echo "Installing Topgrade"
@@ -39,7 +39,7 @@ else
 fi
 
 # Helix
-if [ -f /usr/local/bin/hx ]; then
+if [ -x "$(command -v hx)" ]; then
     echo "Helix already installed. Skipping"
 else
     echo "Installing Helix"
@@ -55,7 +55,7 @@ HELIX_RUNTIME=/usr/lib/helix/runtime exec /usr/lib/helix/hx "$@"' | sudo tee /us
 fi
 
 # btop
-if [ -f /usr/local/bin/btop ]; then
+if [ -x "$(command -v btop)" ]; then
     echo "btop already installed. Skipping"
 else
     echo "Installing btop"
