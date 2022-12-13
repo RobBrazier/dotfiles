@@ -2,7 +2,11 @@
 
 echo "Applying Firefox default config"
 
-firefoxInstallHome="/usr/lib/firefox"
+if [ -d "/usr/lib/firefox" ]; then
+    firefoxInstallHome="/usr/lib/firefox"
+elif [ -d "/usr/lib64/firefox" ]; then
+    firefoxInstallHome="/usr/lib64/firefox"
+fi
 
 sudo mkdir -p $firefoxInstallHome/defaults/pref
 # firefox.cfg hash: {{ include "firefox/firefox.cfg" | sha256sum }}
