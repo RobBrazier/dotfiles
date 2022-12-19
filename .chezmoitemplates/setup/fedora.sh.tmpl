@@ -4,13 +4,6 @@ install_packages() {
     sudo dnf -y install $@
 }
 
-if dnf repolist | grep -c 'varlad:helix' >/dev/null; then
-    echo "Helix COPR repo already installed. Skipping"
-else
-    echo "Installing Helix COPR repo"
-    sudo dnf copr enable varlad/helix -y
-fi
-
 if [ -x "$(command -v code)" ]; then
     echo "VS Code already installed. Skipping"
 else
@@ -21,7 +14,7 @@ fi
 sudo dnf update -y
 
 # System Utilities
-install_packages {{ .packages }} btop the_silver_searcher helix
+install_packages {{ .packages }} btop the_silver_searcher 
 
 # Topgrade
 if [ -f /usr/local/bin/topgrade ]; then

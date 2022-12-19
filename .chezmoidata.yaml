@@ -1,1 +1,1 @@
-packages: git curl direnv wget ripgrep jq flatpak fish
+packages: git curl direnv wget ripgrep jq flatpak fish neovim

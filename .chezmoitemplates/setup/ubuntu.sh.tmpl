@@ -13,6 +13,13 @@ if [ "$(apt-cache policy | grep -c fish-shell)" -eq "0" ]; then
     sudo apt update
 fi
 
+# Add neovim PPA
+if [ "$(apt-cache policy | grep -c neovim-ppa)" -eq "0" ]; then
+    echo "Installing neovim PPA"
+    sudo apt-add-repository -y ppa:neovim-ppa/unstable
+    sudo apt update
+fi
+
 # System Utilities
 install_packages {{ .packages }} build-essential apt-transport-https silversearcher-ag
 
@@ -36,22 +43,6 @@ else
     topgrade=$(github_download "r-darwish/topgrade" "-x86_64-unknown-linux-gnu.tar.gz" "tgz")
     chmod +x $topgrade/topgrade
     sudo mv $topgrade/topgrade /usr/local/bin
-fi
-
-# Helix
-if [ -x "$(command -v hx)" ]; then
-    echo "Helix already installed. Skipping"
-else
-    echo "Installing Helix"
-    helix=$(github_download "helix-editor/helix" "-x86_64-linux.tar.xz" "txz")
-    chmod +x $helix/helix-*/hx
-    sudo mkdir -p /usr/lib/helix
-    sudo rm -rf /usr/lib/helix/*
-    sudo mv $helix/helix-*/* /usr/lib/helix
-    echo '#!/usr/bin/env sh
-
-HELIX_RUNTIME=/usr/lib/helix/runtime exec /usr/lib/helix/hx "$@"' | sudo tee /usr/local/bin/hx
-    sudo chmod +x /usr/local/bin/hx
 fi
 
 # btop
