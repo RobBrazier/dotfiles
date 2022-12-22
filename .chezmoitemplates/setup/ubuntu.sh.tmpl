@@ -51,7 +51,7 @@ if [ -x "$(command -v btop)" ]; then
 else
     echo "Installing btop"
     btop=$(github_download "aristocratos/btop" "-x86_64-linux-musl.tbz" "tbz")
-    (cd $btop; bash $btop/install.sh)
+    (cd $btop/btop; bash ./install.sh)
 fi
 
 # VS Code
