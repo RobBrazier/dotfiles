@@ -1,0 +1,5 @@
+{{ $signingkey := promptString "git signing key" -}}
+
+data:
+    git:
+        signingkey: {{ $signingkey | quote }}

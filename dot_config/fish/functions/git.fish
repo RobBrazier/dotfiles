@@ -4,16 +4,6 @@ function git
     switch $argv[1]
         case clone
             clone $argv 
-        case commit
-          if not contains -- '--help' $argv
-            if contains (uname -n) $signed_hosts
-                command git $argv -S
-            else
-                command git $argv
-            end
-          else
-            command git $argv
-          end
         case set-email
             set_email $PWD
         case '*'
