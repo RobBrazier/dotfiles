@@ -1,0 +1,17 @@
+{{ $git_sshkey := .ssh.types.git -}}
+{{- range $host := .gitHosts }}
+Host {{ $host }}
+  IdentityFile ~/.ssh/git_{{ $git_sshkey }}
+{{ end }}
+
+IdentityFile ~/.ssh/id_{{ .ssh.types.id }}
+
+{{ range $host, $data := .ssh.aliases }}
+Host {{ $host }}
+  User {{ .user }}
+  {{ if not (eq (get . "host") "") -}}
+  Hostname {{ .host }}
+  {{ else -}}
+  Hostname {{ $host }}.lan.brazier.cloud
+  {{ end -}}
+{{ end }}

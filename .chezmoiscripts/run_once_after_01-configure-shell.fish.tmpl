@@ -21,18 +21,18 @@ end
 
 chezmoi completion fish --output=~/.config/fish/completions/chezmoi.fish
 
-if ! test -f $HOME/.ssh/id_ed25519
-  echo "Generating id_ed25519"
-  ssh-keygen -t ed25519 -f $HOME/.ssh/id_ed25519 -N ''
+if ! test -f $HOME/.ssh/id_{{.ssh.types.id}}
+  echo "Generating id_{{.ssh.types.id}}"
+  ssh-keygen -t {{.ssh.types.id}} -f $HOME/.ssh/id_{{.ssh.types.id}} -N ''
 else
-  echo "id_ed25519 already generated"
+  echo "id_{{.ssh.types.id}} already generated"
 end
 
-if ! test -f $HOME/.ssh/git_ed25519
-  echo "Generating git_ed25519"
-  ssh-keygen -t ed25519 -f $HOME/.ssh/git_ed25519 -N ''
+if ! test -f $HOME/.ssh/git_{{.ssh.types.git}}
+  echo "Generating git_{{.ssh.types.git}}"
+  ssh-keygen -t {{.ssh.types.git}} -f $HOME/.ssh/git_{{.ssh.types.git}} -N ''
 else
-  echo "git_ed25519 already generated"
+  echo "git_{{.ssh.types.git}} already generated"
 end
 
 if command -q asdf

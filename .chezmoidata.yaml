@@ -1,3 +1,28 @@
 packages: git curl direnv wget ripgrep jq flatpak fish neovim
-git:
-  signingkey: ""
+
+gitHosts:
+  - git.sr.ht
+  - '*.runners.sr.ht'
+  - github.com
+  - codeberg.org
+
+ssh:
+  types:
+    # SSH Key for git access
+    git: ed25519
+    # SSH Key for normal access
+    id: ed25519
+  aliases:
+    start:
+      user: start
+      # host: start
+    hass:
+      user: root
+      # host: hass
+    apps:
+      user: root
+      # host: apps
+    pve:
+      user: root
+      # host: pve
+  aliasSuffix: lan.brazier.cloud

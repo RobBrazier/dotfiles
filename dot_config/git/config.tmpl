@@ -1,10 +1,8 @@
 [user]
 	name = Rob Brazier
 	email = git@brzr.co
-{{ if not (eq .git.signingkey "") -}}
-	signingkey = {{ .git.signingkey }}
-{{ end -}}
-
+	{{ if not (eq .git.signingkey "") }}signingkey = {{ .git.signingkey }}
+{{ end }}
 [pull]
 	rebase = true
 
