@@ -1,5 +1,3 @@
-set -l signed_hosts izanagi
-
 function git
     switch $argv[1]
         case clone
