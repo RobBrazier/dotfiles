@@ -1,6 +1,6 @@
 [user]
-	name = Rob Brazier
-	email = git@brzr.co
+	name = {{ .git.name }}
+	email = {{ .git.email }}
 	{{ if not (eq .git.signingkey "") }}signingkey = {{ .git.signingkey }}
 {{ end }}
 [pull]

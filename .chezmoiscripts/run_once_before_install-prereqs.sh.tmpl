@@ -18,12 +18,10 @@ github_download() {
 }
 
 # Distros
-{{ if eq (get .chezmoi.osRelease "idLike") "arch" -}}
+{{ if or (has (get .chezmoi.osRelease "idLike") .distros.arch) (has (get .chezmoi.osRelease "id") .distros.arch) -}}
 {{ template "setup/arch.sh.tmpl" . }}
-{{ else if eq (get .chezmoi.osRelease "idLike") "ubuntu debian" -}}
+{{ else if or (has (get .chezmoi.osRelease "idLike") .distros.ubuntu) (has (get .chezmoi.osRelease "id") .distros.ubuntu) -}}
 {{ template "setup/ubuntu.sh.tmpl" . }}
-{{ else if eq (get .chezmoi.osRelease "id") "ubuntu" -}}
-{{ template "setup/ubuntu.sh.tmpl" . }}
-{{ else if eq (get .chezmoi.osRelease "id") "fedora" -}}
+{{ else if or (has (get .chezmoi.osRelease "idLike") .distros.fedora) (has (get .chezmoi.osRelease "id") .distros.fedora) -}}
 {{ template "setup/fedora.sh.tmpl" . }}
 {{ end -}}

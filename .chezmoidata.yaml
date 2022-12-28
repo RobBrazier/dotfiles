@@ -1,10 +1,24 @@
 packages: git curl direnv wget ripgrep jq flatpak fish neovim
 
+git:
+  name: Rob Brazier
+  email: git@brzr.co
+
 gitHosts:
   - git.sr.ht
   - '*.runners.sr.ht'
   - github.com
   - codeberg.org
+
+distros:
+  arch:
+    - arch
+  ubuntu:
+    - ubuntu debian
+    - ubuntu
+  fedora:
+    - fedora
+    - nobara
 
 ssh:
   types:
