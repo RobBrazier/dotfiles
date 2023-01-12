@@ -14,7 +14,7 @@ fi
 sudo dnf update -y
 
 # System Utilities
-install_packages {{ .packages }} btop the_silver_searcher 
+install_packages {{ .packages }} btop the_silver_searcher util-linux-user 
 
 # Topgrade
 if [ -f /usr/local/bin/topgrade ]; then
