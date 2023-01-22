@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "type": "full",
+  "values": {
+    "cfg-seen": [],
+    "cfg-collapsed": [],
+    "addons.enabled": [
+      "7tv-emotes",
+      "ffzap-core",
+      "ffzap-bttv",
+      "chatterino-badges",
+      "clip-confirm",
+      "new-account-highlighter",
+      "unread-mentions-counter"
+    ],
+    "p:0:ffzap.core.remove_spaces": true,
+    "p:0:addon.unread-mentions-counter.browser-notifications.enabled": true,
+    "p:0:layout.theatre-navigation": false,
+    "p:0:layout.portrait": true,
+    "p:0:chat.pin-resubs": true,
+    "p:0:chat.points.auto-rewards": true,
+    "p:0:chat.emote-menu.icon": true,
+    "p:0:chat.filtering.clickable-mentions": true,
+    "p:0:directory.hide-vodcasts": true,
+    "p:0:directory.hide-promoted": true,
+    "p:0:player.theatre.auto-enter": true,
+    "p:0:player.compressor.default": true
+  }
+}

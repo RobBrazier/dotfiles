@@ -1,0 +1,634 @@
+{
+  "exceptions": {
+    "url": [],
+    "regex": []
+  },
+  "theme": "detect",
+  "popupServices": [
+    "twitter",
+    "imgur",
+    "reddit"
+  ],
+  "autoRedirect": true,
+  "network": "clearnet",
+  "networkFallback": true,
+  "latencyThreshold": "500",
+  "youtube": {
+    "enabled": false,
+    "redirectType": "both",
+    "frontend": "piped",
+    "embedFrontend": "piped"
+  },
+  "invidious": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "piped": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "pipedMaterial": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "cloudtube": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "youtubeMusic": {
+    "enabled": false,
+    "frontend": "hyperpipe"
+  },
+  "beatbump": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "hyperpipe": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "twitter": {
+    "enabled": true,
+    "redirectType": "both"
+  },
+  "nitter": {
+    "clearnet": {
+      "enabled": [
+        "https://nitter.pussthecat.org",
+        "https://twitter.censors.us",
+        "https://nitter.sethforprivacy.com",
+        "https://nitter.weiler.rocks",
+        "https://nitter.nl",
+        "https://nitter.bird.froth.zone",
+        "https://nitter.poast.org",
+        "https://nitter.garudalinux.org",
+        "https://twitter.dr460nf1r3.org",
+        "https://uk.unofficialbird.com",
+        "https://nederland.unofficialbird.com",
+        "https://nitter.privacytools.io",
+        "https://nitter.esmailelbob.xyz"
+      ],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "instagram": {
+    "enabled": false
+  },
+  "bibliogram": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "tiktok": {
+    "enabled": false
+  },
+  "proxiTok": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "reddit": {
+    "enabled": true,
+    "frontend": "libreddit"
+  },
+  "libreddit": {
+    "clearnet": {
+      "enabled": [
+        "https://libreddit.pussthecat.org",
+        "https://libreddit.drivet.xyz",
+        "https://libreddit.domain.glass",
+        "https://reddit.dr460nf1r3.org",
+        "https://libreddit.esmailelbob.xyz",
+        "https://lr.riverside.rocks"
+      ],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "teddit": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "imgur": {
+    "enabled": true,
+    "redirectType": "both"
+  },
+  "rimgo": {
+    "clearnet": {
+      "enabled": [
+        "https://rimgo.pussthecat.org",
+        "https://rimgo.privacydev.net",
+        "https://rimgo.vern.cc"
+      ],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "wikipedia": {
+    "enabled": false
+  },
+  "wikiless": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "medium": {
+    "enabled": false
+  },
+  "scribe": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "quora": {
+    "enabled": false
+  },
+  "quetre": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "imdb": {
+    "enabled": false
+  },
+  "libremdb": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "reuters": {
+    "enabled": false
+  },
+  "neuters": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "fandom": {
+    "enabled": false
+  },
+  "breezeWiki": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "peertube": {
+    "enabled": false
+  },
+  "simpleertube": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "lbry": {
+    "enabled": false,
+    "frontend": "librarian",
+    "redirectType": "both",
+    "embedFrontend": "librarian"
+  },
+  "librarian": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "search": {
+    "enabled": false,
+    "frontend": "searxng"
+  },
+  "searx": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "searxng": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "whoogle": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "librex": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "translate": {
+    "enabled": false,
+    "frontend": "simplyTranslate"
+  },
+  "simplyTranslate": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "lingva": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "libreTranslate": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "maps": {
+    "enabled": false,
+    "frontend": "facil"
+  },
+  "facil": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "sendFiles": {
+    "enabled": false
+  },
+  "send": {
+    "clearnet": {
+      "enabled": [],
+      "custom": []
+    },
+    "tor": {
+      "enabled": [],
+      "custom": []
+    },
+    "i2p": {
+      "enabled": [],
+      "custom": []
+    },
+    "loki": {
+      "enabled": [],
+      "custom": []
+    }
+  },
+  "version": "2.3.4"
+}
