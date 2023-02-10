@@ -13,18 +13,36 @@ github_download() {
     tempDir=$(mktemp -d)
     assetPath="$tempDir/$assetId.$extension"
     wget -q --auth-no-challenge --header='Accept:application/octet-stream' "https://api.github.com/repos/$repo/releases/assets/$assetId" -O "$assetPath"
-    tar -xsf $assetPath -C $tempDir
+    if [[ "$extension" == "zip" ]]; then
+        unzip -qqd $tempDir $assetPath
+    else
+        tar -xsf $assetPath -C $tempDir
+    fi
+    rm $assetPath
     echo $tempDir
 }
 
 install_nerdfonts() {
-    nerdFontsLatestVersion=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases | jq .[0].id)
-    if [ ! -f $HOME/.local/share/fonts/.version ] || [ "$(cat $HOME/.local/share/fonts/.version)" -ne "$nerdFontsLatestVersion" ]; then
+    fonts=("SourceCodePro" "JetBrainsMono" "FiraCode" "FiraMono" "DroidSansMono")
+    toInstall=$(IFS=$','; echo "${fonts[*]}")
+
+    nerdFontsLatestVersion=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases | jq -r .[0].name)
+    if [ ! -f $HOME/.local/share/fonts/.version ] || [[ "$(cat $HOME/.local/share/fonts/.version)" != "$nerdFontsLatestVersion" ]] || [[ "$(cat $HOME/.local/share/fonts/.installed)" != "$toInstall" ]]; then
+        echo "Installing Nerd Fonts"
         tmpDir=$(mktemp -d)
-        rm -rf $tmpDir
-        git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 $tmpDir
-        (cd $tmpDir && bash $tmpDir/install.sh)
+        mkdir -p $tmpDir/patched-fonts
+        wget -q "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh" -O $tmpDir/install.sh
+        for file in ${fonts[*]}; do
+            echo "Downloading $file font"
+            wget -q --auth-no-challenge "https://github.com/ryanoasis/nerd-fonts/releases/download/$nerdFontsLatestVersion/$file.zip" -O $tmpDir/$file.zip
+            fontDir=$tmpDir/patched-fonts/$file
+            mkdir -p $fontDir
+            unzip -qqd $fontDir $tmpDir/$file.zip
+        done
+        bash $tmpDir/install.sh
         echo "$nerdFontsLatestVersion" > $HOME/.local/share/fonts/.version
+        echo "$toInstall" > $HOME/.local/share/fonts/.installed
+        rm -r $tmpDir
     else
         echo "Nerd Fonts already up-to-date. Skipping"
     fi

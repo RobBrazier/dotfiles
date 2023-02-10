@@ -1,3 +1,4 @@
+{{ $topgradeVersion := "10.3.1" -}}
 .asdf:
   type: git-repo
   url: https://github.com/asdf-vm/asdf.git
@@ -14,3 +15,23 @@
 .mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/mogultv@mogultv.org.xpi:
   type: file
   url: https://v2.truffle.vip/firefox/latest.xpi
+
+.local/bin/pfetch:
+  type: file
+  url: https://github.com/dylanaraps/pfetch/raw/master/pfetch
+  refreshPeriod: 168h
+  executable: true
+
+.local/bin/topgrade:
+  type: file
+  url: https://github.com/topgrade-rs/topgrade/releases/download/v{{ $topgradeVersion }}/topgrade-v{{ $topgradeVersion }}-x86_64-unknown-linux-gnu.tar.gz
+  executable: true
+  filter:
+    command: tar
+    args:
+      - --extract
+      - --file
+      - /dev/stdin
+      - --gzip
+      - --to-stdout
+      - topgrade

@@ -16,16 +16,6 @@ sudo dnf update -y
 # System Utilities
 install_packages {{ .packages }} btop the_silver_searcher util-linux-user 
 
-# Topgrade
-if [ -f /usr/local/bin/topgrade ]; then
-    echo "Topgrade already installed. Skipping"
-else
-    echo "Installing Topgrade"
-    topgrade=$(github_download "topgrade-rs/topgrade" "-x86_64-unknown-linux-gnu.tar.gz" "tgz")
-    chmod +x $topgrade/topgrade
-    sudo mv $topgrade/topgrade /usr/local/bin
-fi
-
 # GUI applications
 install_packages firefox code
 

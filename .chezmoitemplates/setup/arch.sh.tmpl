@@ -21,6 +21,6 @@ if [ -x "$(command -v yay)" ]; then
         done
         echo $packages
     }
-    packages="$(get_yay_packages nerd-fonts-git visual-studio-code-bin topgrade)"
+    packages="$(get_yay_packages nerd-fonts-git visual-studio-code-bin)"
     yay -Syu $packages
 fi
