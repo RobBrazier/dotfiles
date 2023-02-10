@@ -35,3 +35,17 @@
       - --gzip
       - --to-stdout
       - topgrade
+
+{{ $root := .}}
+{{ range $font := .nerdfonts.fonts }}
+.local/share/fonts/NerdFonts/{{ $font }}:
+  type: archive
+  exact: true
+  url: https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ $root.nerdfonts.version }}/{{ $font }}.zip
+  exclude:
+    - "*Windows Compatible.ttf"
+    - "*Windows Compatible.otf"
+    - "LICENSE"
+    - "*.txt"
+    - "*.md"
+{{ end }}

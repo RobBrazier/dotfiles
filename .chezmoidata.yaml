@@ -40,3 +40,12 @@ ssh:
       user: root
       # host: pve
   aliasSuffix: lan.brazier.cloud
+
+nerdfonts:
+  version: "2.3.3"
+  fonts:
+    - SourceCodePro
+    - JetBrainsMono
+    - FiraCode
+    - FiraMono
+    - DroidSansMono

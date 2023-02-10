@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# fonts: {{ .nerdfonts | toJson | sha256sum }}
+echo "Don't forget to run the following command to refresh the font cache after installing/updating NerdFonts v{{ .nerdfonts.version }}:"
+echo "fc-cache -vf {{ .chezmoi.homeDir }}/.local/share/fonts/NerdFonts"
