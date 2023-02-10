@@ -17,4 +17,4 @@ for file in $(find "$userConfigBase/defaults" -type f -name '*.js'); do
     sudo ln -sf "$file" "$firefoxInstallHome/$normalisedFile"
 done
 
-sudo ln -s "$userConfigBase/firefox.cfg" "$firefoxInstallHome/firefox.cfg"
+sudo ln -sf "$userConfigBase/firefox.cfg" "$firefoxInstallHome/firefox.cfg"
