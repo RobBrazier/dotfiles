@@ -21,7 +21,7 @@ if [ "$(apt-cache policy | grep -c neovim-ppa)" -eq "0" ]; then
 fi
 
 # System Utilities
-install_packages {{ .packages }} build-essential apt-transport-https silversearcher-ag
+install_packages {{ .packages }} build-essential apt-transport-https silversearcher-ag btop
 
 # Add firefox PPA
 if [ "$(apt-cache policy | grep -c mozillateam)" -eq "0" ]; then
@@ -34,15 +34,6 @@ fi
 install_packages firefox
 
 # Install packages outside Package Managers
-
-# btop
-if [ -x "$(command -v btop)" ]; then
-    echo "btop already installed. Skipping"
-else
-    echo "Installing btop"
-    btop=$(github_download "aristocratos/btop" "-x86_64-linux-musl.tbz" "tbz")
-    (cd $btop/btop; bash ./install.sh)
-fi
 
 # VS Code
 if [ -x "$(command -v code)" ]; then
