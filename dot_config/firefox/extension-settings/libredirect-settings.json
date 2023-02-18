@@ -6,7 +6,6 @@
   "theme": "detect",
   "popupServices": [
     "twitter",
-    "imgur",
     "reddit"
   ],
   "youtube": {
@@ -49,7 +48,7 @@
     "https://tube.boritsch.de"
   ],
   "youtubeMusic": {
-    "enabled": true,
+    "enabled": false,
     "frontend": "hyperpipe"
   },
   "beatbump": [],
