@@ -1,8 +1,6 @@
-return function(use)
-    use {
+return {
 	'nvim-tree/nvim-tree.lua',
 	requires = {
-	    'nvim-tree/nvim-web-devicons',
+		'nvim-tree/nvim-web-devicons',
 	}
-    }
-end
+}
