@@ -1,3 +1,3 @@
-if test -f ~/.asdf/asdf.fish
-    source ~/.asdf/asdf.fish
+if type -q rtx
+    rtx activate fish | source
 end

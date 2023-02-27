@@ -34,8 +34,3 @@ if ! test -f $HOME/.ssh/git_{{.ssh.types.git}}
 else
   echo "git_{{.ssh.types.git}} already generated"
 end
-
-if command -q asdf
-  echo "Updating asdf"
-  asdf update
-end

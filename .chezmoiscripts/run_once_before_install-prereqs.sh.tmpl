@@ -11,3 +11,5 @@ echo "Installing pre-requisite packages"
 {{ else if or (has (get .chezmoi.osRelease "idLike") .distros.fedora) (has (get .chezmoi.osRelease "id") .distros.fedora) -}}
 {{ template "setup/fedora.sh.tmpl" . }}
 {{ end -}}
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
