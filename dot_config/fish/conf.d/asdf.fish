@@ -1,3 +1,3 @@
-if type -q rtx
-    rtx activate fish | source
+if test -f $HOME/.cargo/bin/rtx
+    $HOME/.cargo/bin/rtx activate fish | source
 end
