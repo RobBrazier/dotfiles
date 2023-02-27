@@ -1,4 +1,5 @@
 packages: git curl direnv wget ripgrep jq flatpak fish neovim
+rustPackages: rtx-cli bob-nvim cargo-update topgrade pfetch cargo-info bacon
 
 git:
   name: Rob Brazier
