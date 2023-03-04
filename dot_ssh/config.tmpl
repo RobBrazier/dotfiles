@@ -1,6 +1,9 @@
 {{ $git_sshkey := .ssh.types.git -}}
 {{- range $host := .gitHosts }}
-Host {{ $host }}
+Host {{ .name }}
+  {{ if not (eq (get . "port") "") -}}
+  Port {{ .port }}
+  {{ end -}}
   IdentityFile ~/.ssh/git_{{ $git_sshkey }}
 {{ end }}
 
