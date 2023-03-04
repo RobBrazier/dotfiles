@@ -1,29 +1,74 @@
 {
-  "version": 2,
-  "type": "full",
-  "values": {
-    "cfg-seen": [],
-    "cfg-collapsed": [],
-    "addons.enabled": [
-      "7tv-emotes",
-      "ffzap-core",
-      "ffzap-bttv",
-      "chatterino-badges",
-      "clip-confirm",
-      "new-account-highlighter",
-      "unread-mentions-counter"
-    ],
-    "p:0:ffzap.core.remove_spaces": true,
-    "p:0:addon.unread-mentions-counter.browser-notifications.enabled": true,
-    "p:0:layout.theatre-navigation": false,
-    "p:0:layout.portrait": true,
-    "p:0:chat.pin-resubs": true,
-    "p:0:chat.points.auto-rewards": true,
-    "p:0:chat.emote-menu.icon": true,
-    "p:0:chat.filtering.clickable-mentions": true,
-    "p:0:directory.hide-vodcasts": true,
-    "p:0:directory.hide-promoted": true,
-    "p:0:player.theatre.auto-enter": true,
-    "p:0:player.compressor.default": true
-  }
+    "version": 2,
+    "type": "full",
+    "values": {
+        "p:0:directory.hide-vodcasts": true,
+        "p:0:directory.hide-promoted": true,
+        "p:0:chat.emote-menu.icon": true,
+        "p:0:chat.points.auto-rewards": true,
+        "p:0:player.compressor.default": true,
+        "addons.enabled": [
+            "ffzap-core",
+            "chatterino-badges",
+            "clip-confirm",
+            "unread-mentions-counter",
+            "inline-tab-completion",
+            "new-account-highlighter",
+            "7tv-emotes",
+            "ffzap-bttv"
+        ],
+        "p:0:layout.portrait": true,
+        "cfg-seen": [
+            "chat.emote-menu.icon",
+            "chat.emote-menu.reduced-padding",
+            "chat.emote-menu.show-heading",
+            "chat.emote-menu.show-quick-nav",
+            "chat.emote-menu.show-search",
+            "chat.emote-menu.tall",
+            "chat.emote-menu.clear-search",
+            "chat.emote-menu.combine-tabs",
+            "chat.emote-menu.default-tab",
+            "chat.emote-menu.enabled",
+            "chat.emote-menu.modifiers",
+            "chat.emote-menu.shortcut",
+            "chat.emote-menu.show-emoji",
+            "chat.emote-menu.stay-loaded",
+            "chat.emote-menu.sort-emotes",
+            "chat.emote-menu.sort-tiers-last",
+            "add-ons",
+            "addons.dev.server",
+            "addon.inlinetab.tip-count",
+            "addon.inlinetab.tips",
+            "addon.inlinetab.no_commands",
+            "addon.inlinetab.no_mentions",
+            "addon.inlinetab.mention_prefix",
+            "chat.actions.inline",
+            "backup"
+        ],
+        "p:0:chat.pin-resubs": true,
+        "p:0:addon.unread-mentions-counter.browser-notifications.enabled": true,
+        "p:0:player.theatre.auto-enter": true,
+        "cfg-collapsed": [],
+        "p:0:chat.filtering.clickable-mentions": true,
+        "p:0:layout.theatre-navigation": false,
+        "p:0:ffzap.core.remove_spaces": true,
+        "p:0:addon.inlinetab.tip-count": true,
+        "p:0:chat.actions.inline": [
+            {
+                "v": {
+                    "action": "copy_message",
+                    "appearance": {
+                        "type": "icon",
+                        "icon": "ffz-i-docs"
+                    },
+                    "ctx": "inline",
+                    "options": {
+                        "format": "{{message.text}}"
+                    },
+                    "display": {}
+                },
+                "id": "1677966609052-0.6129178227571881-1"
+            }
+        ]
+    }
 }
