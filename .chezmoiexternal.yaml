@@ -11,6 +11,7 @@
   type: file
   url: https://v2.truffle.vip/firefox/latest.xpi
 
+{{ $root := .}}
 {{ range $font := .nerdfonts.fonts }}
 .local/share/fonts/NerdFonts/{{ $font }}:
   type: archive
