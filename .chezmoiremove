@@ -1,0 +1,3 @@
+.config/nvim/lua/custom/plugins.lua
+.config/nvim/after
+.config/nvim/plugin

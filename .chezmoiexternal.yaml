@@ -1,8 +1,3 @@
-.config/nvim/init.lua:
-  type: file
-  url: https://raw.githubusercontent.com/nvim-lua/kickstart.nvim/master/init.lua
-  refreshPeriod: 168h
-
 .mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/frankerfacez@frankerfacez.com.xpi:
   type: file
   url: https://cdn.frankerfacez.com/script/frankerfacez-4.0-an+fx.xpi
