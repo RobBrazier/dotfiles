@@ -121,7 +121,6 @@ let lingvaInstances = [
 let nitterInstances = [
     "nitter.sethforprivacy.com",
     "nitter.weiler.rocks",
-    "nitter.nl",
     "read.whatever.social",
     "nitter.poast.org",
     "nitter.garudalinux.org"
