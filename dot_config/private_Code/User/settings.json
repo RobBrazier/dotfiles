@@ -1,6 +1,0 @@
-{
-    "telemetry.telemetryLevel": "off",
-    "window.titleBarStyle": "custom",
-    "git.autofetch": true,
-    "editor.fontFamily": "'JetBrains Mono', 'Droid Sans Mono', 'monospace', monospace"
-}
