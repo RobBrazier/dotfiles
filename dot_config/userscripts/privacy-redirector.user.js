@@ -4,7 +4,7 @@
 // @namespace https://github.com/dybdeskarphet/privacy-redirector
 // @author Ahmet Arda Kavakcı
 // @license GPLv3
-// @version 1.3.4.3
+// @version 1.3.4.4
 // @supportURL https://github.com/dybdeskarphet/privacy-redirector
 // @run-at document-start
 // @match *://*.fandom.com/*
