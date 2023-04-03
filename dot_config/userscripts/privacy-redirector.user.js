@@ -54,7 +54,7 @@ let quora = [false, true];
 let reddit = [true, false];
 let reuters = [false, true];
 let tiktok = [true, true];
-let twitter = [true, false];
+let twitter = [false, false];
 let wikipedia = [false, true];
 let youtube = [false, true];
 
