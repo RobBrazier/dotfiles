@@ -1,5 +1,5 @@
-packages: git curl direnv wget ripgrep jq flatpak fish luajit
-rustPackages: rtx-cli bob-nvim cargo-update topgrade pfetch cargo-info bacon fd-find
+packages: git curl direnv wget ripgrep jq flatpak fish luajit neovim
+rustPackages: rtx-cli cargo-update topgrade pfetch cargo-info bacon fd-find
 
 git:
   name: Rob Brazier
