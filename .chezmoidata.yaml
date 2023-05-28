@@ -33,20 +33,18 @@ ssh:
   aliases:
     start:
       user: start
-      # host: start
     hass:
       user: root
-      # host: hass
     apps:
       user: root
-      # host: apps
     pve:
       user: root
-      # host: pve
+    izanagi:
+      user: rob
   aliasSuffix: lan.brazier.cloud
 
 nerdfonts:
-  version: "2.3.3"
+  version: "3.0.1"
   fonts:
     - SourceCodePro
     - JetBrainsMono
