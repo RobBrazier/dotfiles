@@ -3,3 +3,4 @@
 .config/nvim/plugin
 .mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/mogultv@mogultv.org.xpi
 .config/fish/functions/wezterm.fish
+.config/fish/conf.d/asdf.fish
