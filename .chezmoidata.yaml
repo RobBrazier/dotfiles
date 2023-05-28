@@ -1,4 +1,4 @@
-packages: git curl direnv wget ripgrep jq flatpak fish luajit neovim
+packages: git curl direnv wget ripgrep jq flatpak fish luajit neovim tmux
 rustPackages: rtx-cli cargo-update topgrade pfetch cargo-info bacon fd-find bat
 gitrelPackages: jesseduffield/lazygit
 
