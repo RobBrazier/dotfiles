@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ "$1" == "update" ]]; then
-	echo "rtx doesn't handle update - ignoring"
+	rtx upgrade
 	exit 42
 fi
 rtx $@
