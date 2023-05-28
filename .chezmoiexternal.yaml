@@ -19,3 +19,10 @@
 .config/tmux/plugins/tpm:
   type: "git-repo"
   url: "https://github.com/tmux-plugins/tpm.git"
+
+.config/btop/themes:
+  type: "archive"
+  url: "https://api.github.com/repos/catppuccin/btop/tarball"
+  stripComponents: 2
+  include:
+    - "*/themes/**"
