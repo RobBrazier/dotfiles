@@ -24,6 +24,13 @@ distros:
     - fedora
     - nobara
 
+tools:
+  neovim: stable
+  nodejs: "18"
+  python: "3.9"
+  php: ""
+  poetry: "1.5"
+
 ssh:
   types:
     # SSH Key for git access
