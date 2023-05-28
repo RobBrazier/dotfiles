@@ -8,4 +8,6 @@ rtx plugin install neovim
 rtx install neovim@stable
 rtx global neovim@stable
 
-gitrel install {{ .gitrelPackages }} 
+for repo in {{ .gitrelPackages }}
+  gitrel install $repo
+end
