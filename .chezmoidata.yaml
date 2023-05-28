@@ -1,5 +1,6 @@
 packages: git curl direnv wget ripgrep jq flatpak fish luajit neovim
 rustPackages: rtx-cli cargo-update topgrade pfetch cargo-info bacon fd-find
+gitrelPackages: jesseduffield/lazygit
 
 git:
   name: Rob Brazier
@@ -7,11 +8,11 @@ git:
 
 gitHosts:
   - name: git.sr.ht
-  - name: '*.runners.sr.ht'
+  - name: "*.runners.sr.ht"
   - name: github.com
   - name: codeberg.org
   - name: git.brazier.dev
-    port: '2727'
+    port: "2727"
 
 distros:
   arch:

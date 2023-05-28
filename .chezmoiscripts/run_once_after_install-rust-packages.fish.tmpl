@@ -1,3 +1,11 @@
 #!/usr/bin/env fish
 
-cargo install {{ .rustPackages }}
+cargo install --locked cargo-binstall
+cargo binstall {{ .rustPackages }}
+cargo install gitrel
+
+rtx plugin install neovim
+rtx install neovim@stable
+rtx global neovim@stable
+
+gitrel install {{ .gitrelPackages }} 
