@@ -29,7 +29,8 @@ tools:
   nodejs: "18"
   python: "3.9"
   php: ""
-  poetry: "1.5"
+  poetry: "latest"
+  pipx: "latest"
 
 ssh:
   types:
