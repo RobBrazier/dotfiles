@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 cargo install --locked cargo-binstall
-cargo binstall {{ .rustPackages }}
+cargo binstall -y {{ .rustPackages }}
 cargo install gitrel
 
 rtx plugin install neovim
