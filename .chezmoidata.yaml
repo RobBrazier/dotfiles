@@ -27,7 +27,7 @@ distros:
 tools:
   neovim: stable
   nodejs: "18"
-  python: "3.9"
+  python: "pypy3.9"
   php: ""
   poetry: "latest"
   pipx: "latest"
