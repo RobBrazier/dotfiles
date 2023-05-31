@@ -1,0 +1,11 @@
+#!/usr/bin/env fish
+
+echo "Installing rtx plugins and tools"
+
+{{ range $tool, $version := .tools }}
+rtx plugin install {{ $tool }}
+if [ "{{ $version }}" != "" ]
+  rtx install {{ $tool }}@{{ $version }}
+  rtx global {{ $tool }}@{{ $version }}
+end
+{{ end }}

@@ -1,5 +1,5 @@
 packages: git curl direnv wget ripgrep jq flatpak fish luajit neovim tmux
-rustPackages: rtx-cli cargo-update topgrade pfetch cargo-info bacon fd-find bat
+rustPackages: rtx-cli cargo-update topgrade pfetch cargo-info bacon fd-find bat cargo-lambda
 gitrelPackages: jesseduffield/lazygit
 
 git:
@@ -27,10 +27,12 @@ distros:
 tools:
   neovim: stable
   nodejs: "18"
+  pnpm: "latest"
   python: "pypy3.9"
   php: ""
   poetry: "latest"
   pipx: "latest"
+  zig: "latest"
 
 ssh:
   types:

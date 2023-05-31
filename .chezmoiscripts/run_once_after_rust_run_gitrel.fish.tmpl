@@ -1,0 +1,5 @@
+#!/usr/bin/env fish
+echo "Installing binaries via gitrel: {{ .gitrelPackages }}"
+for repo in {{ .gitrelPackages }}
+  gitrel install $repo
+end

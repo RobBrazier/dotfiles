@@ -3,15 +3,3 @@
 cargo install --locked cargo-binstall
 cargo binstall -y {{ .rustPackages }}
 cargo install gitrel
-
-{{ range $tool, $version := .tools }}
-rtx plugin install {{ $tool }}
-if [ "{{ $version }}" != "" ]
-  rtx install {{ $tool }}@{{ $version }}
-  rtx global {{ $tool }}@{{ $version }}
-end
-{{ end }}
-
-for repo in {{ .gitrelPackages }}
-  gitrel install $repo
-end
