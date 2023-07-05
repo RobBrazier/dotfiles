@@ -13,7 +13,7 @@ let path = window.location.pathname;
 let query = window.location.search;
 
 let redirects = {
-  "twitter.com": "nitter.projectsegfau.lt",
+  // "twitter.com": "nitter.projectsegfau.lt",
   "www.reddit.com": "libreddit.projectsegfau.lt",
 };
 
