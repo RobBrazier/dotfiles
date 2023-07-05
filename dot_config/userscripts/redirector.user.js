@@ -4,7 +4,7 @@
 // @match       https://twitter.com/*
 // @match       https://www.reddit.com/*
 // @grant       none
-// @version     1.1
+// @version     1.2
 // @author      -
 // ==/UserScript==
 
