@@ -7,6 +7,12 @@ Host {{ .name }}
   IdentityFile ~/.ssh/git_{{ $git_sshkey }}
 {{ end }}
 
+{{ if not (eq .git.alter.name "") -}}
+Host alter.github.com
+  Hostname github.com
+  IdentityFile ~/.ssh/altergit_{{ $git_sshkey }}
+{{ end }}
+
 IdentityFile ~/.ssh/id_{{ .ssh.types.id }}
 
 {{ range $host, $data := .ssh.aliases }}

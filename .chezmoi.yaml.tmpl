@@ -1,5 +1,10 @@
 {{ $signingkey := promptString "git signing key" -}}
+{{ $altername := promptString "git alter name" -}}
+{{ $alterhost := promptString "git alter host" -}}
 
 data:
-    git:
-        signingkey: {{ $signingkey | quote }}
+  git:
+    signingkey: {{ $signingkey | quote }}
+    alter:
+      name: {{ $altername }}
+      host: {{ $alterhost }}
