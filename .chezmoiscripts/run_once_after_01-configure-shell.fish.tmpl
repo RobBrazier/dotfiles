@@ -30,14 +30,15 @@ end
 
 if ! test -f $HOME/.ssh/git_{{.ssh.types.git}}
   echo "Generating git_{{.ssh.types.git}}"
-  ssh-keygen -t {{.ssh.types.git}} -f $HOME/.ssh/git_{{.ssh.types.git}} -N ''
+  ssh-keygen -t {{.ssh.types.git}} -f $HOME/.ssh/git_{{.ssh.types.git}} -N '' -C "git.$(whoami)@$(hostname)"
+
 else
   echo "git_{{.ssh.types.git}} already generated"
 end
 
 if ! test -f $HOME/.ssh/altergit_{{.ssh.types.git}}
   echo "Generating altergit_{{.ssh.types.git}}"
-  ssh-keygen -t {{.ssh.types.git}} -f $HOME/.ssh/altergit_{{.ssh.types.git}} -N ''
+  ssh-keygen -t {{.ssh.types.git}} -f $HOME/.ssh/altergit_{{.ssh.types.git}} -N '' -C "altergit.$(whoami)@$(hostname)"
 else
   echo "altergit_{{.ssh.types.git}} already generated"
 end
