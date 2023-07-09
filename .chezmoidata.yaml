@@ -24,7 +24,7 @@ distros:
 
 tools:
   neovim: stable
-  nodejs: "lts"
+  nodejs: "latest"
   pnpm: "latest"
   python: "pypy3.9"
   php: ""
