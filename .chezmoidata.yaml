@@ -9,7 +9,7 @@ git:
 gitHosts:
   - name: git.sr.ht
   - name: "*.runners.sr.ht"
-  - name: github.com
+  - name: github.com !*.github.com
   - name: codeberg.org
 
 distros:

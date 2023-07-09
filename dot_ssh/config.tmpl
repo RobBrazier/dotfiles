@@ -1,3 +1,6 @@
+IdentityFile ~/.ssh/id_{{ .ssh.types.id }}
+IdentitiesOnly yes
+
 {{ $git_sshkey := .ssh.types.git -}}
 {{- range $host := .gitHosts }}
 Host {{ .name }}
@@ -5,15 +8,16 @@ Host {{ .name }}
   Port {{ .port }}
   {{ end -}}
   IdentityFile ~/.ssh/git_{{ $git_sshkey }}
+  IdentitiesOnly yes
 {{ end }}
 
 {{ if not (eq .git.alter.name "") -}}
 Host alter.github.com
   Hostname github.com
   IdentityFile ~/.ssh/altergit_{{ $git_sshkey }}
+  IdentitiesOnly yes
 {{ end }}
 
-IdentityFile ~/.ssh/id_{{ .ssh.types.id }}
 
 {{ range $host, $data := .ssh.aliases }}
 Host {{ $host }}
