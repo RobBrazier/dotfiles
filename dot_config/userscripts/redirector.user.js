@@ -2,6 +2,7 @@
 // @name        redirector
 // @namespace   Violentmonkey Scripts
 // @match       https://www.reddit.com/*
+// @match       https://www.bing.com/*
 // @grant       none
 // @version     1.3
 // @author      -
@@ -13,6 +14,7 @@ let query = window.location.search;
 
 let redirects = {
   "www.reddit.com": "libreddit.projectsegfau.lt",
+  "www.bing.com": "kagi.com",
 };
 
 let redirect = redirects[hostname];
