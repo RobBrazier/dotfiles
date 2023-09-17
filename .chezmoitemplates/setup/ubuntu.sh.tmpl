@@ -14,24 +14,24 @@ if [ "$(apt-cache policy | grep -c fish-shell)" -eq "0" ]; then
 fi
 
 # Add neovim PPA
-if [ "$(apt-cache policy | grep -c neovim-ppa)" -eq "0" ]; then
-    echo "Installing neovim PPA"
-    sudo apt-add-repository -y ppa:neovim-ppa/unstable
-    sudo apt update
-fi
+#if [ "$(apt-cache policy | grep -c neovim-ppa)" -eq "0" ]; then
+#    echo "Installing neovim PPA"
+#    sudo apt-add-repository -y ppa:neovim-ppa/unstable
+#    sudo apt update
+#fi
 
 # System Utilities
 install_packages {{ .packages }} build-essential apt-transport-https silversearcher-ag btop
 
 # Add firefox PPA
-if [ "$(apt-cache policy | grep -c mozillateam)" -eq "0" ]; then
-    echo "Installing firefox PPA"
-    sudo apt-add-repository -y ppa:mozillateam/ppa
-    sudo apt update
-fi
+#if [ "$(apt-cache policy | grep -c mozillateam)" -eq "0" ]; then
+#    echo "Installing firefox PPA"
+#    sudo apt-add-repository -y ppa:mozillateam/ppa
+#    sudo apt update
+#fi
 
 # GUI applications
-install_packages firefox
+#install_packages firefox
 
 # Install packages outside Package Managers
 
