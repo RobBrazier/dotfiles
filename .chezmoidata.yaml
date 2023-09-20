@@ -52,7 +52,6 @@ ssh:
   aliasSuffix: lan.brazier.cloud
 
 nerdfonts:
-  version: "3.0.1"
   fonts:
     - SourceCodePro
     - JetBrainsMono

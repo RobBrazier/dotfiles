@@ -1,12 +1,8 @@
-.mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/frankerfacez@frankerfacez.com.xpi:
-  type: file
-  url: https://cdn.frankerfacez.com/script/frankerfacez-4.0-an+fx.xpi
-
 {{ $root := .}}
 {{ range $font := .nerdfonts.fonts }}
 .local/share/fonts/NerdFonts/{{ $font }}:
   type: archive
-  url: https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ $root.nerdfonts.version }}/{{ $font }}.zip
+  url: https://github.com/ryanoasis/nerd-fonts/releases/download/{{(gitHubLatestRelease "ryanoasis/nerd-fonts").TagName}}/{{ $font }}.zip
   exclude:
     - "*Windows Compatible*.ttf"
     - "*Windows Compatible*.otf"
@@ -26,3 +22,10 @@
   stripComponents: 2
   include:
     - "*/themes/**"
+
+{{ $kittyLatestVersion := (gitHubLatestRelease "kovidgoyal/kitty").TagName | trimPrefix "v"}}
+{{ if (eq .chezmoi.os "linux" )}}
+.local/kitty.app:
+  type: "archive"
+  url: https://github.com/kovidgoyal/kitty/releases/download/v{{$kittyLatestVersion}}/kitty-{{$kittyLatestVersion}}-x86_64.txz
+{{ end }}
