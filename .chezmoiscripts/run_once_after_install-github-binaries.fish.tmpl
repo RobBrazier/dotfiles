@@ -1,5 +1,10 @@
 #!/usr/bin/env fish
 echo "Installing binaries via bin: {{ .githubPackages }}"
 for repo in {{ .githubPackages }}
-  bin install github.com/$repo
+  set repoName "github.com/$repo"
+  if bin list | grep -q $repoName 
+    echo "$repoName is already installed - skipping"
+  else
+    bin install $repoName
+  end
 end
