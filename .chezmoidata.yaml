@@ -1,6 +1,6 @@
 packages: git curl direnv wget ripgrep jq flatpak fish luajit neovim tmux
-rustPackages: rtx-cli cargo-update topgrade pfetch cargo-info bacon fd-find bat cargo-lambda cargo-make
-gitrelPackages: jesseduffield/lazygit
+rustPackages: cargo-update cargo-info bacon
+githubPackages: jesseduffield/lazygit topgrade-rs/topgrade sharkdp/fd sharkdp/bat jdx/rtx cargo-bins/cargo-binstall cargo-lambda/cargo-lambda superfly/flyctl
 
 git:
   name: Rob Brazier

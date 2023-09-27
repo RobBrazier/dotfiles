@@ -1,0 +1,5 @@
+#!/usr/bin/env fish
+echo "Installing binaries via bin: {{ .githubPackages }}"
+for repo in {{ .githubPackages }}
+  bin install github.com/$repo
+end
