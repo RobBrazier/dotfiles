@@ -29,9 +29,3 @@
   type: "archive"
   url: https://github.com/kovidgoyal/kitty/releases/download/v{{$kittyLatestVersion}}/kitty-{{$kittyLatestVersion}}-x86_64.txz
 {{ end }}
-
-{{ $binLatestVersion := (gitHubLatestRelease "marcosnils/bin").TagName | trimPrefix "v"}}
-.local/bin/bin:
-  type: file
-  url: https://github.com/marcosnils/bin/releases/download/v{{$binLatestVersion}}/bin_{{$binLatestVersion}}_{{.chezmoi.os | title}}_x86_64
-  executable: true

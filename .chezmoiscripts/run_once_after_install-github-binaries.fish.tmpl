@@ -1,5 +1,11 @@
 #!/usr/bin/env fish
 echo "Installing binaries via bin: {{ .githubPackages }}"
+if not test -x {{ .chezmoi.homeDir }}/.local/bin/bin
+  set binFile "/tmp/bin-$(random)"
+  curl -sL https://github.com/marcosnils/bin/releases/download/v0.17.0/bin_0.17.0_{{.chezmoi.os | title}}_x86_64 > $binFile
+  chmod +x $binFile
+  $binFile install github.com/marcosnils/bin
+end
 for repo in {{ .githubPackages }}
   set repoName "github.com/$repo"
   if bin list | grep -q $repoName 
