@@ -5,7 +5,6 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.font = wezterm.font("JetBrains Mono")
 config.color_scheme = "Catppuccin Mocha"
 
 config.window_background_opacity = 0.9
@@ -20,5 +19,7 @@ config.window_padding = {
 	top = 5,
 	bottom = 0,
 }
+config.initial_rows = 38
+config.initial_cols = 149
 
 return config
