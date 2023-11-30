@@ -11,6 +11,7 @@ return {
 				"typescript",
 				"svelte",
 				"go",
+				"templ",
 			})
 		end,
 	},
@@ -21,6 +22,17 @@ return {
 				-- pyright will be automatically installed with mason and loaded with lspconfig
 				ruff_lsp = {},
 				gopls = {},
+				templ = {},
+				tailwindcss = {
+					filetypes = {
+						"templ",
+					},
+					init_options = {
+						userLanguages = {
+							templ = "html",
+						},
+					},
+				},
 			},
 		},
 	},
