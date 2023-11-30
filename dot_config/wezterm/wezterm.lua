@@ -21,5 +21,6 @@ config.window_padding = {
 }
 config.initial_rows = 38
 config.initial_cols = 149
+config.default_cursor_style = "SteadyBar"
 
 return config
