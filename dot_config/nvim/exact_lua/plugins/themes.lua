@@ -11,6 +11,14 @@ return {
 				integrations = {
 					which_key = true,
 					lsp_trouble = true,
+					notifier = true,
+					notify = true,
+					fidget = true,
+					noice = true,
+					neotree = true,
+					mason = true,
+					gitsigns = true,
+					neotest = true,
 				},
 			})
 		end,
