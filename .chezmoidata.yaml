@@ -25,12 +25,8 @@ distros:
 tools:
   neovim: stable
   nodejs: "latest"
-  pnpm: "latest"
   python: "pypy3.9"
   php: ""
-  poetry: "latest"
-  pipx: "latest"
-  zig: "latest"
 
 ssh:
   types:

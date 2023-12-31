@@ -24,22 +24,11 @@ fi
 install_packages {{ .packages }} build-essential apt-transport-https silversearcher-ag btop
 
 # Add firefox PPA
-#if [ "$(apt-cache policy | grep -c mozillateam)" -eq "0" ]; then
-#    echo "Installing firefox PPA"
-#    sudo apt-add-repository -y ppa:mozillateam/ppa
-#    sudo apt update
-#fi
+if [ "$(apt-cache policy | grep -c mozillateam)" -eq "0" ]; then
+    echo "Installing firefox PPA"
+    sudo apt-add-repository -y ppa:mozillateam/ppa
+    sudo apt update
+fi
 
 # GUI applications
-#install_packages firefox
-
-# Install packages outside Package Managers
-
-# VS Code
-if [ -x "$(command -v code)" ]; then
-    echo "VS Code already installed. Skipping"
-else
-    tempDir=$(mktemp -d)
-    curl -o vscode.deb -L 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64'
-    install_packages ./vscode.deb
-fi
+install_packages firefox
