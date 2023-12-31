@@ -12,6 +12,7 @@ return {
 				"svelte",
 				"go",
 				"templ",
+				"vue",
 			})
 		end,
 	},
