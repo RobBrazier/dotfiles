@@ -23,9 +23,3 @@
   include:
     - "*/themes/**"
 
-{{ $kittyLatestVersion := (gitHubLatestRelease "kovidgoyal/kitty").TagName | trimPrefix "v"}}
-{{ if (eq .chezmoi.os "linux" )}}
-.local/kitty.app:
-  type: "archive"
-  url: https://github.com/kovidgoyal/kitty/releases/download/v{{$kittyLatestVersion}}/kitty-{{$kittyLatestVersion}}-x86_64.txz
-{{ end }}
