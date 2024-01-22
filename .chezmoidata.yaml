@@ -1,6 +1,6 @@
 packages: git curl direnv wget ripgrep jq flatpak fish luajit neovim tmux
 rustPackages: cargo-update cargo-info bacon
-githubPackages: jesseduffield/lazygit topgrade-rs/topgrade sharkdp/fd sharkdp/bat jdx/rtx cargo-bins/cargo-binstall cargo-lambda/cargo-lambda superfly/flyctl
+githubPackages: jesseduffield/lazygit topgrade-rs/topgrade sharkdp/fd sharkdp/bat jdx/mise cargo-bins/cargo-binstall cargo-lambda/cargo-lambda superfly/flyctl
 
 git:
   name: Rob Brazier
@@ -23,6 +23,7 @@ distros:
     - nobara
 
 tools:
+  go: latest
   neovim: stable
   nodejs: "latest"
   python: "pypy3.9"

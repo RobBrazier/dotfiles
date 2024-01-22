@@ -3,9 +3,9 @@
 echo "Installing rtx plugins and tools"
 
 {{ range $tool, $version := .tools }}
-rtx plugin install {{ $tool }}
+mise plugin install {{ $tool }} -y || true
 if [ "{{ $version }}" != "" ]
-  rtx install {{ $tool }}@{{ $version }}
-  rtx global {{ $tool }}@{{ $version }}
+  mise install {{ $tool }}@{{ $version }}
+  mise global {{ $tool }}@{{ $version }}
 end
 {{ end }}

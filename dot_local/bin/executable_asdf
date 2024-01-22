@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-if [[ "$1" == "update" ]]; then
-	rtx upgrade
-	exit 42
+if [[ "$1" == "plugin" && "$2" == "update" ]]; then
+	mise plugin update
+elif [[ "$1" == "update" ]]; then
+	mise upgrade
+else
+	mise $@
 fi
-rtx $@
 exit $?

@@ -1,6 +1,6 @@
-if type -q rtx
-    rtx activate fish | source
-    rtx completion fish | source
+if type -q mise
+    mise activate fish | source
+    mise completion fish | source
 
     set PATH $GOPATH/bin $PATH
 end
