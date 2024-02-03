@@ -15,6 +15,8 @@ return {
     opts = {
       ensure_installed = {
         "vue-language-server",
+        "templ",
+        "htmx-lsp",
       },
     },
   },
