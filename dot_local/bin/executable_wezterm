@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 
-flatpak run org.wezfurlong.wezterm $@
+binaries=($(type -ap wezterm | grep -v $HOME))
+
+if [ ${#binaries[@]} -eq 0 ]; then
+  flatpak run org.wezfurlong.wezterm $@
+else
+  command ${binaries[0]} $@
+fi
+
