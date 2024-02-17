@@ -3,8 +3,13 @@
 binaries=($(type -ap wezterm | grep -v $HOME))
 
 if [ ${#binaries[@]} -eq 0 ]; then
+  if [ "$DEBUG"="true" ]; then
+    echo "Running via flatpak"
+  fi
   flatpak run org.wezfurlong.wezterm $@
 else
-  command ${binaries[0]} $@
+  binary=${binaries[0]}
+  echo "Running $binary"
+  command $binary $@
 fi
 
