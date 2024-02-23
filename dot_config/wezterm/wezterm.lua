@@ -6,7 +6,7 @@ if wezterm.config_builder then
 end
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-	config.default_prog = { "ubuntu2204.exe" }
+	config.default_prog = { "wsl.exe", "~", "-d", "Ubuntu-22.04" }
 end
 
 config.color_scheme = "Catppuccin Mocha"
