@@ -9,7 +9,7 @@ install_packages() {
 install_packages firefox 
 
 # System Utilities
-install_packages {{ .packages }} btop the_silver_searcher fd udisks2
+install_packages {{ .packages | join " " }} btop the_silver_searcher udisks2
 
 if [ -x "$(command -v yay)" ]; then
     get_yay_packages() {

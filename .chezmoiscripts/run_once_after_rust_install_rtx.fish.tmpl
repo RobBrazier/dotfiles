@@ -2,10 +2,28 @@
 
 echo "Installing rtx plugins and tools"
 
+mise settings set experimental true
+
 {{ range $tool, $version := .tools }}
-mise plugin install {{ $tool }} -y || true
-if [ "{{ $version }}" != "" ]
-  mise install {{ $tool }}@{{ $version }}
-  mise global {{ $tool }}@{{ $version }}
+if mise plugins --core | grep -wq {{ $tool }};
+  echo "Plugin {{ $tool }} is core, skipping"
+else
+  if mise plugins | grep -wq {{ $tool }};
+    echo "Plugin {{ $tool }} is already installed, skipping"
+  else
+    mise plugin install {{ $tool }} -y || true
+  end
 end
+if [ "{{ $version }}" != "" ];
+  if mise ls --current {{ $tool }} > /dev/null 2>&1 && mise ls --current {{ $tool }} --no-header | awk -F' ' '{ print $4 }' | grep -wq "{{ $version }}";
+    echo "Tool {{ $tool }}@{{ $version }} is already installed, skipping"
+  else
+    mise install {{ $tool }}@{{ $version }}
+    mise global {{ $tool }}@{{ $version }}
+  end
+end
+{{ end }}
+
+{{ range $_, $bin := .miseBinaries }}
+mise use -g {{ $bin }} -y || true 
 {{ end }}

@@ -1,6 +1,30 @@
-packages = "git curl direnv wget ripgrep jq flatpak fish luajit neovim tmux"
-rustPackages = "cargo-update cargo-info bacon"
-githubPackages = "jesseduffield/lazygit topgrade-rs/topgrade sharkdp/fd sharkdp/bat jdx/mise jdx/usage cargo-bins/cargo-binstall cargo-lambda/cargo-lambda superfly/flyctl"
+packages = [
+	"git",
+	"curl",
+	"direnv",
+	"wget",
+	"ripgrep",
+	"jq",
+	"flatpak",
+	"fish",
+	"luajit",
+	"neovim",
+	"tmux",
+]
+rustPackages = ["cargo-update", "cargo-info", "bacon"]
+githubPackages = [
+	"topgrade-rs/topgrade",
+	"sharkdp/fd",
+	"sharkdp/bat",
+	"jdx/mise",
+	"jdx/usage",
+	"cargo-bins/cargo-binstall",
+	"superfly/flyctl",
+]
+miseBinaries = [
+	"go:github.com/a-h/templ/cmd/templ",
+	"go:github.com/go-task/task/v3/cmd/task",
+]
 
 [git]
 name = "Rob Brazier"
@@ -26,7 +50,7 @@ fedora = ["fedora", "nobara"]
 [tools]
 go = "latest"
 neovim = "stable"
-nodejs = "latest"
+node = "latest"
 python = "pypy3.9"
 php = ""
 

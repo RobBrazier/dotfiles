@@ -21,7 +21,7 @@ fi
 #fi
 
 # System Utilities
-install_packages {{ .packages }} build-essential apt-transport-https silversearcher-ag btop
+install_packages {{ .packages | join " " }} build-essential apt-transport-https silversearcher-ag btop
 
 # Add firefox PPA
 if [ "$(apt-cache policy | grep -c mozillateam)" -eq "0" ]; then
