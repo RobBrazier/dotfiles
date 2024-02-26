@@ -3,7 +3,6 @@ packages = [
 	"curl",
 	"direnv",
 	"wget",
-	"ripgrep",
 	"jq",
 	"flatpak",
 	"fish",
@@ -14,8 +13,6 @@ packages = [
 rustPackages = ["cargo-update", "cargo-info", "bacon"]
 githubPackages = [
 	"topgrade-rs/topgrade",
-	"sharkdp/fd",
-	"sharkdp/bat",
 	"jdx/mise",
 	"jdx/usage",
 	"cargo-bins/cargo-binstall",
@@ -24,6 +21,9 @@ githubPackages = [
 miseBinaries = [
 	"go:github.com/a-h/templ/cmd/templ",
 	"go:github.com/go-task/task/v3/cmd/task",
+	"cargo:ripgrep",
+	"cargo:fd",
+	"cargo:bat",
 ]
 
 [git]
