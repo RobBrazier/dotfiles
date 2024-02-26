@@ -1,6 +1,10 @@
 #!/usr/bin/env fish
 
-echo "Installing rtx plugins and tools"
+if ! type -q mise;
+  curl https://mise.run | sh
+end
+
+echo "Installing mise plugins and tools"
 
 mise settings set experimental true
 

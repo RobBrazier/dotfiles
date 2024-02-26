@@ -11,7 +11,7 @@ packages = [
 	"tmux",
 ]
 rustPackages = ["cargo-update", "cargo-info"]
-githubPackages = ["jdx/mise", "superfly/flyctl"]
+githubPackages = ["superfly/flyctl"]
 miseBinaries = [
 	"go:github.com/a-h/templ/cmd/templ",
 	"go:github.com/go-task/task/v3/cmd/task",
