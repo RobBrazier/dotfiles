@@ -2,9 +2,12 @@
 {{ $altername := promptString "git alter name" -}}
 {{ $alterhost := promptString "git alter host" -}}
 
-data:
-  git:
-    signingkey: {{ $signingkey | quote }}
-    alter:
-      name: {{ $altername }}
-      host: {{ $alterhost }}
+[data.git]
+signingkey = "{{ $signingkey }}"
+
+[data.git.alter]
+name = "{{ $altername }}"
+host = "{{ $alterhost }}"
+
+[git]
+  autoPush = true

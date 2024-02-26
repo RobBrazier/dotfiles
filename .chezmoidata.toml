@@ -1,0 +1,53 @@
+packages = "git curl direnv wget ripgrep jq flatpak fish luajit neovim tmux"
+rustPackages = "cargo-update cargo-info bacon"
+githubPackages = "jesseduffield/lazygit topgrade-rs/topgrade sharkdp/fd sharkdp/bat jdx/mise jdx/usage cargo-bins/cargo-binstall cargo-lambda/cargo-lambda superfly/flyctl"
+
+[git]
+name = "Rob Brazier"
+host = "brzr.co"
+
+[[gitHosts]]
+name = "git.sr.ht"
+
+[[gitHosts]]
+name = "*.runners.sr.ht"
+
+[[gitHosts]]
+name = "github.com !*.github.com"
+
+[[gitHosts]]
+name = "codeberg.org"
+
+[distros]
+arch = ["arch"]
+ubuntu = ["ubuntu debian", "ubuntu"]
+fedora = ["fedora", "nobara"]
+
+[tools]
+go = "latest"
+neovim = "stable"
+nodejs = "latest"
+python = "pypy3.9"
+php = ""
+
+[ssh]
+aliasSuffix = "lan.brazier.cloud"
+types = { git = "ed25519", id = "ed25519" }
+
+[ssh.aliases.start]
+user = "start"
+
+[ssh.aliases.hass]
+user = "root"
+
+[ssh.aliases.apps]
+user = "root"
+
+[ssh.aliases.pve]
+user = "root"
+
+[ssh.aliases.izanagi]
+user = "rob"
+
+[nerdfonts]
+fonts = ["SourceCodePro", "JetBrainsMono", "FiraCode"]
