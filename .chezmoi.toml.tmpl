@@ -2,6 +2,8 @@
 {{ $altername := promptString "git alter name" -}}
 {{ $alterhost := promptString "git alter host" -}}
 
+progress = true
+
 [data.git]
 signingkey = "{{ $signingkey }}"
 
@@ -10,4 +12,4 @@ name = "{{ $altername }}"
 host = "{{ $alterhost }}"
 
 [git]
-  autoPush = true
+autoPush = true
