@@ -1,3 +1,4 @@
 #!/usr/bin/env fish
 
+cargo install cargo-binstall
 cargo binstall -y {{ .rustPackages | join " " }}

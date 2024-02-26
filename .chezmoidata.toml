@@ -10,13 +10,8 @@ packages = [
 	"neovim",
 	"tmux",
 ]
-rustPackages = ["cargo-update", "cargo-info", "bacon"]
-githubPackages = [
-	"jdx/mise",
-	"jdx/usage",
-	"cargo-bins/cargo-binstall",
-	"superfly/flyctl",
-]
+rustPackages = ["cargo-update", "cargo-info"]
+githubPackages = ["jdx/mise", "superfly/flyctl"]
 miseBinaries = [
 	"go:github.com/a-h/templ/cmd/templ",
 	"go:github.com/go-task/task/v3/cmd/task",
@@ -24,17 +19,12 @@ miseBinaries = [
 	"cargo:fd-find",
 	"cargo:bat",
 	"cargo:topgrade",
+	"cargo:bacon",
 ]
 
 [git]
 name = "Rob Brazier"
 host = "brzr.co"
-
-[[gitHosts]]
-name = "git.sr.ht"
-
-[[gitHosts]]
-name = "*.runners.sr.ht"
 
 [[gitHosts]]
 name = "github.com !*.github.com"
@@ -48,6 +38,7 @@ ubuntu = ["ubuntu debian", "ubuntu"]
 fedora = ["fedora", "nobara"]
 
 [tools]
+usage = "latest"
 go = "latest"
 neovim = "stable"
 node = "latest"
