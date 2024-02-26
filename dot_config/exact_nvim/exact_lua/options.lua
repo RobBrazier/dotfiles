@@ -69,3 +69,7 @@ vim.opt.hlsearch = true
 vim.opt.termguicolors = true
 vim.opt.pumblend = 0
 vim.opt.winblend = 0
+
+-- Set tabstop and shiftwidth to 4 spaces
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
