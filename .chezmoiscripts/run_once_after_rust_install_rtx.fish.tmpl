@@ -18,12 +18,11 @@ if [ "{{ $version }}" != "" ];
   if mise ls --current {{ $tool }} > /dev/null 2>&1 && mise ls --current {{ $tool }} --no-header | awk -F' ' '{ print $4 }' | grep -wq "{{ $version }}";
     echo "Tool {{ $tool }}@{{ $version }} is already installed, skipping"
   else
-    mise install {{ $tool }}@{{ $version }}
-    mise global {{ $tool }}@{{ $version }}
+    mise use -g {{ $tool }}@{{ $version }}
   end
 end
 {{ end }}
 
 {{ range $_, $bin := .miseBinaries }}
-mise use -g {{ $bin }} -y || true 
+mise use -g {{ $bin }}
 {{ end }}
