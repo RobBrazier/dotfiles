@@ -22,7 +22,7 @@ return {
   -- tsserver = {},
   --
   templ = {},
-  htmx = {},
+  -- htmx = {},
   html = {},
   tailwindcss = {},
 
