@@ -25,8 +25,7 @@ return {
   html = {},
   tailwindcss = {},
 
-  toml = {},
-  yaml = {},
+  taplo = {},
 
   lua_ls = {
     -- cmd = {...},
