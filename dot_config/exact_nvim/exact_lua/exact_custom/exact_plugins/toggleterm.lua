@@ -5,18 +5,12 @@ return {
     config = function(_, opts)
       local toggleterm = require 'toggleterm'
       toggleterm.setup(opts)
-      local keymaps = {
-        { mode = 'n', key = '<leader>tt' },
-        { mode = 't', key = '<leader>tt' },
-        { mode = 'n', key = '<c-/>' },
-        { mode = 't', key = '<c-/>' },
-      }
 
-      for _, map in ipairs(keymaps) do
-        vim.keymap.set(map.mode, map.key, function()
-          toggleterm.toggle()
-        end, { desc = 'Toggle Terminal' })
-      end
+      vim.keymap.set('n', '<C-/>', toggleterm.toggle, { desc = 'Toggle Terminal' })
+      vim.keymap.set('t', '<C-/>', toggleterm.toggle, { desc = 'Toggle Terminal' })
+      -- Windows mappings
+      vim.keymap.set('n', '<C-_>', toggleterm.toggle, { desc = 'which_key_ignore' })
+      vim.keymap.set('t', '<C-_>', toggleterm.toggle, { desc = 'which_key_ignore' })
     end,
   },
 }

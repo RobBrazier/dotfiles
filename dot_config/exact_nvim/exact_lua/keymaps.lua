@@ -33,8 +33,8 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Remap <c-u> and <c-d> to stay in the centre of the screen
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { silent = true })
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { silent = true })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Move one page [U]p' })
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Move one page [D]own' })
 
 -- Buffer deletion
 vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = '[B]uffer [D]elete' })
