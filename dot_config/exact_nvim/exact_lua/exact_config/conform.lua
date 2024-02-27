@@ -8,5 +8,6 @@ return {
     -- is found.
     -- javascript = { { "prettierd", "prettier" } },
     templ = { 'templ' },
+    fish = { 'fish_indent' },
   },
 }
