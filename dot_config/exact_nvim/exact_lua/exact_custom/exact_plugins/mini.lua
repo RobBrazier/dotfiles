@@ -29,7 +29,6 @@ return {
       -- Simple file explorer
       local files = require 'mini.files'
       files.setup()
-
       vim.keymap.set('n', '<leader>fe', files.open, { desc = '[F]ile [E]xplorer' })
     end,
   },
