@@ -20,7 +20,7 @@ return {
         dashboard.button('r', ' ' .. ' Recent files', '<cmd> Telescope oldfiles <cr>'),
         dashboard.button('g', ' ' .. ' Find text', '<cmd> Telescope live_grep <cr>'),
         dashboard.button('l', '󰒲 ' .. ' Lazy', '<cmd> Lazy <cr>'),
-        dashboard.button('q', '  > Quit NVIM', ':qa<CR>'),
+        dashboard.button('q', ' ' .. ' Quit NVIM', ':qa<CR>'),
       }
       require('alpha').setup(dashboard.opts)
       vim.api.nvim_create_autocmd('User', {
