@@ -40,7 +40,7 @@ fedora = ["fedora", "nobara"]
 [tools]
 usage = "latest"
 go = "latest"
-neovim = "stable"
+neovim = "latest"
 node = "latest"
 python = "pypy3.9"
 php = ""
