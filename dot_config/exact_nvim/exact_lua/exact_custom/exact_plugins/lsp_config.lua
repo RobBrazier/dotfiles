@@ -128,7 +128,7 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-      local config = require 'config.lsp_config'
+      local config = require 'config.plugins.lsp_config'
       local servers = config.servers
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install

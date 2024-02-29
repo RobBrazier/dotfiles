@@ -6,6 +6,6 @@ return { -- Autoformat
       timeout_ms = 500,
       lsp_fallback = true,
     },
-    formatters_by_ft = require('config.conform').formatters,
+    formatters_by_ft = require('config.plugins.conform').formatters,
   },
 }
