@@ -32,7 +32,7 @@ return {
       'rafamadriz/friendly-snippets',
 
       -- Copilot completion
-      { 'zbirenbaum/copilot-cmp', config = true, dependencies = { 'zbirenbaum/copilot.lua' } },
+      -- { 'zbirenbaum/copilot-cmp', opts = {}, dependencies = { 'zbirenbaum/copilot.lua' } },
     },
     config = function()
       -- See `:help cmp`
@@ -91,7 +91,8 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
-          { name = 'copilot' },
+          -- { name = 'copilot' },
+          { name = 'codeium' },
         },
       }
     end,
