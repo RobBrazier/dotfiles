@@ -3,7 +3,6 @@ return {
     'zbirenbaum/copilot.lua',
     cmd = 'Copilot',
     build = ':Copilot auth',
-    enabled = false,
     opts = {
       suggestion = { enabled = false },
       panel = { enabled = false },
@@ -12,6 +11,7 @@ return {
   {
     'Exafunction/codeium.nvim',
     build = ':Codeium Auth',
+    enabled = false,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'hrsh7th/nvim-cmp',
