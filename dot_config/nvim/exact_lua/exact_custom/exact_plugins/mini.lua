@@ -4,6 +4,9 @@ return {
     dependencies = {
       'nvim-tree/nvim-web-devicons',
     },
+    init = function()
+      vim.keymap.set('n', '<leader>fe', '<cmd>lua MiniFiles.open()<cr>', { desc = '[F]ile [E]xplorer' })
+    end,
     config = function()
       -- Better Around/Inside textobjects
       --
@@ -27,9 +30,7 @@ return {
       require('mini.move').setup()
 
       -- Simple file explorer
-      local files = require 'mini.files'
-      files.setup()
-      vim.keymap.set('n', '<leader>fe', files.open, { desc = '[F]ile [E]xplorer' })
+      require('mini.files').setup()
     end,
   },
 }
