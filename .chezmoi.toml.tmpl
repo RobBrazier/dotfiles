@@ -10,3 +10,9 @@ signingkey = "{{ $signingkey }}"
 [data.git.alter]
 name = "{{ $altername }}"
 host = "{{ $alterhost }}"
+
+{{ if ne .chezmoi.os "windows" -}}
+[edit]
+command = "nvim"
+args = ["--cmd", "cd {{ .chezmoi.sourceDir }}"]
+{{- end }}
