@@ -1,13 +1,15 @@
+local theme = require 'config.theme'
 return {
   {
     'rcarriga/nvim-notify',
-    opts = {
-      background_colour = '#000000',
-    },
-    config = function(_, opts)
-      local notify = require 'notify'
-      vim.notify = notify
-      notify.setup(opts)
+    opts = function(_, opts)
+      if theme.transparent == true then
+        opts.background_colour = '#000000'
+      end
+      return opts
+    end,
+    init = function()
+      vim.notify = require 'notify'
     end,
   },
 }

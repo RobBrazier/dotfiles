@@ -1,12 +1,18 @@
 return {
+  -- Simple file explorer
+  -- Separated out for lazy loading
+  {
+    'echasnovski/mini.files',
+    opts = {},
+    keys = {
+      { '<leader>fe', '<cmd>lua MiniFiles.open()<cr>', desc = '[F]ile [E]xplorer' },
+    },
+  },
   {
     'echasnovski/mini.nvim',
     dependencies = {
       'nvim-tree/nvim-web-devicons',
     },
-    init = function()
-      vim.keymap.set('n', '<leader>fe', '<cmd>lua MiniFiles.open()<cr>', { desc = '[F]ile [E]xplorer' })
-    end,
     config = function()
       -- Better Around/Inside textobjects
       --
@@ -28,9 +34,6 @@ return {
 
       -- Move lines and blocks of text up and down
       require('mini.move').setup()
-
-      -- Simple file explorer
-      require('mini.files').setup()
     end,
   },
 }
