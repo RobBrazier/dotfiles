@@ -10,5 +10,6 @@ M.ensure_installed = {
   'templ',
   'go',
   'rust',
+  'astro',
 }
 return M

@@ -1,30 +1,39 @@
 IdentityFile ~/.ssh/id_{{ .ssh.types.id }}
 IdentitiesOnly yes
 
-{{ $git_sshkey := .ssh.types.git -}}
+{{ $sshkey := .ssh.types -}}
 {{- range $host := .gitHosts }}
 Host {{ .name }}
   {{ if not (eq (get . "port") "") -}}
   Port {{ .port }}
   {{ end -}}
-  IdentityFile ~/.ssh/git_{{ $git_sshkey }}
+  IdentityFile ~/.ssh/git_{{ $sshkey.git }}
   IdentitiesOnly yes
 {{ end }}
 
-{{ if not (eq .git.alter.name "") -}}
+{{- if not (eq .git.alter.name "") }}
 Host alter.github.com
   Hostname github.com
-  IdentityFile ~/.ssh/altergit_{{ $git_sshkey }}
+  IdentityFile ~/.ssh/altergit_{{ $sshkey.git }}
   IdentitiesOnly yes
 {{ end }}
 
-
-{{ range $host, $data := .ssh.aliases }}
-Host {{ $host }}
+{{- $suffix := .ssh.aliasSuffix }}
+{{- range .ssh.aliases }}
+{{ if not (eq (get . "name") "") -}}}
+Host {{ .name }}
+{{ else -}}
+Host {{ .host }}
+{{- end }}
   User {{ .user }}
-  {{ if not (eq (get . "host") "") -}}
+  {{ if eq (get . "internal") "false" -}}
   Hostname {{ .host }}
   {{ else -}}
-  Hostname {{ $host }}.lan.brazier.cloud
+  Hostname {{ .host }}.{{ $suffix }}
   {{ end -}}
+  {{ if not (eq (get . "port") "") -}}
+  Port {{ .port }}
+  {{ end -}}
+  IdentityFile ~/.ssh/id_{{ $sshkey.id }}
+  IdentitiesOnly yes
 {{ end }}

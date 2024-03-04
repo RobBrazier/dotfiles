@@ -27,6 +27,8 @@ M.servers = {
   html = {},
   tailwindcss = {},
 
+  astro = {},
+
   taplo = {},
 
   lua_ls = {

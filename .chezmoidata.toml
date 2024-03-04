@@ -49,20 +49,33 @@ php = ""
 aliasSuffix = "lan.brazier.cloud"
 types = { git = "ed25519", id = "ed25519" }
 
-[ssh.aliases.start]
+[[ssh.aliases]]
+host = "start"
 user = "start"
 
-[ssh.aliases.hass]
+[[ssh.aliases]]
+host = "hass"
 user = "root"
 
-[ssh.aliases.apps]
+[[ssh.aliases]]
+host = "apps"
 user = "root"
 
-[ssh.aliases.pve]
+[[ssh.aliases]]
+host = "pve"
 user = "root"
 
-[ssh.aliases.izanagi]
+[[ssh.aliases]]
+host = "izanagi"
 user = "rob"
+
+[[ssh.aliases]]
+host = "jellyfin"
+user = "jellyfin"
+
+[[ssh.aliases]]
+host = "omoikane"
+user = "Rob"
 
 [nerdfonts]
 fonts = ["SourceCodePro", "JetBrainsMono", "FiraCode"]
