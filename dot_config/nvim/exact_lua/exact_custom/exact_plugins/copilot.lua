@@ -1,6 +1,6 @@
 local config = {
-  -- service = 'copilot',
-  service = 'codeium',
+  service = 'copilot',
+  -- service = 'codeium',
 }
 
 return {
