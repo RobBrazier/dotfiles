@@ -3,6 +3,4 @@ if type -q mise
     if type -q usage
         mise completion fish | source
     end
-
-    set PATH $GOPATH/bin $PATH
 end
