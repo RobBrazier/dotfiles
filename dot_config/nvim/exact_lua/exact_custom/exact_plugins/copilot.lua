@@ -30,7 +30,7 @@ return {
       },
     },
     opts = function(_, opts)
-      table.insert(opts.sources, { name = config.service })
+      table.insert(opts.sources, { name = config.service, priority = 100 })
       return opts
     end,
   },

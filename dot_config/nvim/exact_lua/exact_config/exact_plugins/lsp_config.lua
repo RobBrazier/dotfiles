@@ -8,6 +8,7 @@
 --  - settings (table): Override the default settings passed when initializing the server.
 --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 vim.filetype.add { extension = { templ = 'templ' } }
+vim.filetype.add { extension = { gotmpl = 'gohtml' } }
 local M = {}
 M.servers = {
   -- clangd = {},
@@ -20,7 +21,7 @@ M.servers = {
   --    https://github.com/pmizio/typescript-tools.nvim
   --
   -- But for many setups, the LSP (`tsserver`) will work just fine
-  -- tsserver = {},
+  tsserver = {},
   --
   templ = {},
   -- htmx = {},

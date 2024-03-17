@@ -9,7 +9,9 @@ M.ensure_installed = {
   'vimdoc',
   'templ',
   'go',
+  'gotmpl',
   'rust',
   'astro',
 }
+
 return M

@@ -33,12 +33,10 @@ return {
         ['<C-Space>'] = cmp.mapping.complete {},
       }
 
-      opts.sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'path' },
-      }, {
-        { name = 'buffer' },
-      })
+      opts.sources = {
+        { name = 'nvim_lsp', priority = 1 },
+        { name = 'path', priority = 1 },
+      }
       return opts
     end,
     config = function(_, opts)
@@ -78,7 +76,7 @@ return {
               require('luasnip').lsp_expand(args.body)
             end,
           }
-          table.insert(opts.sources, 2, { name = 'luasnip' })
+          table.insert(opts.sources, 2, { name = 'luasnip', priority = 1 })
           return opts
         end,
       },
