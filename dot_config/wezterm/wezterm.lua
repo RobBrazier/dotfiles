@@ -13,6 +13,11 @@ config.color_scheme = "Catppuccin Mocha"
 
 -- config.window_background_opacity = 0.95
 
+config.font = wezterm.font_with_fallback({
+	"Berkeley Mono",
+	"JetBrains Mono",
+})
+
 config.automatically_reload_config = true
 
 -- config.hide_tab_bar_if_only_one_tab = true
