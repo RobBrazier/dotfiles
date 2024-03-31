@@ -30,7 +30,36 @@ M.servers = {
 
   astro = {},
 
+  -- markup languages
   taplo = {},
+  jsonls = {
+    settings = function()
+      return {
+        json = {
+          schemas = require('schemastore').json.schemas(),
+          validate = { enable = true },
+        },
+      }
+    end,
+  },
+  yamlls = {
+    settings = function()
+      return {
+        redhat = { telemetry = { enabled = false } },
+        yaml = {
+          schemaStore = {
+            enable = false,
+            url = '',
+          },
+          format = {
+            enable = true,
+          },
+          schemas = require('schemastore').yaml.schemas(),
+          validate = true,
+        },
+      }
+    end,
+  },
 
   lua_ls = {
     -- cmd = {...},

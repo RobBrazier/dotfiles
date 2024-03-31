@@ -6,6 +6,7 @@ return {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
+      'b0o/schemastore.nvim',
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -148,6 +149,9 @@ return {
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
+            if type(server.settings) == 'function' then
+              server.settings = server.settings()
+            end
             require('lspconfig')[server_name].setup {
               cmd = server.cmd,
               settings = server.settings,
