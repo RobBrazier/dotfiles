@@ -1,6 +1,7 @@
 local config = {
-  service = 'copilot',
+  -- service = 'copilot',
   -- service = 'codeium',
+  service = 'none',
 }
 
 return {
@@ -30,7 +31,9 @@ return {
       },
     },
     opts = function(_, opts)
-      table.insert(opts.sources, { name = config.service, priority = 100 })
+      if config.service ~= 'none' then
+        table.insert(opts.sources, { name = config.service, priority = 100 })
+      end
       return opts
     end,
   },
