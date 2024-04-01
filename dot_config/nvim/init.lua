@@ -10,6 +10,7 @@ require('custom.lazy').setup({
   { import = 'custom.plugins' },
 }, {
   checker = { enabled = true }, -- automatically check for plugin updates
+  concurrency = jit.os:find 'Windows' and 2 or nil,
   performance = {
     rtp = {
       -- disable some rtp plugins
@@ -20,7 +21,7 @@ require('custom.lazy').setup({
         'netrwPlugin',
         'tarPlugin',
         'tohtml',
-        -- 'tutor',
+        'tutor',
         'zipPlugin',
       },
     },

@@ -29,6 +29,8 @@ return {
         desc = '[G]it [G]raph',
       },
     },
-    opts = {},
+    opts = {
+      kind = 'auto',
+    },
   },
 }
