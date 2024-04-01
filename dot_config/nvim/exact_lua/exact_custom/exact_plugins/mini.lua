@@ -13,27 +13,56 @@ return {
     dependencies = {
       'nvim-tree/nvim-web-devicons',
     },
-    config = function()
+    opts = function(_, opts)
       -- Better Around/Inside textobjects
       --
       -- Examples:
       --  - va)  - [V]isually select [A]round [)]parenthen
       --  - yinq - [Y]ank [I]nside [N]ext [']quote
       --  - ci'  - [C]hange [I]nside [']quote
-      require('mini.ai').setup { n_lines = 500 }
-
+      opts.ai = {
+        n_lines = 500,
+      }
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
-
-      -- Simple and easy statusline.
-      require('mini.statusline').setup()
-
-      -- Move lines and blocks of text up and down
-      require('mini.move').setup()
+      opts.surround = {}
+      opts.statusline = {}
+      opts.move = {}
+      opts.comment = {}
+      opts.indentscope = {
+        symbol = '│',
+        draw = {
+          delay = 50,
+          animation = require('mini.indentscope').gen_animation.none(),
+        },
+        options = {
+          try_as_border = true,
+        },
+      }
+      return opts
+    end,
+    config = function(_, opts)
+      for key, value in pairs(opts) do
+        require('mini.' .. key).setup(value)
+      end
+    end,
+    init = function()
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = {
+          'help',
+          'Trouble',
+          'trouble',
+          'lazy',
+          'mason',
+          'toggleterm',
+        },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
     end,
   },
 }
