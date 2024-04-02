@@ -1,10 +1,8 @@
 function nvimconfig
     set config_dir $HOME/.config/nvim
-    nvim $config_dir --cmd "cd $config_dir"
-    chezmoi forget --force $config_dir || true
-    chezmoi add -r $config_dir
-    for file in $config_dir/*
-        chezmoi add -r --exact $file
-    end
-    chezmoi forget --force $config_dir/lazy-lock.json || true
+    nvim $config_dir --cmd "cd $config_dir" $argv
+    echo "Cleaning nvim files"
+    find "$(chezmoi source-path $config_dir)" -maxdepth 1 -mindepth 1 | xargs rm -r
+    echo "Updating files in chezmoi"
+    find "$config_dir" -maxdepth 1 -mindepth 1 -not -name lazy-lock.json | xargs chezmoi add -r --exact
 end
