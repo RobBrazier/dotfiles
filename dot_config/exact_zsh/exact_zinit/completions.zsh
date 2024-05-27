@@ -1,5 +1,5 @@
 # Load completions
-autoload -U compinit && compinit -d "$STATE_HOME/zcompdump"
+autoload -U compinit && compinit -d "$STATE_HOME/zcompcache/.zcompdump"
 
 zinit cdreplay -q
 

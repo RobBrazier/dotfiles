@@ -7,5 +7,8 @@ if [ ! -d $ZINIT_HOME ]; then
 	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
+declare -A ZINIT
+ZINIT[ZCOMPDUMP_PATH]="$STATE_HOME/zcompcache/.zcompdump"
+
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
