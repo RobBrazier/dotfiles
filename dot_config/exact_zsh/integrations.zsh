@@ -1,4 +1,4 @@
-command_exists() {
+local command_exists() {
     type "$1" > /dev/null 2>&1
 }
 
@@ -11,4 +11,7 @@ if command_exists 'mise'; then
 	if command_exists 'usage'; then
 		eval "$(mise completion zsh)"
 	fi
+fi
+if command_exists 'wezterm'; then
+	eval "$(wezterm shell-completion --shell zsh 2>/dev/null)"
 fi
