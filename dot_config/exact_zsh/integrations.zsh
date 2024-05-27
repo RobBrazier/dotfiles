@@ -3,9 +3,6 @@ command_exists() {
 }
 
 # Shell integrations
-# if command_exists 'fzf'; then
-# 	eval "$(fzf --zsh)"
-# fi
 if command_exists 'chezmoi'; then
 	eval "$(chezmoi completion zsh)"
 fi

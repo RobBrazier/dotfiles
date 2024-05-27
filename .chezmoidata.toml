@@ -14,7 +14,7 @@ packages = [
 	"ripgrep",
 	"bat",
 ]
-rustPackages = ["cargo-update", "cargo-info", "bacon"]
+rustPackages = ["cargo-update", "cargo-info", "bacon", "zoxide"]
 githubPackages = ["superfly/flyctl", "a-h/templ", "topgrade-rs/topgrade"]
 miseBinaries = []
 shell = "zsh"

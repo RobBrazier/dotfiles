@@ -1,0 +1,39 @@
+#!/bin/bash
+
+function clone() {
+    local currentDir="$PWD"
+    local sourceHome="$HOME/Code"
+    local sourceDirChildPath="${currentDir/#$sourceHome/}"
+
+    if [[ "$sourceDirChildPath" == "$currentDir" ]]; then
+        command git "$@"
+    else
+        IFS='/' read -ra gitParts <<< "$sourceDirChildPath"
+        local gitHost="${gitParts[1]}"
+        local gitUser="${gitParts[2]}"
+        local repository="$2"
+
+        case "$repository" in
+            */*)
+                command git "$@"
+                ;;
+            *--help)
+                command git "$@"
+                ;;
+            *)
+                local targetPath="$sourceHome/$gitHost/$gitUser/$repository"
+                command git clone "git@$gitHost:$gitUser/$repository" "$targetPath"
+                ;;
+        esac
+    fi
+}
+
+
+case "$1" in
+    clone)
+        clone "$@"
+        ;;
+    *)
+        command git "$@"
+        ;;
+esac
