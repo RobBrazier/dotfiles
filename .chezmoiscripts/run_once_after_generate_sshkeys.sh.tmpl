@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+if ! test -f $HOME/.ssh/id_{{.ssh.types.id}}; then
+  echo "Generating id_{{.ssh.types.id}}"
+  ssh-keygen -t {{.ssh.types.id}} -f $HOME/.ssh/id_{{.ssh.types.id}} -N ''
+else
+  echo "id_{{.ssh.types.id}} already generated"
+fi
+
+if ! test -f $HOME/.ssh/git_{{.ssh.types.git}}; then
+  echo "Generating git_{{.ssh.types.git}}"
+  ssh-keygen -t {{.ssh.types.git}} -f $HOME/.ssh/git_{{.ssh.types.git}} -N '' -C "git.$(whoami)@$(hostname)"
+
+else
+  echo "git_{{.ssh.types.git}} already generated"
+fi
+
+if ! test -f $HOME/.ssh/altergit_{{.ssh.types.git}}; then
+  echo "Generating altergit_{{.ssh.types.git}}"
+  ssh-keygen -t {{.ssh.types.git}} -f $HOME/.ssh/altergit_{{.ssh.types.git}} -N '' -C "altergit.$(whoami)@$(hostname)"
+else
+  echo "altergit_{{.ssh.types.git}} already generated"
+fi
+
+# vim: set syntax=bash:

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+echo "Configuring shell"
+
+# selected_shell="$(chezmoi data | jq -r .shell)"
+selected_shell="{{ .shell }}"
+shell_location="$(which "$selected_shell")"
+
+if [ "$SHELL" != "$shell_location" ]; then
+	echo "Changing default shell to $shell_location"
+	chsh -s $shell_location
+else
+	echo "Shell already configured to $shell_location"
+fi
+
+# vim: set syntax=bash:

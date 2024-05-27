@@ -1,0 +1,15 @@
+# Function to append multiple directories to PATH if not already included
+append_to_path() {
+    for dir in "$@"; do
+        case ":$PATH:" in
+            *":$dir:"*) ;;
+            *) PATH="$PATH:$dir" ;;
+        esac
+    done
+}
+
+append_to_path "$HOME/.local/bin" "$HOME/.cargo/bin" "$HOME/.local/share/npm/bin" 
+append_to_path "$HOME/.local/share/JetBrains/Toolbox/scripts"
+
+export PATH
+

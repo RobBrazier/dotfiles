@@ -1,16 +1,19 @@
-#!/usr/bin/env fish
+#!/usr/bin/env bash
 echo "Installing binaries via bin: {{ .githubPackages | join " " }}"
-if not test -x {{ .chezmoi.homeDir }}/.local/bin/bin
+
+if ! test -x {{ .chezmoi.homeDir }}/.local/bin/bin; then
   set binFile "/tmp/bin-$(random)"
   curl -sL https://github.com/marcosnils/bin/releases/download/v0.17.0/bin_0.17.0_{{.chezmoi.os | title}}_x86_64 > $binFile
   chmod +x $binFile
   $binFile install github.com/marcosnils/bin
-end
+fi
 {{ range .githubPackages }}
 {{ $repoName := list "github.com" . | join "/" }}
-if bin list | grep -q {{ $repoName }}
+if bin list | grep -q {{ $repoName }}; then
   echo "{{ $repoName }} is already installed - skipping"
 else
   bin install {{ $repoName }}
-end
+fi
 {{ end }}
+
+# vim: set syntax=bash:

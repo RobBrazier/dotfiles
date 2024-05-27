@@ -5,22 +5,19 @@ packages = [
 	"wget",
 	"jq",
 	"flatpak",
-	"fish",
+	"zsh",
 	"luajit",
 	"neovim",
 	"tmux",
+	"fzf",
+	"fd-find",
+	"ripgrep",
+	"bat",
 ]
-rustPackages = ["cargo-update", "cargo-info"]
-githubPackages = ["superfly/flyctl"]
-miseBinaries = [
-	"go:github.com/a-h/templ/cmd/templ",
-	"go:github.com/go-task/task/v3/cmd/task",
-	"cargo:ripgrep",
-	"cargo:fd-find",
-	"cargo:bat",
-	"cargo:topgrade",
-	"cargo:bacon",
-]
+rustPackages = ["cargo-update", "cargo-info", "bacon"]
+githubPackages = ["superfly/flyctl", "a-h/templ", "topgrade-rs/topgrade"]
+miseBinaries = []
+shell = "zsh"
 
 [git]
 name = "Rob Brazier"
@@ -44,6 +41,7 @@ neovim = "latest"
 node = "latest"
 python = "pypy3.9"
 php = ""
+task = "latest"
 
 [ssh]
 aliasSuffix = "lan.brazier.cloud"
