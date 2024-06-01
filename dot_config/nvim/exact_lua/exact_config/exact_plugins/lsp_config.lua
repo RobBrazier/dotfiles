@@ -85,6 +85,7 @@ M.servers = {
       },
     },
   },
+  dockerls = {},
 }
 
 M.tools = {

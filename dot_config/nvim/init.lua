@@ -5,7 +5,7 @@ require 'config.autocmds'
 require('custom.lazy').setup({
 
   -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.lint',
 
   { import = 'custom.plugins' },
 }, {
@@ -24,6 +24,9 @@ require('custom.lazy').setup({
         'tutor',
         'zipPlugin',
       },
+    },
+    ui = {
+      icons = {},
     },
   },
 })

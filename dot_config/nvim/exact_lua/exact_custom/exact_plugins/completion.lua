@@ -78,9 +78,9 @@ return {
       --    set up the ones that are useful for you.
       {
         'rafamadriz/friendly-snippets',
-        -- config = function()
-        --   require('luasnip.loaders.from_vscode').lazy_load()
-        -- end,
+        config = function()
+          require('luasnip.loaders.from_vscode').lazy_load()
+        end,
       },
       {
         'nvim-cmp',
