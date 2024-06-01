@@ -29,6 +29,9 @@ name = "github.com !*.github.com"
 [[gitHosts]]
 name = "codeberg.org"
 
+[[gitHosts]]
+name = "git.sr.ht"
+
 [distros]
 arch = ["arch"]
 ubuntu = ["ubuntu debian", "ubuntu"]

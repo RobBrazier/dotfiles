@@ -10,6 +10,8 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
+
+      'onsails/lspkind.nvim',
     },
     opts = function(_, opts)
       local cmp = require 'cmp'
@@ -32,10 +34,25 @@ return {
         --  completions whenever it has completion options available.
         ['<C-Space>'] = cmp.mapping.complete {},
       }
+      local lspkind = require 'lspkind'
+
+      opts.formatting = {
+        format = lspkind.cmp_format {
+          mode = 'symbol_text',
+          max_width = 50,
+          ellipsis_char = '...',
+          symbol_map = {
+            Supermaven = '',
+            Codeium = '',
+            Copilot = '',
+          },
+        },
+      }
 
       opts.sources = {
         { name = 'nvim_lsp', priority = 1 },
         { name = 'path', priority = 1 },
+        { name = 'buffer', priority = 1 },
       }
       return opts
     end,
@@ -76,7 +93,7 @@ return {
               require('luasnip').lsp_expand(args.body)
             end,
           }
-          table.insert(opts.sources, 2, { name = 'luasnip', priority = 1 })
+          table.insert(opts.sources, { name = 'luasnip', priority = 1 })
           return opts
         end,
       },

@@ -12,6 +12,7 @@ M.ensure_installed = {
   'gotmpl',
   'rust',
   'astro',
+  'python',
 }
 
 return M

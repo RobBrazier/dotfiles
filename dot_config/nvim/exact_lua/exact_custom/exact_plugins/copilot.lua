@@ -1,7 +1,8 @@
 local config = {
   -- service = 'copilot',
   -- service = 'codeium',
-  service = 'none',
+  service = 'supermaven',
+  -- service = 'none',
 }
 
 return {
@@ -28,6 +29,14 @@ return {
         enabled = config.service == 'codeium',
         build = ':Codeium Auth',
         opts = {},
+      },
+      {
+        'supermaven-inc/supermaven-nvim',
+        enabled = config.service == 'supermaven',
+        opts = {
+          disable_inline_completion = true,
+          disable_keymaps = true,
+        },
       },
     },
     opts = function(_, opts)
