@@ -1,2 +1,3 @@
-# Install Powerlevel10k Theme
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+if command -v oh-my-posh &>/dev/null; then
+	eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.yaml)"
+fi

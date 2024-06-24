@@ -2,6 +2,7 @@ local config = {
   -- service = 'copilot',
   -- service = 'codeium',
   service = 'supermaven',
+  -- service = 'cody',
   -- service = 'none',
 }
 
@@ -37,6 +38,11 @@ return {
           disable_inline_completion = true,
           disable_keymaps = true,
         },
+      },
+      {
+        'sourcegraph/sg.nvim',
+        enabled = config.service == 'cody',
+        opts = {},
       },
     },
     opts = function(_, opts)

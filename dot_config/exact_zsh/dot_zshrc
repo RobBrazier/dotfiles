@@ -6,17 +6,11 @@ emulate zsh
 STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
 export ZSH_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 
-# funky stuff needed for p10k
-source "$ZSH_CONFIG_HOME/themes/pre.zsh"
-
 source "$ZSH_CONFIG_HOME/zinit/init.zsh"
 source "$ZSH_CONFIG_HOME/zinit/themes.zsh"
 source "$ZSH_CONFIG_HOME/zinit/plugins.zsh"
 source "$ZSH_CONFIG_HOME/zinit/snippets.zsh"
 source "$ZSH_CONFIG_HOME/zinit/completions.zsh"
-
-# more funky stuff for p10k
-source "$ZSH_CONFIG_HOME/themes/post.zsh"
 
 source "$ZSH_CONFIG_HOME/keybinds.zsh"
 source "$ZSH_CONFIG_HOME/history.zsh"
