@@ -15,9 +15,14 @@ packages = [
 	"bat",
 ]
 rustPackages = ["cargo-update", "cargo-info", "bacon", "zoxide"]
-githubPackages = ["superfly/flyctl", "a-h/templ", "topgrade-rs/topgrade"]
 miseBinaries = []
 shell = "zsh"
+
+[githubPackages]
+flyctl = "superfly/flyctl"
+templ = "a-h/templ"
+topgrade = "topgrade-rs/topgrade"
+oh-my-posh = "jandedobbeleer/oh-my-posh"
 
 [git]
 name = "Rob Brazier"
