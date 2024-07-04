@@ -1,9 +1,9 @@
 local config = {
   -- service = 'copilot',
   -- service = 'codeium',
-  service = 'supermaven',
+  -- service = 'supermaven',
   -- service = 'cody',
-  -- service = 'none',
+  service = 'none',
 }
 
 return {

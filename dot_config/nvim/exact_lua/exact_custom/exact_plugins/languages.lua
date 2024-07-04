@@ -3,6 +3,7 @@ return {
   {
     'linux-cultist/venv-selector.nvim',
     dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim' },
+    ft = 'py',
     opts = {
       -- Your options go here
       -- name = "venv",
@@ -16,5 +17,19 @@ return {
       -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
       { '<leader>vc', '<cmd>VenvSelectCached<cr>' },
     },
+  },
+  {
+    'olexsmir/gopher.nvim',
+    ft = 'go',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'mfussenegger/nvim-dap', -- (optional) only if you use `gopher.dap`
+    },
+    -- (optional) will update plugin's deps on every update
+    build = function()
+      vim.cmd.GoInstallDeps()
+    end,
+    opts = {},
   },
 }
