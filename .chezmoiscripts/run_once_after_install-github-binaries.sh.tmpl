@@ -2,19 +2,28 @@
 echo "Installing binaries via bin: {{ values .githubPackages | join " " }}"
 
 if ! test -x {{ .chezmoi.homeDir }}/.local/bin/bin; then
-  set binFile "/tmp/bin-$(random)"
+  binFile="$(mktemp)"
+  rm $binFile
   curl -sL https://github.com/marcosnils/bin/releases/download/v0.17.0/bin_0.17.0_{{.chezmoi.os | title}}_x86_64 > $binFile
   chmod +x $binFile
   $binFile install github.com/marcosnils/bin
 fi
-{{ range $name, $repo := .githubPackages }}
-  {{ $repoName := list "github.com" $repo | join "/" }}
-  if bin list | grep -q {{ $repoName }}; then
-    echo "{{ $repoName }} is already installed - skipping"
-  else
-    echo "Installing {{ $repoName }} as {{ $name }}"
-    bin install -f {{ $repoName }} ~/.local/bin/{{ $name }}
+
+repositories=({{range $name, $repo := .githubPackages}}"{{$name}}:{{$repo}}" {{end}})
+for repository in "${repositories[@]}"; do
+  name=$(echo "$repository" | cut -d ':' -f 1)
+  repo=$(echo "$repository" | cut -d ':' -f 2)
+  repoSlashes=`tr -dc '/' <<<"$repo" | awk '{ print length; }'`
+  repoName="$repo"
+  if [[ ${repoSlashes} -eq 1 ]]; then
+    repoName="github.com/$repo"
   fi
-{{ end }}
+  if bin list | grep -q $repo; then
+    echo "$repoName is already installed - skipping"
+  else
+    echo "Installing $repoName as $name"
+    bin install -f "$repoName" "~/.local/bin/$name"
+  fi
+done
 
 # vim: set syntax=bash:
