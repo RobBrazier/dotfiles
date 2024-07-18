@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+profile_basedir="$HOME/.mozilla/firefox"
+profile_ini="$profile_basedir/profiles.ini"
+
+echo "$profile_ini"
+
+if [ ! -f "$profile_ini" ]; then
+	echo "Could not find firefox installation - skipping"
+	exit 0
+fi
+
+profiles=($(grep "Default=" "$profile_ini" | grep -E "(default|release)" | awk -F'=' '{ print $2 }'))
+config_home="$HOME/.config/firefox"
+
+for profile in "${profiles[@]}"; do
+	profile_dir="$profile_basedir/$profile"
+	echo "$profile_dir"
+	chrome_src="$config_home/chrome"
+	userjs_src="$config_home/user.js"
+	chrome_dest="$profile_dir/chrome"
+	userjs_dest="$profile_dir/user.js"
+	if [ ! -d "$chrome_dest" ]; then
+		echo "Linking $chrome_dest -> $chrome_src"
+		ln -s "$chrome_src" "$chrome_dest"
+	else
+		echo "$chrome_dest already exists"
+	fi
+	if [ ! -f "$userjs_dest" ]; then
+		echo "Linking $userjs_dest -> $userjs_src"
+		ln -s "$userjs_src" "$userjs_dest"
+	else
+		echo "$userjs_dest already exists"
+	fi
+done
+
+# vim: set syntax=bash:

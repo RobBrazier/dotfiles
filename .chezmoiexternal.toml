@@ -22,3 +22,8 @@ type = "archive"
 url = "https://api.github.com/repos/catppuccin/btop/tarball"
 stripComponents = 2
 include = ["*/themes/**"]
+
+[".config/firefox/chrome"]
+type = "archive"
+url = 'https://github.com/soulhotel/FF-ULTIMA/archive/refs/tags/{{(gitHubLatestRelease "soulhotel/FF-ULTIMA").TagName}}.zip'
+stripComponents = 1
