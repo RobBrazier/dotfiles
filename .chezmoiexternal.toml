@@ -27,3 +27,9 @@ include = ["*/themes/**"]
 type = "archive"
 url = 'https://github.com/soulhotel/FF-ULTIMA/archive/refs/tags/{{(gitHubLatestRelease "soulhotel/FF-ULTIMA").TagName}}.zip'
 stripComponents = 1
+
+[".local/share/chezmoi/.chezmoitemplates/firefox/betterfox"]
+type = "archive"
+url = 'https://github.com/yokoffing/Betterfox/archive/refs/tags/{{(gitHubLatestRelease "yokoffing/Betterfox").TagName}}.zip'
+stripComponents = 1
+include = ["*/Fastfox.js", "*/Peskyfox.js", "*/Securefox.js"]
