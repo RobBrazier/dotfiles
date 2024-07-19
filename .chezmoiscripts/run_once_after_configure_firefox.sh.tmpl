@@ -3,7 +3,7 @@
 profile_basedir="$HOME/.mozilla/firefox"
 profile_ini="$profile_basedir/profiles.ini"
 
-echo "$profile_ini"
+echo "Searching $profile_ini for the default profile"
 
 if [ ! -f "$profile_ini" ]; then
 	echo "Could not find firefox installation - skipping"
@@ -15,7 +15,7 @@ config_home="$HOME/.config/firefox"
 
 for profile in "${profiles[@]}"; do
 	profile_dir="$profile_basedir/$profile"
-	echo "$profile_dir"
+	echo "Updating $profile_dir"
 	chrome_src="$config_home/chrome"
 	userjs_src="$config_home/user.js"
 	chrome_dest="$profile_dir/chrome"

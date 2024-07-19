@@ -18,11 +18,11 @@ for repository in "${repositories[@]}"; do
   if [[ ${repoSlashes} -eq 1 ]]; then
     repoName="github.com/$repo"
   fi
-  if bin list | grep -q $repo; then
+  if bin list | grep -iq $repo; then
     echo "$repoName is already installed - skipping"
   else
     echo "Installing $repoName as $name"
-    bin install -f "$repoName" "~/.local/bin/$name"
+    bin install -f "$repoName" "$HOME/local/bin/$name"
   fi
 done
 
