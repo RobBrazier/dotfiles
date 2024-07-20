@@ -2,3 +2,4 @@
 .config/fish/functions/ssh.fish
 .config/userscripts/
 .local/bin/asdf
+.config/topgrade.toml
