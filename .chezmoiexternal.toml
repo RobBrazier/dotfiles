@@ -27,6 +27,7 @@ include = ["*/themes/**"]
 type = "archive"
 url = 'https://github.com/soulhotel/FF-ULTIMA/archive/refs/tags/{{(gitHubLatestRelease "soulhotel/FF-ULTIMA").TagName}}.zip'
 stripComponents = 1
+exact = true
 
 [".local/share/chezmoi/.chezmoitemplates/firefox/betterfox"]
 type = "archive"
