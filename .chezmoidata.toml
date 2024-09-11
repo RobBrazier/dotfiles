@@ -84,4 +84,4 @@ host = "omoikane"
 user = "Rob"
 
 [nerdfonts]
-fonts = ["SourceCodePro", "JetBrainsMono", "FiraCode"]
+fonts = ["SourceCodePro", "JetBrainsMono", "FiraCode", "CascadiaCode"]

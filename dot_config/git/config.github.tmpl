@@ -2,3 +2,7 @@
 name = {{ .git.name }}
 email = git+github@{{ .git.host }}
 useConfigOnly = true
+
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+

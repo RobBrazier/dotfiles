@@ -22,7 +22,7 @@ for repository in "${repositories[@]}"; do
     echo "$repoName is already installed - skipping"
   else
     echo "Installing $repoName as $name"
-    bin install -f "$repoName" "$HOME/local/bin/$name"
+    bin install -f "$repoName" "$HOME/.local/bin/$name"
   fi
 done
 
