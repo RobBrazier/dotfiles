@@ -25,14 +25,18 @@ config.use_fancy_tab_bar = false
 
 config.window_decorations = "INTEGRATED_BUTTONS"
 
+config.window_close_confirmation = "NeverPrompt"
+
 config.window_padding = {
 	left = 5,
 	right = 5,
 	top = 5,
 	bottom = 0,
 }
+
 config.initial_rows = 38
 config.initial_cols = 149
+
 config.default_cursor_style = "SteadyBar"
 
 local get_transparent_color = function(hex)
@@ -43,29 +47,28 @@ end
 
 local color_scheme = wezterm.color.get_builtin_schemes()[config.color_scheme]
 
-config.colors = {
-	tab_bar = {
-		background = get_transparent_color(color_scheme.tab_bar.inactive_tab.bg_color),
-	},
-}
-
 config.tab_max_width = 20
 
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	if tab.is_active then
+if not config.use_fancy_tab_bar then
+	if config.window_background_opacity ~= nil and config.window_background_opacity < 1 then
+		config.colors = {
+			tab_bar = {
+				background = get_transparent_color(color_scheme.tab_bar.inactive_tab.bg_color),
+			},
+		}
+	end
+	wezterm.on("format-tab-title", function(tab)
+		local background = get_transparent_color(color_scheme.tab_bar.inactive_tab.bg_color)
+		if tab.is_active then
+			background = get_transparent_color(color_scheme.tab_bar.active_tab.bg_color)
+		end
 		return {
-			{ Background = { Color = get_transparent_color(color_scheme.tab_bar.active_tab.bg_color) } },
+			{ Background = { Color = background } },
 			{ Text = " " .. tab.tab_index + 1 },
 			{ Text = ": " },
 			{ Text = tab.active_pane.title .. " " },
 		}
-	end
-	return {
-		{ Background = { Color = get_transparent_color(color_scheme.tab_bar.inactive_tab.bg_color) } },
-		{ Text = " " .. tab.tab_index + 1 },
-		{ Text = ": " },
-		{ Text = tab.active_pane.title .. " " },
-	}
-end)
+	end)
+end
 
 return config
