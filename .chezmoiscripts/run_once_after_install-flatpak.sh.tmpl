@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+echo "Installing flatpak packages"
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+flatpak install --system flathub --assumeyes --noninteractive {{ .flatpakPackages | join " " }}
+
+# vim: set syntax=bash:

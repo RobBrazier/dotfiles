@@ -16,6 +16,7 @@ packages = [
 ]
 rustPackages = ["cargo-update", "cargo-info", "bacon", "zoxide"]
 miseBinaries = []
+flatpakPackages = ["it.mijorus.gearlever"]
 shell = "zsh"
 
 [githubPackages]
