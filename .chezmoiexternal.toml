@@ -23,11 +23,19 @@ url = "https://api.github.com/repos/catppuccin/btop/tarball"
 stripComponents = 2
 include = ["*/themes/**"]
 
+# {{ $ffUltimaVersion := (gitHubLatestRelease "soulhotel/FF-ULTIMA").TagName }}
+
 [".config/firefox/chrome"]
 type = "archive"
-url = 'https://github.com/soulhotel/FF-ULTIMA/archive/refs/tags/{{(gitHubLatestRelease "soulhotel/FF-ULTIMA").TagName}}.zip'
+url = 'https://github.com/soulhotel/FF-ULTIMA/archive/refs/tags/{{ $ffUltimaVersion }}.zip'
 stripComponents = 1
 exact = true
+
+[".local/share/chezmoi/.chezmoitemplates/firefox/ff-ultima"]
+type = "archive"
+url = 'https://github.com/soulhotel/FF-ULTIMA/archive/refs/tags/{{ $ffUltimaVersion }}.zip'
+stripComponents = 1
+include = ["*/user.js"]
 
 [".local/share/chezmoi/.chezmoitemplates/firefox/betterfox"]
 type = "archive"
