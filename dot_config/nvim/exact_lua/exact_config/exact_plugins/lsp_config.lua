@@ -91,6 +91,7 @@ M.servers = {
 M.tools = {
   'stylua',
   'goimports',
+  'ts_ls',
 }
 
 return M
