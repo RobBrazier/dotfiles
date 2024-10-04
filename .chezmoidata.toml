@@ -21,6 +21,9 @@ flatpakPackages = [
 	"org.wezfurlong.wezterm",
 	"io.github.giantpinkrobots.flatsweep",
 	"com.github.tchx84.Flatseal",
+	"org.localsend.localsend_app",
+	"dev.vencord.Vesktop",
+	"io.missioncenter.MissionCenter",
 ]
 shell = "zsh"
 
