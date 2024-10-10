@@ -18,7 +18,7 @@ return {
       --
       -- Examples:
       --  - va)  - [V]isually select [A]round [)]parenthen
-      --  - yinq - [Y]ank [I]nside [N]ext [']quote
+      --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
       --  - ci'  - [C]hange [I]nside [']quote
       opts.ai = {
         n_lines = 500,

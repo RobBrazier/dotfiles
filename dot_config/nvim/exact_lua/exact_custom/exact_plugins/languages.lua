@@ -9,7 +9,7 @@ return {
       -- name = "venv",
       -- auto_refresh = false
     },
-    branch = 'regexp',  -- This is the regexp branch, use this for the new version
+    branch = 'regexp', -- This is the regexp branch, use this for the new version
     event = 'VeryLazy', -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
     keys = {
       -- Keymap to open VenvSelector to pick a venv.
@@ -33,8 +33,9 @@ return {
     opts = {},
   },
   {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    ft = { 'ts', 'js' },
     opts = {},
-  }
+  },
 }

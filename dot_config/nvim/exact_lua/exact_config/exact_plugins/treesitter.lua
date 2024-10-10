@@ -5,6 +5,8 @@ M.ensure_installed = {
   'html',
   'lua',
   'markdown',
+  'markdown_inline',
+  'query',
   'vim',
   'vimdoc',
   'templ',
