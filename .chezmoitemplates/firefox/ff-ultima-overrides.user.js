@@ -10,4 +10,4 @@ user_pref("ultima.urlbar.hidebuttons", true);
 
 user_pref("toolkit.tabbox.switchByScrolling", true);
 
-user_pref("user.theme.dark.catppuccin-mocha", true);
+user_pref("user.theme.dark.catppuccin-mocha", false);
