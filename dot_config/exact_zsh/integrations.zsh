@@ -15,3 +15,6 @@ fi
 if command_exists 'wezterm'; then
 	eval "$(wezterm shell-completion --shell zsh 2>/dev/null)"
 fi
+if command_exists 'direnv'; then
+	eval "$(direnv hook zsh)"
+fi

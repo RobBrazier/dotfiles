@@ -8,6 +8,6 @@ user_pref('ultima.spacing.compact', true);
 
 user_pref("ultima.urlbar.hidebuttons", true);
 
-user_pref("toolkit.tabbox.switchByScrolling", true);
+user_pref("toolkit.tabbox.switchByScrolling", false);
 
 user_pref("user.theme.dark.catppuccin-mocha", false);
