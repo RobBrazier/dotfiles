@@ -16,10 +16,10 @@ packages = [
 ]
 rustPackages = ["cargo-update", "cargo-info", "bacon", "zoxide"]
 miseBinaries = [
-	"ubi:a-h/templ",
-	"ubi:superfly/flyctl",
-	"ubi:jandedobbeleer/oh-my-posh",
-	"ubi:topgrade-rs/topgrade",
+	# "ubi:a-h/templ",
+	# "ubi:superfly/flyctl",
+	# "ubi:jandedobbeleer/oh-my-posh",
+	# "ubi:topgrade-rs/topgrade",
 ]
 flatpakPackages = [
 	"it.mijorus.gearlever",
@@ -54,15 +54,15 @@ ubuntu = ["ubuntu debian", "ubuntu"]
 fedora = ["fedora", "nobara"]
 
 [tools]
-usage = "latest"
-go = "latest"
-neovim = "latest"
-node = "latest"
-python = "3.12"
-php = ""
-task = "latest"
-flyctl = "latest"
-github-cli = "latest"
+# usage = "latest"
+# go = "latest"
+# neovim = "latest"
+# node = "latest"
+# python = "latest"
+# php = ""
+# task = "latest"
+# flyctl = "latest"
+# github-cli = "latest"
 
 [ssh]
 aliasSuffix = "lan.brazier.cloud"
@@ -74,10 +74,6 @@ user = "start"
 
 [[ssh.aliases]]
 host = "hass"
-user = "root"
-
-[[ssh.aliases]]
-host = "apps"
 user = "root"
 
 [[ssh.aliases]]

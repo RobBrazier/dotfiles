@@ -6,8 +6,12 @@ fi
 
 echo "Installing mise plugins and tools"
 
-mise settings set experimental true
+#mise settings set experimental true
+#mise settings add disable_hints outdated_bump
 mise self-update --no-plugins
+
+# .config/mise/config.local.toml hash: {{ include "dot_config/mise/config.local.toml" | sha256sum }}
+mise upgrade
 
 {{ range $tool, $version := .tools }}
 if mise plugins --core | grep -wq {{ $tool }}; then
