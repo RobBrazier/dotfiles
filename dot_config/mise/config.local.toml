@@ -8,7 +8,6 @@ go = "latest"
 node = "latest"
 usage = "latest"
 python = "latest"
-"cargo:bob-nvim" = "latest"
 "ubi:cli/cli" = { version = "latest", exe = "gh" }
 "ubi:go-task/task" = "latest"
 "ubi:a-h/templ" = "latest"

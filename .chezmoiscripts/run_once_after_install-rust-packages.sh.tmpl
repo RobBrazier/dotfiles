@@ -3,4 +3,8 @@
 cargo install cargo-binstall
 cargo binstall -y {{ .rustPackages | join " " }}
 
+if type bob >/dev/null 2>&1; then
+	bob use stable
+fi
+
 # vim: set syntax=bash:

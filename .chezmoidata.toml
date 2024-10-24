@@ -14,7 +14,7 @@ packages = [
 	"ripgrep",
 	"bat",
 ]
-rustPackages = ["cargo-update", "cargo-info", "bacon", "zoxide"]
+rustPackages = ["cargo-update", "cargo-info", "bacon", "zoxide", "bob-nvim"]
 miseBinaries = [
 	# "ubi:a-h/templ",
 	# "ubi:superfly/flyctl",
