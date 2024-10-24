@@ -1,3 +1,4 @@
-if command -v oh-my-posh &>/dev/null; then
-	eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.yaml)"
+if mise which oh-my-posh &>/dev/null; then
+	posh="$(mise which oh-my-posh)"
+	eval "$($posh init zsh --config $HOME/.config/ohmyposh/zen.yaml)"
 fi

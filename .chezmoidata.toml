@@ -15,7 +15,12 @@ packages = [
 	"bat",
 ]
 rustPackages = ["cargo-update", "cargo-info", "bacon", "zoxide"]
-miseBinaries = []
+miseBinaries = [
+	"ubi:a-h/templ",
+	"ubi:superfly/flyctl",
+	"ubi:jandedobbeleer/oh-my-posh",
+	"ubi:topgrade-rs/topgrade",
+]
 flatpakPackages = [
 	"it.mijorus.gearlever",
 	"org.wezfurlong.wezterm",
@@ -28,10 +33,7 @@ flatpakPackages = [
 shell = "zsh"
 
 [githubPackages]
-flyctl = "superfly/flyctl"
-templ = "a-h/templ"
-topgrade = "topgrade-rs/topgrade"
-oh-my-posh = "jandedobbeleer/oh-my-posh"
+# topgrade = "topgrade-rs/topgrade"
 
 [git]
 name = "Rob Brazier"
@@ -56,9 +58,11 @@ usage = "latest"
 go = "latest"
 neovim = "latest"
 node = "latest"
-python = "pypy3.9"
+python = "3.12"
 php = ""
 task = "latest"
+flyctl = "latest"
+github-cli = "latest"
 
 [ssh]
 aliasSuffix = "lan.brazier.cloud"

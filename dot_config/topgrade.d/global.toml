@@ -1,2 +1,5 @@
 [misc]
 skip_notify = true
+no_self_update = true
+
+disable = ["bun"]

@@ -7,6 +7,7 @@ fi
 echo "Installing mise plugins and tools"
 
 mise settings set experimental true
+mise self-update --no-plugins
 
 {{ range $tool, $version := .tools }}
 if mise plugins --core | grep -wq {{ $tool }}; then
