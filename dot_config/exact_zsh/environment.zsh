@@ -10,4 +10,6 @@ if mise which gh &>/dev/null && mise x -- gh auth status &>/dev/null; then
 	export CHEZMOI_GITHUB_ACCESS_TOKEN="$GITHUB_API_TOKEN"
 	# bin
 	export GITHUB_AUTH_TOKEN="$GITHUB_API_TOKEN"
+	# bob-nvim
+	export GITHUB_TOKEN="$GITHUB_API_TOKEN"
 fi
