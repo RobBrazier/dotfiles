@@ -4,7 +4,6 @@ disable_hints = ["outdated_bump"]
 
 [tools]
 go = "latest"
-# neovim = "latest"
 node = "latest"
 usage = "latest"
 python = "latest"
@@ -14,3 +13,4 @@ python = "latest"
 "ubi:superfly/flyctl" = "latest"
 "ubi:jandedobbeleer/oh-my-posh" = "latest"
 "ubi:topgrade-rs/topgrade" = "latest"
+"ubi:direnv/direnv" = "latest"

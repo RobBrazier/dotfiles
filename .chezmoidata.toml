@@ -1,7 +1,6 @@
 packages = [
 	"git",
 	"curl",
-	"direnv",
 	"wget",
 	"jq",
 	"flatpak",
