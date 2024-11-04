@@ -24,8 +24,8 @@ elif command_exists 'direnv'; then
 	eval "$(direnv hook zsh)"
 fi
 
-if mise which bob &>/dev/null; then
-	eval "$(mise x -- bob complete zsh)"
+if command_exists 'bob'; then
+	eval "$(bob complete zsh)"
 	export PATH="$HOME/.local/share/bob/nvim-bin/:$PATH"
 fi
 

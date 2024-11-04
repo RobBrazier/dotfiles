@@ -8,6 +8,8 @@ user_pref("user.theme.light.gruvbox", false);
 user_pref("user.theme.dark.midnight", false);
 
 /*titlebar*/
+user_pref("ultima.fix.gnome.titlebar", false);
+user_pref("ultima.fix.gnome.titlebar.small", false);
 user_pref("ultima.keep.titlebar", true);
 
 /*tabs*/
@@ -20,8 +22,10 @@ user_pref("ultima.sidebery.autohide", true);
 user_pref("ultima.sidebar.hidden", false);
 user_pref("ultima.sidebar.longer", true);
 
-/*extension theme on-off*/
+/*extra theming*/
 user_pref("ultima.theme.extensions", true);
+user_pref("ultima.theme.color.swap", true);
+user_pref("ultima.theme.icons", true);
 
 /*url bar*/
 user_pref("ultima.urlbar.suggestions", true);
@@ -36,6 +40,7 @@ user_pref("ultima.xstyle.containertabs.iii", true);
 user_pref("ultima.xstyle.lwtheme", false);
 user_pref("ultima.xstyle.pinnedtabs.i", false); 
 user_pref("ultima.xstyle.private", false);
+user_pref("ultima.xstyle.disable.alltabsbutton", true);
 
 /*specific OS overrides (like titlebar buttons)*/
 /*user_pref("ultima.OS.kde", true);
