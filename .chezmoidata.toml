@@ -22,7 +22,6 @@ miseBinaries = [
 ]
 flatpakPackages = [
 	"it.mijorus.gearlever",
-	"org.wezfurlong.wezterm",
 	"io.github.giantpinkrobots.flatsweep",
 	"com.github.tchx84.Flatseal",
 	"org.localsend.localsend_app",
