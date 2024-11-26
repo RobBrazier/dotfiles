@@ -24,6 +24,10 @@ elif command_exists 'direnv'; then
 	eval "$(direnv hook zsh)"
 fi
 
+if mise which zoxide &>/dev/null; then
+	eval "$(mise x -- zoxide init zsh)"
+fi
+
 # Nix
 if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then 
 	source "$HOME/.nix-profile/etc/profile.d/nix.sh"

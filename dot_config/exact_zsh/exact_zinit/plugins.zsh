@@ -7,6 +7,6 @@ zinit wait lucid light-mode for \
 	blockf atpull'zinit creinstall -q .' \
 		zsh-users/zsh-completions \
 	atinit"zicompinit; zicdreplay" \
-		hlissner/zsh-autopair \
-	atinit"zicompinit; zicdreplay" \
-		Aloxaf/fzf-tab
+		hlissner/zsh-autopair
+	# atinit"zicompinit; zicdreplay" \
+	# 	Aloxaf/fzf-tab
