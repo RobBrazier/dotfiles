@@ -51,17 +51,6 @@ arch = ["arch"]
 ubuntu = ["ubuntu debian", "ubuntu"]
 fedora = ["fedora", "nobara"]
 
-[tools]
-# usage = "latest"
-# go = "latest"
-# neovim = "latest"
-# node = "latest"
-# python = "latest"
-# php = ""
-# task = "latest"
-# flyctl = "latest"
-# github-cli = "latest"
-
 [ssh]
 aliasSuffix = "lan.brazier.cloud"
 types = { git = "ed25519", id = "ed25519" }

@@ -6,34 +6,11 @@ fi
 
 echo "Installing mise plugins and tools"
 
-#mise settings set experimental true
-#mise settings add disable_hints outdated_bump
 mise self-update --no-plugins
 
 # .config/mise/config.local.toml hash: {{ include "dot_config/mise/config.local.toml" | sha256sum }}
+mise plugins uninstall -ap
 mise upgrade
-
-{{ range $tool, $version := .tools }}
-if mise plugins --core | grep -wq {{ $tool }}; then
-  echo "Plugin {{ $tool }} is core, skipping"
-else
-  if mise plugins | grep -wq {{ $tool }}; then
-    echo "Plugin {{ $tool }} is already installed, skipping"
-  else
-    mise plugin install {{ $tool }} -y || true
-  fi
-fi
-if [ "{{ $version }}" != "" ]; then
-  if mise ls --current {{ $tool }} > /dev/null 2>&1 && mise ls --current {{ $tool }} --no-header | awk -F' ' '{ print $4 }' | grep -wq "{{ $version }}"; then
-    echo "Tool {{ $tool }}@{{ $version }} is already installed, skipping"
-  else
-    mise use -g {{ $tool }}@{{ $version }}
-  fi
-fi
-{{ end }}
-
-{{ range $_, $bin := .miseBinaries }}
-mise use -g {{ $bin }}
-{{ end }}
+mise prune
 
 # vim: set syntax=bash:
