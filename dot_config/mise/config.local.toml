@@ -3,15 +3,17 @@ experimental = true
 disable_hints = ["outdated_bump"]
 
 [tools]
-"aqua:bitwarden/clients" = "latest"
-"aqua:cli/cli" = "latest"
-"aqua:direnv/direnv" = "latest"
 "ubi:a-h/templ" = "latest"
 "ubi:go-task/task" = "latest"
 "ubi:jandedobbeleer/oh-my-posh" = "latest"
 "ubi:jdx/usage" = "latest"
 "ubi:superfly/flyctl" = "latest"
 "ubi:topgrade-rs/topgrade" = "latest"
+bitwarden = "latest"
+direnv = "latest"
+gh = "latest"
 go = "latest"
+neovim = "latest"
 node = "latest"
 python = "latest"
+zoxide = "latest"

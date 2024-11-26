@@ -24,11 +24,6 @@ elif command_exists 'direnv'; then
 	eval "$(direnv hook zsh)"
 fi
 
-if command_exists 'bob'; then
-	eval "$(bob complete zsh)"
-	export PATH="$HOME/.local/share/bob/nvim-bin/:$PATH"
-fi
-
 # Nix
 if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then 
 	source "$HOME/.nix-profile/etc/profile.d/nix.sh"
