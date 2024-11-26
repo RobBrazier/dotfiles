@@ -3,11 +3,14 @@ experimental = true
 disable_hints = ["outdated_bump"]
 
 [tools]
+"cargo:bacon" = "latest"
+"cargo:cargo-info" = "latest"
 "ubi:a-h/templ" = "latest"
 "ubi:jandedobbeleer/oh-my-posh" = "latest"
 "ubi:topgrade-rs/topgrade" = "latest"
 bat = "latest"
 bitwarden = "latest"
+cargo-binstall = "latest"
 direnv = "latest"
 fd = "latest"
 flyctl = "latest"

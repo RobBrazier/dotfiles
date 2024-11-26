@@ -13,13 +13,6 @@ packages = [
 	"ripgrep",
 	"bat",
 ]
-rustPackages = ["cargo-update", "cargo-info", "bacon"]
-miseBinaries = [
-	# "ubi:a-h/templ",
-	# "ubi:superfly/flyctl",
-	# "ubi:jandedobbeleer/oh-my-posh",
-	# "ubi:topgrade-rs/topgrade",
-]
 flatpakPackages = [
 	"it.mijorus.gearlever",
 	"io.github.giantpinkrobots.flatsweep",
@@ -54,10 +47,6 @@ fedora = ["fedora", "nobara"]
 [ssh]
 aliasSuffix = "lan.brazier.cloud"
 types = { git = "ed25519", id = "ed25519" }
-
-[[ssh.aliases]]
-host = "start"
-user = "start"
 
 [[ssh.aliases]]
 host = "hass"
