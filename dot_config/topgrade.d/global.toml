@@ -2,7 +2,7 @@
 skip_notify = true
 no_self_update = true
 
-disable = ["bun"]
+disable = ["bun", "nix"]
 
 [commands]
 "mise upgrade" = "mise self-update -y"
