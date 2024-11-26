@@ -3,6 +3,7 @@ return {
   {
     'linux-cultist/venv-selector.nvim',
     dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim' },
+    enabled = false,
     ft = 'py',
     opts = {
       -- Your options go here
