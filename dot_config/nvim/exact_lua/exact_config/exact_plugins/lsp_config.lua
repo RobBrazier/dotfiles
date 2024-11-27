@@ -99,14 +99,12 @@ M.servers = {
     },
   },
   dockerls = {},
-  ansiblels = {},
 }
 
 M.tools = {
   'stylua',
   'goimports',
   'ts_ls',
-  'ansible-lint',
 }
 
 return M
