@@ -2,8 +2,8 @@
 skip_notify = true
 no_self_update = true
 
-disable = ["bun", "nix"]
+disable = ["bun", "nix", "cargo"]
 
 [commands]
 "mise upgrade" = "mise self-update -y"
-"chezmoi upgrade" = "chezmoi upgrade"
+"chezmoi upgrade" = "chezmoi upgrade || true"
