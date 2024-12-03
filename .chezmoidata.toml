@@ -70,3 +70,6 @@ user = "Rob"
 
 [nerdfonts]
 fonts = ["SourceCodePro", "JetBrainsMono", "FiraCode", "CascadiaCode"]
+
+[ffultima]
+version = "1.9.3"
