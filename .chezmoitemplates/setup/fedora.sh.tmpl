@@ -9,7 +9,12 @@ sudo dnf update -y
 # System Utilities
 install_packages {{ .packages | join " " }} btop util-linux-user perl-File-Compare openssl-devel gcc g++
 
-sudo dnf copr enable wezfurlong/wezterm-nightly
+copr_repos=(wezfurlong/wezterm-nightly)
+for repo in "${copr_repos[@]}"; do
+    if dnf copr list | grep -qv "$repo"; then
+        sudo dnf copr enable "$repo"
+    fi
+done
 
 # GUI applications
 install_packages firefox wezterm
