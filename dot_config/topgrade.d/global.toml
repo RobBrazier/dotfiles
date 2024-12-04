@@ -1,6 +1,7 @@
 [misc]
 skip_notify = true
 no_self_update = true
+pre_sudo = true
 
 disable = ["bun", "nix", "cargo"]
 
