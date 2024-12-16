@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 config_dir="$HOME/.config/nvim"
-chezmoi_source="$HOME/.local/share/chezmoi/dot_config/nvim"
 nvim $config_dir --cmd "cd $config_dir" $@
 echo "Cleaning nvim files"
+chezmoi_source="$(chezmoi source-path)/dot_config/nvim"
 find "$chezmoi_source" -maxdepth 1 -mindepth 1 | xargs -r rm -r
 echo "Updating files in chezmoi"
 find "$config_dir" -maxdepth 1 -mindepth 1 -not -name lazy-lock.json | xargs -r chezmoi add -r --exact
