@@ -11,6 +11,7 @@ return {
       integrations = {
         blink_cmp = true,
         which_key = true,
+        noice = true,
       },
     },
     config = function(_, opts)

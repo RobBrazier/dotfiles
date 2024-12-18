@@ -15,6 +15,7 @@ M.ensure_installed = {
   'rust',
   'astro',
   'python',
+  'regex',
 }
 
 return M
