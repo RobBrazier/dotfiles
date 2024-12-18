@@ -8,7 +8,7 @@ local config = {
 
 return {
   {
-    'blink.cmp',
+    'Saghen/blink.cmp',
     dependencies = {
       -- Copilot completion
       {
@@ -47,6 +47,10 @@ return {
     },
     opts = function(_, opts)
       if config.service ~= 'none' then
+        opts.sources.providers[config.service] = {
+          name = config.service,
+          module = 'blink.compat.source',
+        }
         table.insert(opts.sources.default, config.service)
       end
       return opts

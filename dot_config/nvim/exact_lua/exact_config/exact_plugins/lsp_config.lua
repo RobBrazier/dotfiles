@@ -35,7 +35,7 @@ M.servers = {
   --    https://github.com/pmizio/typescript-tools.nvim
   --
   -- But for many setups, the LSP (`ts_ls`) will work just fine
-  -- ts_ls = {},
+  ts_ls = {},
   --
   templ = {},
   -- htmx = {},
@@ -104,7 +104,6 @@ M.servers = {
 M.tools = {
   'stylua',
   'goimports',
-  'ts_ls',
 }
 
 return M

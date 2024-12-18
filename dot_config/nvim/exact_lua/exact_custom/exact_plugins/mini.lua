@@ -25,11 +25,6 @@ return {
         },
       }
       opts.move = {}
-      opts.notify = {
-        lsp_process = {
-          enable = false,
-        },
-      }
       opts.pairs = {}
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
@@ -45,8 +40,6 @@ return {
       for key, value in pairs(opts) do
         require('mini.' .. key).setup(value)
       end
-
-      vim.notify = require('mini.notify').make_notify()
 
       vim.keymap.set('n', '<leader>fe', function()
         require('mini.files').open()

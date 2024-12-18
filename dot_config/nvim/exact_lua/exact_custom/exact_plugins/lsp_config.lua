@@ -8,8 +8,6 @@ return {
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       'b0o/schemastore.nvim',
 
-      -- Useful status updates for LSP.
-      'j-hui/fidget.nvim',
       {
         -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
         -- used for completion, annotations and signatures of Neovim apis
