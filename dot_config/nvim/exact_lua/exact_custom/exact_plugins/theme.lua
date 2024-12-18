@@ -12,6 +12,7 @@ return {
         blink_cmp = true,
         which_key = true,
         noice = true,
+        snacks = true,
       },
     },
     config = function(_, opts)

@@ -44,6 +44,8 @@ return {
       vim.keymap.set('n', '<leader>fe', function()
         require('mini.files').open()
       end, { desc = '[F]ile [E]xplorer' })
+      MiniIcons.mock_nvim_web_devicons()
+      MiniIcons.tweak_lsp_kind()
     end,
     init = function()
       vim.api.nvim_create_autocmd('FileType', {
