@@ -1,18 +1,6 @@
 return {
-  -- Simple file explorer
-  -- Separated out for lazy loading
-  {
-    'echasnovski/mini.files',
-    opts = {},
-    keys = {
-      { '<leader>fe', '<cmd>lua MiniFiles.open()<cr>', desc = '[F]ile [E]xplorer' },
-    },
-  },
   {
     'echasnovski/mini.nvim',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
     opts = function(_, opts)
       -- Better Around/Inside textobjects
       --
@@ -23,15 +11,9 @@ return {
       opts.ai = {
         n_lines = 500,
       }
-      -- Add/delete/replace surroundings (brackets, quotes, etc.)
-      --
-      -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-      -- - sd'   - [S]urround [D]elete [']quotes
-      -- - sr)'  - [S]urround [R]eplace [)] [']
-      opts.surround = {}
-      opts.statusline = {}
-      opts.move = {}
       opts.comment = {}
+      opts.files = {}
+      opts.icons = {}
       opts.indentscope = {
         symbol = '│',
         draw = {
@@ -42,12 +24,33 @@ return {
           try_as_border = true,
         },
       }
+      opts.move = {}
+      opts.notify = {
+        lsp_process = {
+          enable = false,
+        },
+      }
+      opts.pairs = {}
+      -- Add/delete/replace surroundings (brackets, quotes, etc.)
+      --
+      -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+      -- - sd'   - [S]urround [D]elete [']quotes
+      -- - sr)'  - [S]urround [R]eplace [)] [']
+      opts.surround = {}
+      opts.statusline = {}
+      opts.trailspace = {}
       return opts
     end,
     config = function(_, opts)
       for key, value in pairs(opts) do
         require('mini.' .. key).setup(value)
       end
+
+      vim.notify = require('mini.notify').make_notify()
+
+      vim.keymap.set('n', '<leader>fe', function()
+        require('mini.files').open()
+      end, { desc = '[F]ile [E]xplorer' })
     end,
     init = function()
       vim.api.nvim_create_autocmd('FileType', {

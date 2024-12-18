@@ -8,7 +8,7 @@ local config = {
 
 return {
   {
-    'nvim-cmp',
+    'blink.cmp',
     dependencies = {
       -- Copilot completion
       {
@@ -47,7 +47,7 @@ return {
     },
     opts = function(_, opts)
       if config.service ~= 'none' then
-        table.insert(opts.sources, { name = config.service, priority = 100 })
+        table.insert(opts.sources.default, config.service)
       end
       return opts
     end,

@@ -30,7 +30,7 @@ return {
       },
     },
     opts = {
-      kind = 'auto',
+      kind = 'floating',
     },
   },
 }

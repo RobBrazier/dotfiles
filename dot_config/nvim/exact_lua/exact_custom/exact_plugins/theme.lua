@@ -9,9 +9,8 @@ return {
     opts = {
       transparent_background = config.transparent,
       integrations = {
+        blink_cmp = true,
         which_key = true,
-        fidget = true,
-        notify = true,
       },
     },
     config = function(_, opts)
