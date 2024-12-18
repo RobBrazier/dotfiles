@@ -10,6 +10,7 @@ return {
   {
     'Saghen/blink.cmp',
     dependencies = {
+      'Saghen/blink.compat',
       -- Copilot completion
       {
         'zbirenbaum/copilot-cmp',
@@ -29,7 +30,15 @@ return {
         'Exafunction/codeium.nvim',
         enabled = config.service == 'codeium',
         build = ':Codeium Auth',
-        opts = {},
+        opts = {
+          enable_cmp_source = true,
+          virtual_text = {
+            enabled = false,
+            key_bindings = {
+              accept = false,
+            },
+          },
+        },
       },
       {
         'supermaven-inc/supermaven-nvim',
@@ -49,6 +58,8 @@ return {
       if config.service ~= 'none' then
         opts.sources.providers[config.service] = {
           name = config.service,
+          score_offset = 100,
+          async = true,
           module = 'blink.compat.source',
         }
         table.insert(opts.sources.default, config.service)
