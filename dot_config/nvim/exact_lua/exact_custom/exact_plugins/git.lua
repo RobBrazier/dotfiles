@@ -30,7 +30,10 @@ return {
       },
     },
     opts = {
-      kind = 'floating',
+      kind = 'auto',
+      commit_editor = {
+        kind = 'floating',
+      },
     },
   },
 }
