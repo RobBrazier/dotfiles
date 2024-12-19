@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 config_dir="$HOME/.config/nvim"
-nvim $config_dir --cmd "cd $config_dir" $@
+nvim --cmd "cd $config_dir" $@
 echo "Cleaning nvim files"
 chezmoi_source="$(chezmoi source-path)/dot_config/nvim"
 find "$chezmoi_source" -maxdepth 1 -mindepth 1 | xargs -r rm -r

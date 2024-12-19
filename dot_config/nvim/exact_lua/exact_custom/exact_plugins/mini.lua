@@ -32,8 +32,15 @@ return {
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       opts.surround = {}
+      opts.starter = {
+        evaluate_single = true,
+        items = {
+          require('mini.starter').sections.recent_files(5, false, false),
+          { name = 'Lazy', action = 'Lazy', section = 'Builtin actions' },
+          require('mini.starter').sections.builtin_actions(),
+        },
+      }
       opts.statusline = {}
-      opts.trailspace = {}
       return opts
     end,
     config = function(_, opts)
