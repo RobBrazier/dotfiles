@@ -36,8 +36,9 @@ return {
         evaluate_single = true,
         items = {
           require('mini.starter').sections.recent_files(5, false, false),
-          { name = 'Lazy', action = 'Lazy', section = 'Builtin actions' },
+          { name = 'Lazy', action = 'Lazy', section = 'Actions' },
           require('mini.starter').sections.builtin_actions(),
+          { name = 'File Picker', action = 'lua MiniFiles.open()', section = 'Actions' },
         },
       }
       opts.statusline = {}
