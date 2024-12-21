@@ -4,18 +4,10 @@ return {
     version = 'v0.*',
     dependencies = {
       'rafamadriz/friendly-snippets',
-      'echasnovski/mini.nvim',
     },
     opts = {
       keymap = { preset = 'default' },
-      appearance = {
-        use_nvim_cmp_as_default = false,
-        nerd_font_variant = 'mono',
-      },
       completion = {
-        auto_brackets = {
-          enabled = true,
-        },
         menu = {
           draw = {
             columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon', 'kind', gap = 1 } },
@@ -27,11 +19,6 @@ return {
           auto_show_delay_ms = 200,
         },
         ghost_text = {
-          enabled = true,
-        },
-      },
-      trigger = {
-        signature_help = {
           enabled = true,
         },
       },
