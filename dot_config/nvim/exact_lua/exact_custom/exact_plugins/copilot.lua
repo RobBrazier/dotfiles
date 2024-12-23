@@ -2,19 +2,28 @@ local config = {
   -- service = 'copilot',
   -- service = 'codeium',
   -- service = 'supermaven',
-  -- service = 'cody',
   service = 'none',
+}
+local blink_config = {
+  codeium = {
+    kind = 'Codeium',
+  },
+  copilot = {
+    module = 'blink-cmp-copilot',
+    kind = 'Copilot',
+  },
+  supermaven = {
+    kind = 'Supermaven',
+  },
 }
 
 return {
   {
     'Saghen/blink.cmp',
     dependencies = {
-      'Saghen/blink.compat',
       -- Copilot completion
       {
-        'zbirenbaum/copilot-cmp',
-        opts = {},
+        'giuxtaposition/blink-cmp-copilot',
         enabled = config.service == 'copilot',
         dependencies = {
           'zbirenbaum/copilot.lua',
@@ -28,40 +37,37 @@ return {
       },
       {
         'Exafunction/codeium.nvim',
+        dependencies = {
+          'Saghen/blink.compat',
+        },
         enabled = config.service == 'codeium',
         build = ':Codeium Auth',
-        opts = {
-          enable_cmp_source = true,
-          virtual_text = {
-            enabled = false,
-            key_bindings = {
-              accept = false,
-            },
-          },
-        },
+        opts = {},
       },
       {
         'supermaven-inc/supermaven-nvim',
+        dependencies = {
+          'Saghen/blink.compat',
+        },
         enabled = config.service == 'supermaven',
         opts = {
           disable_inline_completion = true,
           disable_keymaps = true,
         },
       },
-      {
-        'sourcegraph/sg.nvim',
-        enabled = config.service == 'cody',
-        opts = {},
-      },
     },
     opts = function(_, opts)
       if config.service ~= 'none' then
-        opts.sources.providers[config.service] = {
+        local providers = opts.sources.providers
+        providers[config.service] = {
           name = config.service,
-          score_offset = 100,
           async = true,
           module = 'blink.compat.source',
+          score_offset = 50,
         }
+        if blink_config[config.service] ~= nil then
+          providers[config.service] = vim.tbl_extend('force', providers[config.service], blink_config[config.service])
+        end
         table.insert(opts.sources.default, config.service)
       end
       return opts
