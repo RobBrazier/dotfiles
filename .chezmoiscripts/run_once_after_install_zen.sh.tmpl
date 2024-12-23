@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+{{ $latestVersion := (gitHubLatestRelease "zen-browser/desktop").TagName }}
+echo 'Installing Zen Browser {{ $latestVersion }} to /opt/zen'
+sudo -v
+
+{{ $downloadUrl := joinPath "https://github.com/zen-browser/desktop/releases/download" $latestVersion "zen.linux-specific.tar.bz2"}}
+echo 'Downloading {{ $downloadUrl }}'
+wget -qO- {{ $downloadUrl }} | sudo tar xjf - -C /opt
+sudo ln -sf /opt/zen/zen /usr/local/bin/zen
+echo "Successfully installed Zen v{{ $latestVersion }}"
