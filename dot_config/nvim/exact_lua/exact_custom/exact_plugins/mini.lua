@@ -32,13 +32,26 @@ return {
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       opts.surround = {}
+      local starter = require 'mini.starter'
+      opts.sessions = {}
       opts.starter = {
         evaluate_single = true,
         items = {
-          require('mini.starter').sections.recent_files(5, false, false),
-          { name = 'Lazy', action = 'Lazy', section = 'Actions' },
-          require('mini.starter').sections.builtin_actions(),
-          { name = 'File Picker', action = 'lua MiniFiles.open()', section = 'Actions' },
+          function()
+            return starter.sections.sessions(5, true)()
+          end,
+          {
+            { name = 'File Explorer', action = 'lua MiniFiles.open()', section = 'Actions' },
+            { name = 'Edit new buffer', action = 'enew', section = 'Actions' },
+            { name = 'Quit Neovim', action = 'qall', section = 'Actions' },
+            { name = 'Lazy', action = 'Lazy', section = 'Actions' },
+          },
+        },
+        content_hooks = {
+          starter.gen_hook.adding_bullet(),
+          starter.gen_hook.aligning('center', 'center'),
+          starter.gen_hook.indexing('all', { 'Actions' }),
+          starter.gen_hook.padding(3, 2),
         },
       }
       opts.statusline = {}
@@ -52,8 +65,9 @@ return {
       vim.keymap.set('n', '<leader>fe', function()
         require('mini.files').open()
       end, { desc = '[F]ile [E]xplorer' })
-      MiniIcons.mock_nvim_web_devicons()
-      MiniIcons.tweak_lsp_kind()
+
+      require('mini.icons').mock_nvim_web_devicons()
+      require('mini.icons').tweak_lsp_kind()
     end,
     init = function()
       vim.api.nvim_create_autocmd('FileType', {
