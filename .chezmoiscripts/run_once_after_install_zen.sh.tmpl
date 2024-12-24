@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 
-{{ $latestVersion := (gitHubLatestRelease "zen-browser/desktop").TagName }}
+set -euo pipefail
+
+{{ $repo := "zen-browser/desktop" }}
+{{ $latestVersion := (gitHubLatestRelease $repo).TagName }}
+{{ $downloadUrl := gitHubReleaseAssetURL $repo $latestVersion (printf "zen.%s-x86_64.tar.bz2" .chezmoi.os) }}
 echo 'Installing Zen Browser {{ $latestVersion }} to /opt/zen'
 sudo -v
 
-{{ $downloadUrl := joinPath "https://github.com/zen-browser/desktop/releases/download" $latestVersion "zen.linux-specific.tar.bz2"}}
 echo 'Downloading {{ $downloadUrl }}'
+if [ -z "{{ $downloadUrl }}" ]; then
+	echo "Couldn't find matching download url for {{ .chezmoi.os }} {{ .chezmoi.arch }}"
+	exit 1
+fi
 wget -qO- {{ $downloadUrl }} | sudo tar xjf - -C /opt
 sudo ln -sf /opt/zen/zen /usr/local/bin/zen
 echo "Successfully installed Zen v{{ $latestVersion }}"
