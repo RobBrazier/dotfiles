@@ -63,7 +63,7 @@ return {
           name = config.service,
           async = true,
           module = 'blink.compat.source',
-          score_offset = 50,
+          score_offset = -100,
         }
         if blink_config[config.service] ~= nil then
           providers[config.service] = vim.tbl_extend('force', providers[config.service], blink_config[config.service])
