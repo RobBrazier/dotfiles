@@ -25,7 +25,7 @@ return {
         },
       }
       opts.move = {}
-      opts.pairs = {}
+      -- opts.pairs = {}
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren

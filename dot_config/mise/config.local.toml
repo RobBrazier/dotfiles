@@ -3,7 +3,6 @@ experimental = true
 disable_hints = ["outdated_bump"]
 
 [tools]
-"cargo:bacon" = "latest"
 "cargo:cargo-info" = "latest"
 "ubi:a-h/templ" = "latest"
 "ubi:jandedobbeleer/oh-my-posh" = "latest"
@@ -22,6 +21,7 @@ neovim = "latest"
 node = "lts"
 python = "latest"
 ripgrep = "latest"
+rust = "latest"
 task = "latest"
 usage = "latest"
 zoxide = "latest"
