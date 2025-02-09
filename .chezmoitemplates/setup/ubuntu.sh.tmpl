@@ -6,22 +6,8 @@ install_packages() {
     sudo apt install -y $@
 }
 
-# Add fish PPA
-if [ "$(apt-cache policy | grep -c fish-shell)" -eq "0" ]; then
-    echo "Installing fish PPA"
-    sudo apt-add-repository -y ppa:fish-shell/release-3
-    sudo apt update
-fi
-
-# Add neovim PPA
-#if [ "$(apt-cache policy | grep -c neovim-ppa)" -eq "0" ]; then
-#    echo "Installing neovim PPA"
-#    sudo apt-add-repository -y ppa:neovim-ppa/unstable
-#    sudo apt update
-#fi
-
 # System Utilities
-install_packages {{ .packages | join " " }} build-essential apt-transport-https silversearcher-ag btop
+install_packages {{ .packages | join " " }} build-essential apt-transport-https btop gcc libssl-dev g++
 
 # Add firefox PPA
 if [ "$(apt-cache policy | grep -c mozillateam)" -eq "0" ]; then

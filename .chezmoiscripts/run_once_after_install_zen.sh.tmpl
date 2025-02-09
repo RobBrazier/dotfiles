@@ -4,7 +4,7 @@ set -euo pipefail
 
 {{ $repo := "zen-browser/desktop" }}
 {{ $latestVersion := (gitHubLatestRelease $repo).TagName }}
-{{ $downloadUrl := gitHubReleaseAssetURL $repo $latestVersion (printf "zen.%s-x86_64.tar.bz2" .chezmoi.os) }}
+{{ $downloadUrl := gitHubReleaseAssetURL $repo $latestVersion (printf "zen.%s-x86_64.tar.xz" .chezmoi.os) }}
 echo 'Installing Zen Browser {{ $latestVersion }} to /opt/zen'
 sudo -v
 
@@ -13,6 +13,6 @@ if [ -z "{{ $downloadUrl }}" ]; then
 	echo "Couldn't find matching download url for {{ .chezmoi.os }} {{ .chezmoi.arch }}"
 	exit 1
 fi
-wget -qO- {{ $downloadUrl }} | sudo tar xjf - -C /opt
+wget -qO- '{{ $downloadUrl }}' | sudo tar xJ -C /opt
 sudo ln -sf /opt/zen/zen /usr/local/bin/zen
-echo "Successfully installed Zen v{{ $latestVersion }}"
+echo 'Successfully installed Zen v{{ $latestVersion }}'
