@@ -3,8 +3,8 @@ skip_notify = true
 no_self_update = true
 pre_sudo = true
 
-disable = ["bun", "nix", "cargo"]
+disable = ["bun", "nix", "cargo", "rustup"]
 
 [commands]
-"mise upgrade" = "mise self-update -y"
-"chezmoi upgrade" = "chezmoi upgrade || true"
+"mise upgrade" = "mise self-update --yes"
+"chezmoi upgrade" = "chezmoi upgrade"
