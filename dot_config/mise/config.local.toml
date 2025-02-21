@@ -3,6 +3,7 @@ experimental = true
 disable_hints = ["outdated_bump"]
 
 [tools]
+"aqua:marcosnils/bin" = "latest"
 "cargo:cargo-info" = "latest"
 "ubi:a-h/templ" = "latest"
 "ubi:jandedobbeleer/oh-my-posh" = "latest"
