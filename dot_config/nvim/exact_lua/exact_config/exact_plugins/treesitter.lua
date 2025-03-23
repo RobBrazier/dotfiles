@@ -16,6 +16,7 @@ M.ensure_installed = {
   'astro',
   'python',
   'regex',
+  'terraform',
 }
 
 return M

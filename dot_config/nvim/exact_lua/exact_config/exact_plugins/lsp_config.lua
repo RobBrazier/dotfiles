@@ -93,6 +93,8 @@ M.servers = {
     },
   },
   dockerls = {},
+  terraformls = {},
+  tflint = {},
 }
 
 M.tools = {
