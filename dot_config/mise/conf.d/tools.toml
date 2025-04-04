@@ -1,9 +1,6 @@
-[settings]
-experimental = true
-disable_hints = ["outdated_bump"]
-
 [tools]
 "aqua:marcosnils/bin" = "latest"
+"cargo:bob-nvim" = "latest"
 "cargo:cargo-info" = "latest"
 "ubi:a-h/templ" = "latest"
 "ubi:jandedobbeleer/oh-my-posh" = "latest"
@@ -18,7 +15,6 @@ fzf = "latest"
 gh = "latest"
 git-cliff = "latest"
 go = "latest"
-neovim = "latest"
 node = "lts"
 python = "latest"
 ripgrep = "latest"

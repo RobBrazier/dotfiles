@@ -8,7 +8,7 @@ echo "Installing mise plugins and tools"
 
 mise self-update --no-plugins
 
-# .config/mise/config.local.toml hash: {{ include "dot_config/mise/config.local.toml" | sha256sum }}
+# .config/mise/config.local.toml hash: {{ include "dot_config/mise/conf.d/tools.toml" | sha256sum }}
 mise plugins uninstall -ap
 mise upgrade
 mise prune

@@ -1,1 +1,1 @@
-https://github.com/nvim-lua/kickstart.nvim/compare/4120893b8a1f31a0957f2f891f7fbef73ddfb9b1..HEAD
+https://github.com/nvim-lua/kickstart.nvim/compare/e947649cb0ee5ac3c75593288df04d4f58359106..HEAD
