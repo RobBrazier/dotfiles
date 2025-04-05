@@ -14,9 +14,8 @@ return {
     -- javascript = { "prettierd", "prettier", stop_after_first = true },
     templ = { 'templ' },
     fish = { 'fish_indent' },
-    hcl = { 'packer_fmt' },
-    terraform = { 'terraform_fmt' },
-    tf = { 'terraform_fmt' },
-    ['terraform-vars'] = { 'terraform_fmt' },
+    terraform = { 'tofu_fmt' },
+    tf = { 'tofu_fmt' },
+    ['terraform-vars'] = { 'tofu_fmt' },
   },
 }
