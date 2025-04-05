@@ -3,8 +3,9 @@ skip_notify = true
 no_self_update = true
 pre_sudo = true
 
-disable = ["bun", "nix", "cargo", "rustup"]
+disable = ["bun", "nix", "cargo", "rustup", "uv"]
 
 [commands]
 "mise upgrade" = "mise self-update --yes"
 "chezmoi upgrade" = "chezmoi upgrade"
+"calibre update" = "calibre-manager update"

@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+# Check dependencies are installed
+program="$(basename $0)"
+dependencies=(jq curl egrep)
+missingDeps=0
+for dependency in ${dependencies[@]}; do
+	if ! command -v $dependency >/dev/null 2>&1; then
+		echo "$dependency not found. Please install before running."
+		missingDeps=1
+	fi
+done
+if [ $missingDeps -eq 1 ]; then
+	exit 1
+fi
+
+extract_version() {
+	input="$@"
+	echo "$input" | egrep -o '([0-9\.]+)'
+}
+
+parse_version() {
+	if ! command -v calibre >/dev/null 2>&1; then
+		return 1
+	fi
+	extract_version "$(calibre --version)"
+	return 0
+}
+
+get_latest_version() {
+	tag_name=$(curl -s "https://api.github.com/repos/kovidgoyal/calibre/releases/latest" | jq '.tag_name')
+	extract_version "$tag_name"
+}
+
+sub_help() {
+	echo -e "Usage: $program <subcommand> [options]\n"
+	echo "Subcommands:"
+	echo "    version   View the current version installed"
+	echo "    update    Update calibre to the latest version"
+}
+
+sub_version() {
+	version="$(parse_version)"
+	if [ $? -eq 1 ]; then
+		echo "Calibre is not installed"
+	else
+		echo "Installed version: $version"
+	fi
+}
+
+do_update() {
+	output="$(mktemp)"
+	trap "rm $output" EXIT
+	curl -so "$output" "https://download.calibre-ebook.com/linux-installer.sh"
+	sudo sh $output
+}
+
+sub_update() {
+	new_version="$(get_latest_version)"
+	current_version="$(parse_version)"
+	if [ $? -eq 0 ] && [ "$new_version" == "$current_version" ]; then
+		echo "Already up to date!"
+		exit 0
+	fi
+	echo "New version available: $current_version => $new_version"
+	do_update
+}
+
+subcommand="$1"
+case "$subcommand" in
+	"" | "-h" | "--help")
+		sub_help
+		;;
+	*)
+		shift
+		sub_${subcommand} $@
+        if [ $? = 127 ]; then
+            echo "Error: '$subcommand' is not a known subcommand." >&2
+            echo "       Run '$program --help' for a list of known subcommands." >&2
+            exit 1
+        fi
+		;;
+esac
