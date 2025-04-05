@@ -20,7 +20,8 @@ return {
           },
         },
       },
-      'saghen/blink.cmp',
+      -- 'saghen/blink.cmp',
+      'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
       -- Brief Aside: **What is LSP?**
@@ -180,7 +181,8 @@ return {
       }
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
+      -- capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
+      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       local config = require 'config.plugins.lsp_config'
       local servers = config.servers
