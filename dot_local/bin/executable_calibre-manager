@@ -2,7 +2,7 @@
 
 # Check dependencies are installed
 program="$(basename $0)"
-dependencies=(jq curl egrep)
+dependencies=(jq curl grep)
 missingDeps=0
 for dependency in ${dependencies[@]}; do
 	if ! command -v $dependency >/dev/null 2>&1; then
@@ -16,7 +16,7 @@ fi
 
 extract_version() {
 	input="$@"
-	echo "$input" | egrep -o '([0-9\.]+)'
+	echo "$input" | grep -Eo '([0-9\.]+)'
 }
 
 parse_version() {
