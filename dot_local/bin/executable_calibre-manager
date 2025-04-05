@@ -35,8 +35,10 @@ get_latest_version() {
 sub_help() {
 	echo -e "Usage: $program <subcommand> [options]\n"
 	echo "Subcommands:"
-	echo "    version   View the current version installed"
-	echo "    update    Update calibre to the latest version"
+	echo "    version    View the current version installed"
+	echo "    install    Install calibre"
+	echo "    uninstall  Uninstall calibre"
+	echo "    update     Update calibre to the latest version"
 }
 
 sub_version() {
@@ -48,22 +50,43 @@ sub_version() {
 	fi
 }
 
-do_update() {
+do_install() {
 	output="$(mktemp)"
 	trap "rm $output" EXIT
 	curl -so "$output" "https://download.calibre-ebook.com/linux-installer.sh"
 	sudo sh $output
 }
 
+sub_install() {
+	current_version="$(parse_version)"
+	if [ $? -eq 0 ]; then
+		echo "Calibre is already installed - use '$program update' to update"
+		exit 1
+	fi
+	do_install
+}
+
 sub_update() {
 	new_version="$(get_latest_version)"
 	current_version="$(parse_version)"
-	if [ $? -eq 0 ] && [ "$new_version" == "$current_version" ]; then
+	if [ $? -ne 0 ]; then
+		echo "Calibre is not installed - use '$program install' to install"
+		exit 0
+	fi
+	if [ "$new_version" == "$current_version" ]; then
 		echo "Already up to date!"
 		exit 0
 	fi
 	echo "New version available: $current_version => $new_version"
-	do_update
+	do_install
+}
+
+sub_uninstall() {
+	if ! command -v calibre-uninstall >/dev/null 2>&1; then
+		echo "Calibre is not installed"
+		exit 1
+	fi
+	sudo calibre-uninstall
 }
 
 subcommand="$1"
