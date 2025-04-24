@@ -34,6 +34,7 @@ return {
       opts.surround = {}
       local starter = require 'mini.starter'
       opts.sessions = {}
+      opts.snippets = {}
       opts.starter = {
         evaluate_single = true,
         items = {
