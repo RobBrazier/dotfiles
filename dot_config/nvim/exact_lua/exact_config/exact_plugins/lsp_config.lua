@@ -13,14 +13,12 @@ local M = {}
 M.servers = {
   -- clangd = {},
   gopls = {},
-  pyright = {
+  basedpyright = {
     settings = {
-      pyright = {
+      basedpyright = {
         disableOrganizeImports = true, -- Using Ruff
-      },
-      python = {
         analysis = {
-          ignore = { '*' }, -- Using Ruff
+          typeCheckingMode = 'standard',
         },
       },
     },
