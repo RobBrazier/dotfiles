@@ -6,15 +6,6 @@ return {
     dependencies = {
       'rafamadriz/friendly-snippets',
       'echasnovski/mini.nvim',
-      -- {
-      --   'Exafunction/windsurf.nvim',
-      --   name = 'codeium.nvim',
-      --   opts = {
-      --     enable_cmp_source = false,
-      --     enable_chat = false,
-      --     virtual_text = false,
-      --   },
-      -- },
       'folke/lazydev.nvim',
     },
     opts = {
@@ -61,7 +52,6 @@ return {
         default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-          -- codeium = { name = 'Codeium', module = 'codeium.blink', async = true },
         },
       },
       snippets = { preset = 'mini_snippets' },

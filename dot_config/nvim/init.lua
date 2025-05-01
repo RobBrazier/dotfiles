@@ -4,7 +4,7 @@ require 'config.autocmds'
 
 require('custom.lazy').setup({
 
-  require 'kickstart.plugins.debug',
+  -- require 'kickstart.plugins.debug',
 
   { import = 'custom.plugins' },
 }, {
