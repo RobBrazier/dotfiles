@@ -39,7 +39,7 @@ let maplocalleader = ' '
 " These are some of the options enabled by default in Neovim
 " These are options believed by many Vim users to be essential.
 " For more information, see `:h vim_diff.txt` in Neovim
-" I will skip the 
+" I will skip the
 filetype on
 syntax on
 set autoindent autoread background=dark
@@ -65,7 +65,12 @@ set relativenumber
 set mouse=a
 
 " Don't show the mode, since it's already in the status line
-set noshowmode
+if has('ide')
+  set ideaput
+  set showmode
+else
+  set noshowmode
+endif
 
 " Sync clipboard between OS and Neovim.
 "  Remove this option if you want your OS clipboard to remain independent.
@@ -102,7 +107,7 @@ set updatetime=250
 
 " Decrease mapped sequence wait time
 " Displays vim-which-key sooner
-set timeoutlen=300
+" set timeoutlen=1000
 
 " Configure how new splits should be opened
 set splitright
@@ -133,21 +138,24 @@ nnoremap <Esc> :nohlsearch<CR>
 "
 " NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 " or just use <C-\><C-n> to exit terminal mode
-tnoremap <Esc><Esc> <C-\><C-n>
+if !has('ide')
+  tnoremap <Esc><Esc> <C-\><C-n>
+endif
 
 " Remap for dealing with word wrap
 nnoremap <expr> <silent> k v:count == 0 ? 'gk' : 'k'
 nnoremap <expr> <silent> j v:count == 0 ? 'gj' : 'j'
 
 " TIP: Disable arrow keys in normal mode
-nnoremap <left> :echo "Use h to move!!"<CR>
-nnoremap <right> :echo "Use l to move!!"<CR>
-nnoremap <up> :echo "Use k to move!!"<CR>
-nnoremap <down> :echo "Use j to move!!"<CR>
+if !has('ide')
+    nnoremap <left> :echo "Use h to move!!"<CR>
+    nnoremap <right> :echo "Use l to move!!"<CR>
+    nnoremap <up> :echo "Use k to move!!"<CR>
+    nnoremap <down> :echo "Use j to move!!"<CR>
+endif
 
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
-
 
 " [[ Install `vim-plug` plugin manager ]]
 "    See https://github.com/junegunn/vim-plug/ for more info
@@ -202,45 +210,62 @@ Plug 'vim-airline/vim-airline'
 Plug 'machakann/vim-sandwich'
 call plug#end()
 
+if has('ide')
+  " Enable IdeaVim plugins that replicate functionality
+  set surround
+  set commentary
+  set which-key
+  set ideajoin
+endif
 
 " [[ Configure plugins ]]
 " Set colorscheme
 set termguicolors
 colorscheme catppuccin_mocha
 
-
 " [[ Configure vim-which-key ]]
-call which_key#register('<Space>', "g:which_key_map")
-nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  '<Space>'<CR>
+if !has('ide')
+  call which_key#register('<Space>', "g:which_key_map")
+  nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+  nnoremap <silent> <localleader> :<c-u>WhichKey  '<Space>'<CR>
 
-" Document existing key chains
-let g:which_key_map =  {}
-let g:which_key_map.s = { 'name' : '[S]earch' }
-let g:which_key_map.h = { 'name' : 'Git [H]unk' }
-
+  " Document existing key chains
+  let g:which_key_map =  {}
+  let g:which_key_map.s = { 'name' : '[S]earch' }
+  let g:which_key_map.h = { 'name' : 'Git [H]unk' }
+endif
 
 " [[ Configure fzf.vim ]]
 " See `:help fzf-vim`
+if !has('ide')
+  nmap <leader>sh :Helptags<CR>
+  let g:which_key_map.s.h = '[S]earch [H]elp'
+  nmap <leader>sk :Maps<CR>
+  let g:which_key_map.s.k = '[S]earch [K]eymaps'
+  nmap <leader>sf :Files<CR>
+  let g:which_key_map.s.f = '[S]earch [F]iles'
+  nmap <leader>sg :Rg<CR>
+  let g:which_key_map.s.g = '[S]earch by [G]rep'
+  nmap <leader>s. :History<CR>
+  let g:which_key_map.s['.'] = '[S]earch Recent Files ("." for repeat)'
+  nmap <leader><leader> :Files<CR>
+  let g:which_key_map[' '] = '[ ] Find Files'
+  nmap <leader>, :Buffers<CR>
+  let g:which_key_map[','] = '[,] Find existing buffers'
 
-nmap <leader>sh :Helptags<CR>
-let g:which_key_map.s.h = '[S]earch [H]elp'
-nmap <leader>sk :Maps<CR>
-let g:which_key_map.s.k = '[S]earch [K]eymaps'
-nmap <leader>sf :Files<CR>
-let g:which_key_map.s.f = '[S]earch [F]iles'
-nmap <leader>sg :Rg<CR>
-let g:which_key_map.s.g = '[S]earch by [G]rep'
-nmap <leader>s. :History<CR>
-let g:which_key_map.s['.'] = '[S]earch Recent Files ("." for repeat)'
-nmap <leader><leader> :Files<CR>
-let g:which_key_map[' '] = '[ ] Find Files'
-nmap <leader>, :Buffers<CR>
-let g:which_key_map[','] = '[,] Find existing buffers'
-
-nmap <leader>/ :BLines<CR>
-let g:which_key_map['/'] = '[/] Fuzzily search in current buffer'
-
+  nmap <leader>/ :BLines<CR>
+  let g:which_key_map['/'] = '[/] Fuzzily search in current buffer'
+else
+  " IdeaVim equivalents for search commands
+  nmap <leader>sf :action GotoFile<CR>
+  nmap <leader>sg :action FindInPath<CR>
+  nmap <leader>s. :action RecentFiles<CR>
+  nmap <leader>sk :action GotoAction<CR>
+  nmap <leader>sh :action QuickJavaDoc<CR>
+  nmap <leader><leader> :action GotoFile<CR>
+  nmap <leader>, :action RecentFiles<CR>
+  nmap <leader>/ :action Find<CR>
+endif
 
 " [[ Configure LSP ]]
 " NOTE: Install new language server using `:LspInstallServer` in the filetype
@@ -248,56 +273,75 @@ let g:which_key_map['/'] = '[/] Fuzzily search in current buffer'
 " For example, if you want LSP server for C/C++, type
 " `:LspInstallServer clangd` in a C/C++ buffer.
 
-" Performance related settings, requires Vim 8.2+
-let g:lsp_use_native_client = 1
-let g:lsp_semantic_enabled = 1
+if !has('ide')
+  " Performance related settings, requires Vim 8.2+
+  let g:lsp_use_native_client = 1
+  let g:lsp_semantic_enabled = 1
 
-function! s:on_lsp_buffer_enabled() abort
-  setlocal omnifunc=lsp#complete
-  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
 
-  " Keymaps
-  " These keybindings are default in Neovim
-  nnoremap <buffer> [d <plug>(lsp-previous-diagnostic)
-  nnoremap <buffer> ]d <plug>(lsp-next-diagnostic)
-  " See `:help K` for why this keymap
-  nnoremap <buffer> K <plug>(lsp-hover)
-  nnoremap <buffer> grn <plug>(lsp-rename)
-  nnoremap <buffer> gra <plug>(lsp-code-action-float)
-  nnoremap <buffer> grr <plug>(lsp-references)
-  nnoremap <buffer> gri <plug>(lsp-implementation)
-  nnoremap <buffer> gds <plug>(lsp-document-symbol-search)
-  nnoremap <buffer> <C-s> <plug>(lsp-signature-help)
+    " Keymaps
+    " These keybindings are default in Neovim
+    nnoremap <buffer> [d <plug>(lsp-previous-diagnostic)
+    nnoremap <buffer> ]d <plug>(lsp-next-diagnostic)
+    " See `:help K` for why this keymap
+    nnoremap <buffer> K <plug>(lsp-hover)
+    nnoremap <buffer> grn <plug>(lsp-rename)
+    nnoremap <buffer> gra <plug>(lsp-code-action-float)
+    nnoremap <buffer> grr <plug>(lsp-references)
+    nnoremap <buffer> gri <plug>(lsp-implementation)
+    nnoremap <buffer> gds <plug>(lsp-document-symbol-search)
+    nnoremap <buffer> <C-s> <plug>(lsp-signature-help)
 
-  " Other useful functions
-  nnoremap <buffer> grd <plug>(lsp-definition)
-  " In C, this would take you to the header file
-  nnoremap <buffer> grD <plug>(lsp-declaration)
-  nnoremap <buffer> grt <plug>(lsp-peek-type-definition)
-  nnoremap <buffer> gws <plug>(lsp-workspace-symbol-search)
+    " Other useful functions
+    nnoremap <buffer> grd <plug>(lsp-definition)
+    " In C, this would take you to the header file
+    nnoremap <buffer> grD <plug>(lsp-declaration)
+    nnoremap <buffer> grt <plug>(lsp-peek-type-definition)
+    nnoremap <buffer> gws <plug>(lsp-workspace-symbol-search)
 
-  " Create a command `:Format` local to the LSP buffer
-  let g:lsp_format_sync_timeout = 1000
-  "command! Format LspDocumentFormatSync
-  nnoremap <buffer> <leader>f <plug>(lsp-document-format)
-  let g:which_key_map.f = '[F]ormat buffer'
-endfunction
+    " Create a command `:Format` local to the LSP buffer
+    let g:lsp_format_sync_timeout = 1000
+    "command! Format LspDocumentFormatSync
+    nnoremap <buffer> <leader>f <plug>(lsp-document-format)
+    let g:which_key_map.f = '[F]ormat buffer'
+  endfunction
 
-augroup lsp_install
-  au!
-  " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
+  augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+  augroup END
 
+  " [[ Configure completion ]]
+  inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  inoremap <expr> <CR>    pumvisible() ? asyncomplete#close_popup() : "\<CR>"
 
-" [[ Configure completion ]]
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <CR>    pumvisible() ? asyncomplete#close_popup() : "\<CR>""
+  let g:asyncomplete_auto_completeopt = 0
+  set completeopt=menuone,noinsert,noselect,preview
+else
+  " IdeaVim equivalents for LSP commands
+  nnoremap [d :action GotoPreviousError<CR>
+  nnoremap ]d :action GotoNextError<CR>
+  nnoremap K :action QuickJavaDoc<CR>
+  nnoremap grn :action RenameElement<CR>
+  nnoremap gra :action ShowIntentionActions<CR>
+  nnoremap grr :action FindUsages<CR>
+  nnoremap gri :action GotoImplementation<CR>
+  nnoremap gds :action FileStructurePopup<CR>
+  nnoremap <C-s> :action ParameterInfo<CR>
+  nnoremap grd :action GotoDeclaration<CR>
+  nnoremap grD :action GotoTypeDeclaration<CR>
+  nnoremap grt :action GotoTypeDeclaration<CR>
+  nnoremap gws :action SearchEverywhere<CR>
 
-let g:asyncomplete_auto_completeopt = 0
-set completeopt=menuone,noinsert,noselect,preview
+  " Format
+  nnoremap <leader>f :action ReformatCode<CR>
 
+endif
 
 " The line beneath this is called `modeline`. See `:help modeline`
 " vim: ts=2 sts=2 sw=2 et
