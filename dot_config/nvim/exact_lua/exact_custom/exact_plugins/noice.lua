@@ -1,8 +1,9 @@
 return {
   'folke/noice.nvim',
+  version = '*',
   event = 'VeryLazy',
   dependencies = {
-    'MunifTanjim/nui.nvim',
+    { 'MunifTanjim/nui.nvim', version = '*' },
   },
   opts = {
     lsp = {

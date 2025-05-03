@@ -12,7 +12,6 @@ M.ensure_installed = {
   'templ',
   'go',
   'gotmpl',
-  'rust',
   'astro',
   'python',
   'regex',

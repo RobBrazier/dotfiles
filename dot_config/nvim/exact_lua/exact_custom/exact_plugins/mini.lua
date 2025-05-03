@@ -12,6 +12,7 @@ return {
         n_lines = 500,
       }
       opts.comment = {}
+      opts.extra = {}
       opts.files = {}
       opts.icons = {}
       opts.indentscope = {
@@ -25,6 +26,7 @@ return {
         },
       }
       opts.move = {}
+      opts.pick = {}
       -- opts.pairs = {}
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
