@@ -16,7 +16,21 @@ fi
 
 extract_version() {
 	input="$@"
-	echo "$input" | grep -Eo '([0-9\.]+)'
+	version="$(echo "$input" | grep -Eo '([0-9\.]+)')"
+
+    # Count the number of dots in the version
+    dots=$(echo "$version" | tr -cd '.' | wc -c)
+
+    # Add missing parts with zeros
+    if [ "$dots" -eq 0 ]; then
+        # No dots, add two (e.g., 8 -> 8.0.0)
+        version="${version}.0.0"
+    elif [ "$dots" -eq 1 ]; then
+        # One dot, add one more (e.g., 8.3 -> 8.3.0)
+        version="${version}.0"
+    fi
+
+    echo "$version"
 }
 
 parse_version() {
