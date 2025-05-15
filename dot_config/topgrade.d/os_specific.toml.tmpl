@@ -1,0 +1,9 @@
+{{- if eq .chezmoi.osRelease.id "nobara" -}}
+[misc]
+disable = ["system", "flatpak"]
+
+[commands]
+"Nobara Update" = "nobara-sync cli"
+{{- end }}
+
+# vim: set syntax=toml:
