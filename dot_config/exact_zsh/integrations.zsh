@@ -32,3 +32,7 @@ fi
 if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then 
 	source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 fi
+
+if [ -e "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
