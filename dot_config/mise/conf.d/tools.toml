@@ -5,7 +5,6 @@
 "ubi:a-h/templ" = "latest"
 "ubi:jandedobbeleer/oh-my-posh" = "latest"
 bat = "latest"
-bitwarden = "latest"
 cargo-binstall = "latest"
 direnv = "latest"
 fd = "latest"
