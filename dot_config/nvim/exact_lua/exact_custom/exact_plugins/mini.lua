@@ -11,8 +11,6 @@ return {
       opts.ai = {
         n_lines = 500,
       }
-      -- opts.comment = {}
-      opts.extra = {}
       opts.files = {}
       opts.git = {}
       opts.hipatterns = {
@@ -40,36 +38,13 @@ return {
       }
       opts.jump = {}
       opts.move = {}
-      -- opts.pick = {}
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       opts.surround = {}
-      -- local starter = require 'mini.starter'
-      -- opts.sessions = {}
       opts.snippets = {}
-      -- opts.starter = {
-      --   evaluate_single = true,
-      --   items = {
-      --     function()
-      --       return starter.sections.sessions(5, true)()
-      --     end,
-      --     {
-      --       { name = 'File Explorer', action = 'lua MiniFiles.open()', section = 'Actions' },
-      --       { name = 'Edit new buffer', action = 'enew', section = 'Actions' },
-      --       { name = 'Quit Neovim', action = 'qall', section = 'Actions' },
-      --       { name = 'Lazy', action = 'Lazy', section = 'Actions' },
-      --     },
-      --   },
-      --   content_hooks = {
-      --     starter.gen_hook.adding_bullet(),
-      --     starter.gen_hook.aligning('center', 'center'),
-      --     starter.gen_hook.indexing('all', { 'Actions' }),
-      --     starter.gen_hook.padding(3, 2),
-      --   },
-      -- }
       opts.statusline = {}
       return opts
     end,
