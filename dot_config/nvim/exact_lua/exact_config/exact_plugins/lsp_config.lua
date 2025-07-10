@@ -21,6 +21,9 @@ M.servers = {
           typeCheckingMode = 'standard',
         },
       },
+      analysis = {
+        typeCheckingMode = 'standard',
+      },
     },
   },
   ruff = {

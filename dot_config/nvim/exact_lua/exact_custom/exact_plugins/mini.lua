@@ -11,7 +11,7 @@ return {
       opts.ai = {
         n_lines = 500,
       }
-      opts.comment = {}
+      -- opts.comment = {}
       opts.extra = {}
       opts.files = {}
       opts.icons = {}
@@ -25,9 +25,7 @@ return {
           try_as_border = true,
         },
       }
-      opts.move = {}
-      opts.pick = {}
-      -- opts.pairs = {}
+      -- opts.pick = {}
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren

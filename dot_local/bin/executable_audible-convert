@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+
+audible_activation="$(rbw get 'a7b469de-95ad-428f-a11f-b290015402f8' -f notes)"
+
+for input in "$@"; do
+	filename="${input%.*}"
+	output="$filename.m4b"
+
+	set -eux
+
+	ffmpeg -activation_bytes "$audible_activation" -i "$input" -c copy "$output"
+
+	set +eux
+done
