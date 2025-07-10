@@ -2,9 +2,8 @@ return {
   {
     'stevearc/overseer.nvim',
     version = '*',
-    opts = {
-      strategy = 'toggleterm',
-    },
+    enabled = false,
+    opts = {},
     cmd = 'OverseerRun',
     keys = {
       { '<leader>tr', '<cmd>OverseerRun<cr>', desc = '[T]ask [R]unner' },

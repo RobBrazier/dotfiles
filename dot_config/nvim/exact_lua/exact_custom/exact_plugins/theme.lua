@@ -8,6 +8,7 @@ return {
     priority = 1000, -- make sure to load this before all the other start plugins
     opts = {
       transparent_background = config.transparent,
+      compile_path = vim.fn.stdpath 'cache' .. '/catppuccin',
       integrations = {
         blink_cmp = true,
         which_key = true,

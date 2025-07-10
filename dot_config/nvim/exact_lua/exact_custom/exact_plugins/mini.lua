@@ -14,6 +14,20 @@ return {
       -- opts.comment = {}
       opts.extra = {}
       opts.files = {}
+      opts.git = {}
+      hipatterns = require 'mini.hipatterns'
+      opts.hipatterns = {
+        highlighters = {
+          -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+          fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+          hack = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+          todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
+          note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+
+          -- Highlight hex color strings (`#rrggbb`) using that color
+          hex_color = hipatterns.gen_highlighter.hex_color(),
+        },
+      }
       opts.icons = {}
       opts.indentscope = {
         symbol = '│',
@@ -25,6 +39,8 @@ return {
           try_as_border = true,
         },
       }
+      opts.jump = {}
+      opts.move = {}
       -- opts.pick = {}
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
@@ -32,29 +48,29 @@ return {
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       opts.surround = {}
-      local starter = require 'mini.starter'
-      opts.sessions = {}
+      -- local starter = require 'mini.starter'
+      -- opts.sessions = {}
       opts.snippets = {}
-      opts.starter = {
-        evaluate_single = true,
-        items = {
-          function()
-            return starter.sections.sessions(5, true)()
-          end,
-          {
-            { name = 'File Explorer', action = 'lua MiniFiles.open()', section = 'Actions' },
-            { name = 'Edit new buffer', action = 'enew', section = 'Actions' },
-            { name = 'Quit Neovim', action = 'qall', section = 'Actions' },
-            { name = 'Lazy', action = 'Lazy', section = 'Actions' },
-          },
-        },
-        content_hooks = {
-          starter.gen_hook.adding_bullet(),
-          starter.gen_hook.aligning('center', 'center'),
-          starter.gen_hook.indexing('all', { 'Actions' }),
-          starter.gen_hook.padding(3, 2),
-        },
-      }
+      -- opts.starter = {
+      --   evaluate_single = true,
+      --   items = {
+      --     function()
+      --       return starter.sections.sessions(5, true)()
+      --     end,
+      --     {
+      --       { name = 'File Explorer', action = 'lua MiniFiles.open()', section = 'Actions' },
+      --       { name = 'Edit new buffer', action = 'enew', section = 'Actions' },
+      --       { name = 'Quit Neovim', action = 'qall', section = 'Actions' },
+      --       { name = 'Lazy', action = 'Lazy', section = 'Actions' },
+      --     },
+      --   },
+      --   content_hooks = {
+      --     starter.gen_hook.adding_bullet(),
+      --     starter.gen_hook.aligning('center', 'center'),
+      --     starter.gen_hook.indexing('all', { 'Actions' }),
+      --     starter.gen_hook.padding(3, 2),
+      --   },
+      -- }
       opts.statusline = {}
       return opts
     end,
