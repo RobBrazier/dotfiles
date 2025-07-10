@@ -15,7 +15,6 @@ return {
       opts.extra = {}
       opts.files = {}
       opts.git = {}
-      hipatterns = require 'mini.hipatterns'
       opts.hipatterns = {
         highlighters = {
           -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
@@ -25,7 +24,7 @@ return {
           note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
 
           -- Highlight hex color strings (`#rrggbb`) using that color
-          hex_color = hipatterns.gen_highlighter.hex_color(),
+          hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
         },
       }
       opts.icons = {}
