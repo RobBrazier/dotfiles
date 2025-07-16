@@ -33,10 +33,6 @@ config.window_padding = {
   bottom = 0,
 }
 
-config.keys = {
-  { key = 'S', mods = 'ALT', action = sessionizer.show(session_schema) },
-}
-
 config.initial_rows = 38
 config.initial_cols = 149
 
