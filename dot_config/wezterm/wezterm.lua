@@ -14,7 +14,6 @@ config.color_scheme = 'Catppuccin Mocha'
 -- config.window_background_opacity = 0.95
 
 config.font = wezterm.font_with_fallback {
-  'Berkeley Mono',
   'JetBrains Mono',
 }
 
@@ -32,6 +31,10 @@ config.window_padding = {
   right = 5,
   top = 5,
   bottom = 0,
+}
+
+config.keys = {
+  { key = 'S', mods = 'ALT', action = sessionizer.show(session_schema) },
 }
 
 config.initial_rows = 38

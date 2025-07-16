@@ -12,6 +12,7 @@ packages = [
 	"fd-find",
 	"ripgrep",
 	"bat",
+	"rbw",
 ]
 flatpakPackages = [
 	"it.mijorus.gearlever",
