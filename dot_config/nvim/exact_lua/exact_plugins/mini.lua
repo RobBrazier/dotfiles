@@ -45,7 +45,6 @@ return {
           { mode = 'x', keys = 'z' },
         },
         window = {
-          delay = 1000,
           config = {
             width = 'auto',
           },
@@ -92,6 +91,7 @@ return {
         },
       }
       opts.jump = {}
+      opts.notify = {}
       opts.move = {}
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
@@ -114,6 +114,12 @@ return {
       end
       require('mini.icons').mock_nvim_web_devicons()
       require('mini.icons').tweak_lsp_kind()
+
+      vim.notify = MiniNotify.make_notify {
+        ERROR = { duration = 5000 },
+        WARN = { duration = 4000 },
+        INFO = { duration = 3000 },
+      }
     end,
   },
 }
