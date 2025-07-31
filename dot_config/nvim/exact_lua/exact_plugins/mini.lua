@@ -59,15 +59,22 @@ return {
           miniclue.gen_clues.z(),
         },
       }
+      opts.completion = {
+        lsp_completion = {
+          source_function = 'omnifunc',
+        },
+      }
+      opts.extra = {}
       opts.files = {}
       opts.git = {}
+      local hi_words = require('mini.extra').gen_highlighter.words
       opts.hipatterns = {
         highlighters = {
           -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
-          fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
-          hack = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
-          todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
-          note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+          fixme = hi_words({ 'FIXME', 'Fixme', 'fixme' }, 'MiniHipatternsFixme'),
+          hack = hi_words({ 'HACK', 'Hack', 'hack' }, 'MiniHipatternsHack'),
+          todo = hi_words({ 'TODO', 'Todo', 'todo' }, 'MiniHipatternsTodo'),
+          note = hi_words({ 'NOTE', 'Note', 'note' }, 'MiniHipatternsNote'),
 
           -- Highlight hex color strings (`#rrggbb`) using that color
           hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
@@ -94,34 +101,19 @@ return {
       opts.surround = {}
       opts.snippets = {}
       opts.statusline = {}
+      opts.pick = {
+        options = {
+          use_cache = true,
+        },
+      }
       return opts
     end,
     config = function(_, opts)
       for key, value in pairs(opts) do
         require('mini.' .. key).setup(value)
       end
-
-      vim.keymap.set('n', '<leader>fe', function()
-        require('mini.files').open()
-      end, { desc = '[F]ile [E]xplorer' })
-
       require('mini.icons').mock_nvim_web_devicons()
       require('mini.icons').tweak_lsp_kind()
-    end,
-    init = function()
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = {
-          'help',
-          'Trouble',
-          'trouble',
-          'lazy',
-          'mason',
-          'toggleterm',
-        },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
     end,
   },
 }

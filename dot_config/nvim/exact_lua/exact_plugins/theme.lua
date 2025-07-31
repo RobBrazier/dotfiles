@@ -1,13 +1,11 @@
-local config = require 'config.theme'
 return {
   {
     'catppuccin/nvim',
     name = 'catppuccin',
-    enabled = config.theme == 'catppuccin',
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     opts = {
-      transparent_background = config.transparent,
+      transparent_background = false,
       compile_path = vim.fn.stdpath 'cache' .. '/catppuccin',
       integrations = {
         blink_cmp = true,

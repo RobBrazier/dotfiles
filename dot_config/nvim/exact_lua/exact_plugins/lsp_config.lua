@@ -21,7 +21,6 @@ return {
           },
         },
       },
-      'saghen/blink.cmp',
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -35,6 +34,29 @@ return {
           map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
 
           map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+
+          map('grd', function()
+            require('mini.extra').pickers.lsp { scope = 'definition' }
+          end, '[G]oto [D]efinition')
+          map('gD', function()
+            require('mini.extra').pickers.lsp { scope = 'declaration' }
+          end, '[G]oto [D]eclaration')
+          map('grr', function()
+            require('mini.extra').pickers.lsp { scope = 'references' }
+          end, '[G]oto [R]eferences')
+          map('gri', function()
+            require('mini.extra').pickers.lsp { scope = 'implementation' }
+          end, '[G]oto [I]mplementation')
+          map('grt', function()
+            require('mini.extra').pickers.lsp { scope = 'type_definition' }
+          end, '[G]oto [T]ype Definition')
+
+          map('gds', function()
+            require('mini.extra').pickers.lsp { scope = 'document_symbol' }
+          end, '[D]ocument [S]ymbols')
+          map('gws', function()
+            require('mini.extra').pickers.lsp { scope = 'workspace_symbol' }
+          end, '[W]orkspace [S]ymbols')
 
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
@@ -110,7 +132,7 @@ return {
         },
       }
 
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
 
       local config = require 'config.plugins.lsp_config'
       local servers = config.servers
