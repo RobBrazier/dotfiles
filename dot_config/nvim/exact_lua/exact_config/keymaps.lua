@@ -58,10 +58,6 @@ map('n', '<leader>/', function()
   require('mini.pick').builtin.grep_live()
 end, { desc = '[/] Grep' })
 
-map('n', '<leader>:', function()
-  require('mini.pick').builtin.history ':'
-end, { desc = '[:] Command History' })
-
 map('n', '<leader>sn', function()
   require('mini.pick').builtin.files(nil, { source = { cwd = vim.fn.stdpath 'config' } })
 end, { desc = '[S]earch [N]eovim files' })
