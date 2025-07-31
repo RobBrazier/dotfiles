@@ -32,9 +32,7 @@ return {
           end
 
           map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
-
           map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
-
           map('grd', function()
             require('mini.extra').pickers.lsp { scope = 'definition' }
           end, '[G]oto [D]efinition')
@@ -50,14 +48,12 @@ return {
           map('grt', function()
             require('mini.extra').pickers.lsp { scope = 'type_definition' }
           end, '[G]oto [T]ype Definition')
-
           map('gds', function()
             require('mini.extra').pickers.lsp { scope = 'document_symbol' }
           end, '[D]ocument [S]ymbols')
           map('gws', function()
             require('mini.extra').pickers.lsp { scope = 'workspace_symbol' }
           end, '[W]orkspace [S]ymbols')
-
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
@@ -132,8 +128,6 @@ return {
         },
       }
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-
       local config = require 'config.plugins.lsp_config'
       local servers = config.servers
 
@@ -143,22 +137,15 @@ return {
       vim.list_extend(ensure_installed, config.tools)
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+      for server, server_config in pairs(servers) do
+        if vim.tbl_isempty(config) then
+          vim.lsp.config(server, server_config)
+        end
+      end
+
       require('mason-lspconfig').setup {
         ensure_installed = {},
-        automatic_installation = false,
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            if type(server.settings) == 'function' then
-              server.settings = server.settings()
-            end
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for ts_ls)
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
-        },
+        automatic_enable = true,
       }
     end,
   },

@@ -94,7 +94,7 @@ map('n', '<leader>sk', function()
 end, { desc = '[S]earch [K]eymaps' })
 
 map('n', '<leader>sl', function()
-  require('mini.extra').pickers.list { scope = 'location-list' }
+  require('mini.extra').pickers.list { scope = 'location' }
 end, { desc = '[S]earch [L]ocation List' })
 
 map('n', '<leader>sm', function()
