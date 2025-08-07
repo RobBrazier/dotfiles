@@ -63,6 +63,7 @@ return {
           source_function = 'omnifunc',
         },
       }
+      opts.diff = {}
       opts.extra = {}
       opts.files = {}
       opts.git = {}
@@ -120,6 +121,8 @@ return {
         WARN = { duration = 4000 },
         INFO = { duration = 3000 },
       }
+
+      vim.ui.select = require('mini.pick').ui_select
     end,
   },
 }
