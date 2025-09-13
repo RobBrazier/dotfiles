@@ -48,11 +48,11 @@ fedora = ["fedora", "nobara"]
 aliasSuffix = "lan.brazier.cloud"
 
 [[ssh.aliases]]
-host = "hass"
+host = "pve-01"
 user = "root"
 
 [[ssh.aliases]]
-host = "pve"
+host = "pve-02"
 user = "root"
 
 [[ssh.aliases]]
