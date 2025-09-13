@@ -7,14 +7,11 @@ return {
     opts = {
       transparent_background = false,
       compile_path = vim.fn.stdpath 'cache' .. '/catppuccin',
-      integrations = {
-        blink_cmp = true,
-        which_key = true,
-        noice = true,
-        snacks = true,
-      },
+      default_integrations = false,
+      auto_integrations = true,
     },
     config = function(_, opts)
+      require('catppuccin').setup(opts)
       -- Load the colorscheme here
       vim.cmd.colorscheme 'catppuccin-mocha'
 

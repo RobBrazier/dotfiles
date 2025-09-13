@@ -12,7 +12,13 @@ vim.filetype.add { extension = { gotmpl = 'gohtml' } }
 local M = {}
 M.servers = {
   -- clangd = {},
-  gopls = {},
+  gopls = {
+    settings = {
+      gopls = {
+        standaloneTags = { 'ignore', 'mage' },
+      },
+    },
+  },
   basedpyright = {
     settings = {
       basedpyright = {
@@ -40,32 +46,28 @@ M.servers = {
   -- markup languages
   taplo = {},
   jsonls = {
-    settings = function()
-      return {
-        json = {
-          schemas = require('schemastore').json.schemas(),
-          validate = { enable = true },
-        },
-      }
-    end,
+    settings = {
+      json = {
+        schemas = require('schemastore').json.schemas(),
+        validate = { enable = true },
+      },
+    },
   },
   yamlls = {
-    settings = function()
-      return {
-        redhat = { telemetry = { enabled = false } },
-        yaml = {
-          schemaStore = {
-            enable = false,
-            url = '',
-          },
-          format = {
-            enable = true,
-          },
-          schemas = require('schemastore').yaml.schemas(),
-          validate = true,
+    settings = {
+      redhat = { telemetry = { enabled = false } },
+      yaml = {
+        schemaStore = {
+          enable = false,
+          url = '',
         },
-      }
-    end,
+        format = {
+          enable = true,
+        },
+        schemas = require('schemastore').yaml.schemas(),
+        validate = true,
+      },
+    },
   },
 
   lua_ls = {

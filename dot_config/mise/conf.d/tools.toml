@@ -3,6 +3,7 @@
 "cargo:cargo-info" = "latest"
 "cargo:topgrade" = "latest"
 "ubi:a-h/templ" = "latest"
+"ubi:doy/rbw" = "latest"
 "ubi:jandedobbeleer/oh-my-posh" = "latest"
 bat = "latest"
 cargo-binstall = "latest"

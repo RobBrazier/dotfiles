@@ -16,4 +16,15 @@ return {
       indent = { enable = true, disable = { 'ruby' } },
     },
   },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    name = 'treesitter-context',
+    version = '*',
+    depends = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+    opts = {
+      enable = true,
+    },
+  },
 }
