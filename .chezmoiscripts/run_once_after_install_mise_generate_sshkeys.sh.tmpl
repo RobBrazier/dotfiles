@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if ! test -f $HOME/.ssh/id_ed25519.pub; then
+  echo "Downloading id_ed25519 pub key"
+  mise x -- rbw get e175caff-ed8b-42bd-b793-b31a00baaef9 > $HOME/.ssh/id_ed25519.pub
+else
+  echo "id_ed25519.pub already downloaded"
+fi
+
+if ! test -f $HOME/.ssh/alter_ed25519.pub; then
+  echo "Downloading alter_ed25519 pub key"
+  mise x -- rbw get 58682746-8a1a-4eda-b387-b31a00baccf8 > $HOME/.ssh/alter_ed25519.pub
+else
+  echo "alter_ed25519.pub already downloaded"
+fi
+
+# vim: set syntax=bash:

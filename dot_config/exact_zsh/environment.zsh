@@ -13,3 +13,7 @@ if mise which gh &>/dev/null && mise x -- gh auth status &>/dev/null; then
 	# mise
 	export MISE_GITHUB_TOKEN="$GITHUB_API_TOKEN"
 fi
+
+if mise which rbw &>/dev/null; then
+	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/rbw/ssh-agent-socket"
+fi

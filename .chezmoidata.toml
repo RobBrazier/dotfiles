@@ -46,7 +46,6 @@ fedora = ["fedora", "nobara"]
 
 [ssh]
 aliasSuffix = "lan.brazier.cloud"
-types = { git = "ed25519", id = "ed25519" }
 
 [[ssh.aliases]]
 host = "hass"

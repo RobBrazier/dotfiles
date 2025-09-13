@@ -1,20 +1,19 @@
-IdentityFile ~/.ssh/id_{{ .ssh.types.id }}
-IdentitiesOnly yes
+# IdentityFile ~/.ssh/id_ed25519.pub
+# IdentitiesOnly yes
 
-{{ $sshkey := .ssh.types -}}
 {{- range $host := .gitHosts }}
 Host {{ .name }}
   {{ if not (eq (get . "port") "") -}}
   Port {{ .port }}
   {{ end -}}
-  IdentityFile ~/.ssh/git_{{ $sshkey.git }}
+  IdentityFile ~/.ssh/id_ed25519.pub
   IdentitiesOnly yes
 {{ end }}
 
 {{- if not (eq .git.alter.name "") }}
 Host alter.github.com
   Hostname github.com
-  IdentityFile ~/.ssh/altergit_{{ $sshkey.git }}
+  IdentityFile ~/.ssh/alter_ed25519.pub
   IdentitiesOnly yes
 {{ end }}
 
@@ -34,6 +33,6 @@ Host {{ .host }}
   {{ if not (eq (get . "port") "") -}}
   Port {{ .port }}
   {{ end -}}
-  IdentityFile ~/.ssh/id_{{ $sshkey.id }}
+  IdentityFile ~/.ssh/id_ed25519.pub
   IdentitiesOnly yes
 {{ end }}
