@@ -3,6 +3,7 @@
 
 {{- range $host := .gitHosts }}
 Host {{ .name }}
+  User git
   {{ if not (eq (get . "port") "") -}}
   Port {{ .port }}
   {{ end -}}
@@ -12,6 +13,7 @@ Host {{ .name }}
 
 {{- if not (eq .git.alter.name "") }}
 Host alter.github.com
+  User git
   Hostname github.com
   IdentityFile ~/.ssh/alter_ed25519.pub
   IdentitiesOnly yes

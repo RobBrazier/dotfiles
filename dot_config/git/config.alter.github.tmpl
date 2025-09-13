@@ -2,3 +2,6 @@
 name = {{ .git.alter.name }}
 email = git+github@{{ .git.alter.host }}
 useConfigOnly = true
+
+[core]
+sshCommand = ssh -i {{ .chezmoi.homeDir }}/.ssh/alter_ed25519.pub -o IdentitiesOnly=yes
