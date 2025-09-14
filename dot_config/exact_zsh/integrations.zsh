@@ -28,11 +28,8 @@ if mise which zoxide &>/dev/null; then
 	eval "$(mise x -- zoxide init zsh)"
 fi
 
-# Nix
-if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then 
-	source "$HOME/.nix-profile/etc/profile.d/nix.sh"
-fi
-
-if [ -e "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if mise which rbw &>/dev/null; then
+	if ! $(mise x -- rbw unlocked); then
+		mise x -- rbw unlock &
+	fi
 fi
