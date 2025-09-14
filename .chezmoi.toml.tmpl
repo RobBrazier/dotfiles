@@ -1,15 +1,14 @@
-{{ $signingkey := promptString "git signing key" -}}
-{{ $altername := promptString "git alter name" -}}
-{{ $alterhost := promptString "git alter host" -}}
-
 progress = true
 
+[data.bitwarden]
+email = '{{ promptString "bitwarden email" }}'
+
 [data.git]
-signingkey = "{{ $signingkey }}"
+signingkey = '{{ promptString "git signing key" }}'
 
 [data.git.alter]
-name = "{{ $altername }}"
-host = "{{ $alterhost }}"
+name = '{{ promptString "git alter name" }}'
+host = '{{ promptString "git alter host" }}'
 
 {{ if ne .chezmoi.os "windows" -}}
 [edit]
