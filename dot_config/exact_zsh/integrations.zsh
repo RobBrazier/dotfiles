@@ -29,7 +29,8 @@ if mise which zoxide &>/dev/null; then
 fi
 
 if mise which rbw &>/dev/null; then
-	if ! $(mise x -- rbw unlocked); then
-		mise x -- rbw unlock &
+	if ! pgrep rbw-agent &>/dev/null; then
+		echo "Starting rbw-agent"
+		mise x -- rbw unlock
 	fi
 fi

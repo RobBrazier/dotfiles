@@ -5,7 +5,7 @@
 {{ range $name, $id := $keys }}
   {{ $file := (printf "%s_ed25519.pub" $name) }}
   {{ $path := (joinPath $root.chezmoi.homeDir ".ssh" $file) }}
-  # $path => {{ $path | lstat }}
+  # $path needed => {{ not ($path | lstat) }}
   echo "Downloading {{ $file }}"
   mise x -- rbw get {{ $id }} > "{{ $path }}"
   chmod 600 "{{ $path }}"
