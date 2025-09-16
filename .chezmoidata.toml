@@ -23,9 +23,6 @@ flatpakPackages = [
 ]
 shell = "zsh"
 
-[githubPackages]
-# topgrade = "topgrade-rs/topgrade"
-
 [git]
 name = "Rob Brazier"
 host = "brzr.co"
@@ -62,10 +59,6 @@ host = "pve-02"
 user = "root"
 
 [[ssh.aliases]]
-host = "izanagi"
-user = "rob"
-
-[[ssh.aliases]]
 host = "jellyfin"
 user = "jellyfin"
 
@@ -75,6 +68,3 @@ user = "Rob"
 
 [nerdfonts]
 fonts = ["SourceCodePro", "JetBrainsMono", "FiraCode", "CascadiaCode"]
-
-[ffultima]
-version = "1.9.3"
