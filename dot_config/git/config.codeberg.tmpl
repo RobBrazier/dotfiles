@@ -1,3 +1,6 @@
 [user]
-email = git+codeberg@{{ .git.host }}
+email = {{ (rbwFields "ae0f31bd-b672-4e7b-82b1-ae0901098221").noreply.value }}
 useConfigOnly = true
+
+[url "ssh://git@codeberg.org/"]
+  insteadOf = https://codeberg.org/

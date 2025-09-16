@@ -1,7 +1,10 @@
+{{- $entry := "f2cee9c7-adf6-4afa-8966-b025017144f0" -}}
+{{- $publicKey := joinPath .chezmoi.homeDir "/.ssh/alter_ed25519.pub" }}
 [user]
-name = {{ .git.alter.name }}
-email = git+github@{{ .git.alter.host }}
+name = {{ (rbw $entry).data.username }}
+email = {{ (rbwFields $entry).noreply.value }}
 useConfigOnly = true
+signingkey = {{ $publicKey }}
 
 [core]
-sshCommand = ssh -i {{ .chezmoi.homeDir }}/.ssh/alter_ed25519.pub -o IdentitiesOnly=yes
+sshCommand = ssh -i {{ $publicKey }} -o IdentitiesOnly=yes

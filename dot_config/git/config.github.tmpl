@@ -1,7 +1,6 @@
 [user]
-email = git+github@{{ .git.host }}
+email = {{ (rbwFields "03d6ec16-389e-47da-a489-a71600e438fb").noreply.value }}
 useConfigOnly = true
 
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
-

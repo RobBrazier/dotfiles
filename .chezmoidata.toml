@@ -32,12 +32,18 @@ host = "brzr.co"
 
 [[gitHosts]]
 name = "github.com !*.github.com"
+hostname = "github.com"
 
 [[gitHosts]]
 name = "codeberg.org"
 
 [[gitHosts]]
 name = "git.sr.ht"
+
+[[gitHosts]]
+name = "alter.github.com"
+hostname = "github.com"
+identity = "alter"
 
 [distros]
 arch = ["arch"]

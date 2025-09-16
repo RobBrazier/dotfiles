@@ -3,13 +3,6 @@ progress = true
 [data.bitwarden]
 email = '{{ promptString "bitwarden email" }}'
 
-[data.git]
-signingkey = '{{ promptString "git signing key" }}'
-
-[data.git.alter]
-name = '{{ promptString "git alter name" }}'
-host = '{{ promptString "git alter host" }}'
-
 {{ if ne .chezmoi.os "windows" -}}
 [edit]
 command = "nvim"

@@ -1,6 +1,7 @@
 [user]
 name = {{ .git.name }}
 email = git@{{ .git.host }}
+signingkey = {{ .chezmoi.homeDir }}/.ssh/id_ed25519.pub
 
 [pull]
 	rebase = true
@@ -14,19 +15,23 @@ email = git@{{ .git.host }}
 [init]
   defaultBranch = main
 
+[gpg]
+  format = ssh
+
 [includeIf "gitdir/i:~/code/codeberg.org/"]
   path = ~/.config/git/config.codeberg
 
 [includeIf "gitdir/i:~/code/github.com/"]
   path = ~/.config/git/config.github
 
-[includeIf "gitdir/i:~/code/git.sr.h/"]
+[includeIf "gitdir/i:~/.local/share/chezmoi/"]
+  path = ~/.config/git/config.github
+
+[includeIf "gitdir/i:~/code/git.sr.ht/"]
   path = ~/.config/git/config.srht
 
-{{ if not (eq .git.alter.name "") }}
 [includeIf "gitdir/i:~/code/alter.github.com/"]
   path = ~/.config/git/config.alter.github
-{{ end }}
 
 [include]
   path = ~/.config/git/config.local
