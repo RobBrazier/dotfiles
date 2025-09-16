@@ -8,3 +8,6 @@ signingkey = {{ $publicKey }}
 
 [core]
 sshCommand = ssh -i {{ $publicKey }} -o IdentitiesOnly=yes
+
+[commit]
+  gpgsign = true
