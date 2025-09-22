@@ -92,7 +92,8 @@ M.servers = {
 M.tools = {
   'stylua',
   'goimports',
-  'golangci-lint',
+  'gofumpt',
+  'golines',
 }
 
 return M
