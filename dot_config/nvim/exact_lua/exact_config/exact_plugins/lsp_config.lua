@@ -19,6 +19,7 @@ M.servers = {
       },
     },
   },
+  golangci_lint_ls = {},
   basedpyright = {
     settings = {
       basedpyright = {
@@ -91,6 +92,7 @@ M.servers = {
 M.tools = {
   'stylua',
   'goimports',
+  'golangci-lint',
 }
 
 return M
