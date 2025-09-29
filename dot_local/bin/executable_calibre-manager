@@ -42,7 +42,7 @@ parse_version() {
 }
 
 get_latest_version() {
-	tag_name=$(curl -s "https://api.github.com/repos/kovidgoyal/calibre/releases/latest" | jq '.tag_name')
+	tag_name=$(gh release -R kovidgoyal/calibre list -L 1 --json tagName | jq -r '.[].tagName')
 	extract_version "$tag_name"
 }
 
