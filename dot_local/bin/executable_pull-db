@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -euox pipefail
 
-ssh pve bash pull_db.sh
-rsync -vp --chmod=644 --remove-source-files 'pve:~/*.db' .
+ssh pve-01 bash pull_db.sh
+rsync -vp --chmod=644 --remove-source-files 'pve-01:~/*.db' .

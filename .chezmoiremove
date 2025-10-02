@@ -1,2 +1,3 @@
 .config/mise/config.local.toml
 .local/bin/install-calibre
+.local/bin/wezterm
