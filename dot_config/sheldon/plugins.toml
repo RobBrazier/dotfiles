@@ -16,10 +16,14 @@ apply = ["defer"]
 github = "zsh-users/zsh-completions"
 apply = ["defer"]
 
+[plugins.catppuccin-fzf]
+github = "catppuccin/fzf"
+use = ["themes/catppuccin-fzf-mocha.sh"]
+apply = ["defer"]
+
 [plugins.pure]
 github = "sindresorhus/pure"
 use = ["async.zsh", "pure.zsh"]
 
-[plugins.catppuccin-fzf]
-github = "catppuccin/fzf"
-use = ["themes/catppuccin-fzf-mocha.sh"]
+[plugins.smartcache]
+github = "QuarticCat/zsh-smartcache"

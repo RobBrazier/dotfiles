@@ -1,4 +1,7 @@
 # Load .profile PATH variables and other generic stuff
+if [ -n "${ZSH_DEBUGRC+1}" ]; then
+    zmodload zsh/zprof
+fi
 emulate sh
 . ~/.profile
 emulate zsh
@@ -6,12 +9,17 @@ emulate zsh
 STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
 export ZSH_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 
-source "$ZSH_CONFIG_HOME/completions.zsh"
-# source "$ZSH_CONFIG_HOME/keybinds.zsh"
+source "$ZSH_CONFIG_HOME/options.zsh"
+source "$ZSH_CONFIG_HOME/keybinds.zsh"
 source "$ZSH_CONFIG_HOME/history.zsh"
 
 source "$ZSH_CONFIG_HOME/environment.zsh"
 source "$ZSH_CONFIG_HOME/aliases.zsh"
 source "$ZSH_CONFIG_HOME/integrations.zsh"
+source "$ZSH_CONFIG_HOME/completions.zsh"
+
+if [ -n "${ZSH_DEBUGRC+1}" ]; then
+    zprof
+fi
 
 # vim: set syntax=bash:

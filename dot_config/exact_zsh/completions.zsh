@@ -1,5 +1,4 @@
-autoload -U compinit && compinit -d "$STATE_HOME/zcompcache/.zcompdump"
-
+autoload -U compinit && compinit -Cd "$STATE_HOME/zcompcache/.zcompdump"
 # zinit cdreplay -q
 
 # Completion styling
