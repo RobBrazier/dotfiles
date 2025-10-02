@@ -31,10 +31,16 @@ fi
 if command_exists 'rbw'; then
 	if ! pgrep rbw-agent &>/dev/null; then
 		echo "Starting rbw-agent"
-		mise x -- rbw unlock
+		rbw unlock
 	fi
 fi
 
 if command_exists 'crush'; then
 	smartcache comp crush completion zsh
+fi
+
+if command_exists 'bat'; then
+	if [ ! -d "$HOME/.cache/bat" ]; then
+		bat cache --build
+	fi
 fi

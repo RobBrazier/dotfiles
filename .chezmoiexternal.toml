@@ -22,3 +22,8 @@ type = "archive"
 url = "https://api.github.com/repos/catppuccin/btop/tarball"
 stripComponents = 2
 include = ["*/themes/**"]
+
+[".config/bat/themes/Catppuccin Mocha.tmTheme"]
+type = "file"
+url = "https://raw.githubusercontent.com/catppuccin/bat/refs/heads/main/themes/Catppuccin%20Mocha.tmTheme"
+refreshPeriod = "168h"

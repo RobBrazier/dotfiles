@@ -1,2 +1,3 @@
 skip_global_compinit=1
 ZDOTDIR=~/.config/zsh
+export ZSH_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
