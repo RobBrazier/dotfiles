@@ -2,7 +2,6 @@
 export EDITOR="nvim"
 export LANG="en_GB.UTF-8"
 
-
 if mise which gh &>/dev/null && mise x -- gh auth status &>/dev/null; then
 	# mise
 	export GITHUB_API_TOKEN="$(mise x -- gh auth token)"
@@ -17,3 +16,4 @@ fi
 if mise which rbw &>/dev/null; then
 	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/rbw/ssh-agent-socket"
 fi
+

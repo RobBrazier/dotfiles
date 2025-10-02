@@ -6,12 +6,7 @@ emulate zsh
 STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
 export ZSH_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 
-source "$ZSH_CONFIG_HOME/zinit/init.zsh"
-source "$ZSH_CONFIG_HOME/zinit/themes.zsh"
-source "$ZSH_CONFIG_HOME/zinit/plugins.zsh"
-source "$ZSH_CONFIG_HOME/zinit/snippets.zsh"
-source "$ZSH_CONFIG_HOME/zinit/completions.zsh"
-
+source "$ZSH_CONFIG_HOME/completions.zsh"
 source "$ZSH_CONFIG_HOME/keybinds.zsh"
 source "$ZSH_CONFIG_HOME/history.zsh"
 
