@@ -1,24 +1,19 @@
-# IdentityFile ~/.ssh/id_ed25519.pub
-# IdentitiesOnly yes
-
 # Git Hosts
 {{ range $host := .gitHosts -}}
-{{ $identity := "id" -}}
 {{ $hostname := .name -}}
 {{ if not (eq (get . "hostname") "") -}}
   {{ $hostname = .hostname -}}
 {{ end -}}
-{{ if not (eq (get . "identity") "") }}
-  {{- $identity = .identity -}}
-{{ end }}
 Host {{ .name }}
   User git
   {{ if not (eq (get . "port") "") -}}
   Port {{ .port }}
   {{ end -}}
   Hostname {{ $hostname }}
-  IdentityFile ~/.ssh/{{ $identity }}_ed25519.pub
+  {{ if not (eq (get . "identity") "") -}}
+  IdentityFile ~/.ssh/{{ .identity }}_ed25519.pub
   IdentitiesOnly yes
+  {{ end }}
 {{ end }}
 
 # SSH Hosts
@@ -30,7 +25,7 @@ Host {{ .name }}
 Host {{ .host }}
 {{- end }}
   User {{ .user }}
-  {{ if eq (get . "internal") "false" -}}
+  {{ if eq (get . "external") "true" -}}
   Hostname {{ .host }}
   {{ else -}}
   Hostname {{ .host }}.{{ $suffix }}
@@ -38,6 +33,4 @@ Host {{ .host }}
   {{ if not (eq (get . "port") "") -}}
   Port {{ .port }}
   {{ end -}}
-  IdentityFile ~/.ssh/id_ed25519.pub
-  IdentitiesOnly yes
 {{ end }}
