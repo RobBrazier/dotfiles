@@ -8,6 +8,7 @@
 "ubi:a-h/templ" = "latest"
 bat = "latest"
 cargo-binstall = "latest"
+chezmoi = "latest"
 direnv = "latest"
 fd = "latest"
 fzf = "latest"
