@@ -15,6 +15,10 @@ if mise_exists 'sheldon'; then
 	smartcache comp sheldon completions --shell zsh
 fi
 
+if command_exists 'atuin'; then
+	smartcache eval atuin init zsh
+fi
+
 if command_exists 'usage'; then
 	smartcache comp mise completion zsh
 fi

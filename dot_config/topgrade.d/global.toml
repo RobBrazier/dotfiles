@@ -9,3 +9,4 @@ disable = ["bun", "nix", "cargo", "rustup", "uv"]
 [commands]
 "mise upgrade" = "mise self-update --yes"
 "calibre update" = "calibre-manager update"
+"gearlever update" = "gearlever-update"

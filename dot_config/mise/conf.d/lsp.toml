@@ -1,0 +1,13 @@
+[tools]
+"go:golang.org/x/tools/gopls" = "latest"
+"npm:@tailwindcss/language-server" = "latest"
+"pipx:basedpyright" = "latest"
+"pipx:json-lsp" = "latest"
+gofumpt = "latest"
+golangci-lint = "latest"
+golangci-lint-langserver = "latest"
+lua-language-server = "latest"
+ruff = "latest"
+stylua = "latest"
+superhtml = "latest"
+taplo = "latest"
