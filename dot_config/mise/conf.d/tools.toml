@@ -6,7 +6,6 @@
 "aqua:topgrade-rs/topgrade" = "latest"
 "cargo:cargo-info" = "latest"
 "ubi:a-h/templ" = "latest"
-atuin = "latest"
 bat = "latest"
 cargo-binstall = "latest"
 chezmoi = "latest"

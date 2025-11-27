@@ -1,8 +1,8 @@
 # History
-HISTSIZE=5000
-HISTFILE="$STATE_HOME/zsh_history"
-SAVEHIST=$HISTSIZE
-HISTDUP=erase
+export HISTSIZE=100000
+export HISTFILE="$ZSH_STATE_HOME/zsh_history"
+export SAVEHIST=$HISTSIZE
+export HISTDUP=erase
 
 setopt appendhistory
 setopt sharehistory
