@@ -1,0 +1,32 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "Rob Brazier"
+
+[aliases]
+init = ["git", "init", "--colocate"]
+
+[signing]
+behaviour = "own"
+backend = "ssh"
+key = '{{ joinPath .chezmoi.homeDir "/.ssh/id_ed25519.pub" }}'
+
+[[--scope]]
+--when.repositories = ["~/Code/github.com"]
+[--scope.user]
+email = '{{(rbwFields "03d6ec16-389e-47da-a489-a71600e438fb").noreply.value}}'
+
+[[--scope]]
+--when.repositories = ["~/Code/codeberg.org"]
+[--scope.user]
+email = '{{ (rbwFields "ae0f31bd-b672-4e7b-82b1-ae0901098221").noreply.value }}'
+
+# {{- $entry := "f2cee9c7-adf6-4afa-8966-b025017144f0" -}}
+# {{- $publicKey := joinPath .chezmoi.homeDir "/.ssh/alter_ed25519.pub" }}
+[[--scope]]
+--when.repositories = ["~/Code/alter.github.com"]
+[--scope.user]
+name = '{{ (rbw $entry).data.username }}'
+email = '{{ (rbwFields $entry).noreply.value }}'
+[--scope.signing]
+key = '{{ $publicKey }}'
