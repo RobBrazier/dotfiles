@@ -16,21 +16,12 @@ Host {{ .name }}
   {{ end }}
 {{ end }}
 
+Host *.lan
+  User root
+  Hostname %h.brazier.cloud
+
 # SSH Hosts
-{{- $suffix := .ssh.aliasSuffix }}
-{{- range .ssh.aliases }}
-{{ if not (eq (get . "name") "") -}}}
-Host {{ .name }}
-{{ else -}}
-Host {{ .host }}
-{{- end }}
-  User {{ .user }}
-  {{ if eq (get . "external") "true" -}}
-  Hostname {{ .host }}
-  {{ else -}}
-  Hostname {{ .host }}.{{ $suffix }}
-  {{ end -}}
-  {{ if not (eq (get . "port") "") -}}
-  Port {{ .port }}
-  {{ end -}}
+{{- range $host, $user := .ssh.lanUsers }}
+Host {{ $host }}.lan
+  User {{ $user }}
 {{ end }}

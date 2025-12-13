@@ -48,23 +48,8 @@ ubuntu = ["ubuntu debian", "ubuntu"]
 fedora = ["fedora", "nobara"]
 
 [ssh]
-aliasSuffix = "lan.brazier.cloud"
-
-[[ssh.aliases]]
-host = "pve-01"
-user = "root"
-
-[[ssh.aliases]]
-host = "pve-02"
-user = "root"
-
-[[ssh.aliases]]
-host = "jellyfin"
-user = "jellyfin"
-
-[[ssh.aliases]]
-host = "omoikane"
-user = "Rob"
+[ssh.lanUsers]
+jellyfin = "jellyfin"
 
 [nerdfonts]
 fonts = ["SourceCodePro", "JetBrainsMono", "FiraCode", "CascadiaCode"]
