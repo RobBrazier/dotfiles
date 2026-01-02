@@ -1,11 +1,11 @@
 [tools]
+"aqua:a-h/templ" = "latest"
 "aqua:doy/rbw" = "latest"
 "aqua:marcosnils/bin" = "latest"
 "aqua:neovim/neovim" = "latest"
 "aqua:rossmacarthur/sheldon" = "latest"
 "aqua:topgrade-rs/topgrade" = "latest"
 "cargo:cargo-info" = "latest"
-"ubi:a-h/templ" = "latest"
 bat = "latest"
 cargo-binstall = "latest"
 chezmoi = "latest"
