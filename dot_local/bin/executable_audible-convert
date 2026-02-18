@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 audible_activation="$(rbw get 'a7b469de-95ad-428f-a11f-b290015402f8' -f notes)"
 
 for input in "$@"; do

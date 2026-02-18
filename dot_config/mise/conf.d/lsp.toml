@@ -1,8 +1,8 @@
 [tools]
 "go:golang.org/x/tools/gopls" = "latest"
 "npm:@tailwindcss/language-server" = "latest"
+"npm:vscode-langservers-extracted" = "latest"
 "pipx:basedpyright" = "latest"
-"pipx:json-lsp" = "latest"
 gofumpt = "latest"
 golangci-lint = "latest"
 golangci-lint-langserver = "latest"
