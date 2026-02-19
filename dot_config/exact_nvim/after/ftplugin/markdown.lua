@@ -1,8 +1,8 @@
 -- Enable spelling and wrap for window
-vim.cmd('setlocal spell wrap')
+vim.cmd 'setlocal spell wrap'
 
 -- Fold with tree-sitter
-vim.cmd('setlocal foldmethod=expr foldexpr=v:lua.vim.treesitter.foldexpr()')
+vim.cmd 'setlocal foldmethod=expr foldexpr=v:lua.vim.treesitter.foldexpr()'
 
 -- Disable built-in `gO` mapping in favor of 'mini.basics'
 vim.keymap.del('n', 'gO', { buffer = 0 })
@@ -17,7 +17,7 @@ vim.b.minisurround_config = {
     L = {
       input = { '%[().-()%]%(.-%)' },
       output = function()
-        local link = require('mini.surround').user_input('Link: ')
+        local link = require('mini.surround').user_input 'Link: '
         return { left = '[', right = '](' .. link .. ')' }
       end,
     },
