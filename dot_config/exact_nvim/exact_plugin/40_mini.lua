@@ -253,7 +253,7 @@ later(function()
   snippets.setup {
     snippets = {
       -- Always load 'snippets/global.json' from config directory
-      snippets.gen_loader.from_file(config_path .. '/snippets/global.json'),
+      -- snippets.gen_loader.from_file(config_path .. '/snippets/global.json'),
       -- Load from 'snippets/' directory of plugins, like 'friendly-snippets'
       snippets.gen_loader.from_lang { lang_patterns = lang_patterns },
     },

@@ -97,8 +97,9 @@ local diagnostic_opts = {
   -- Show more details immediately for errors on the current line
   virtual_lines = false,
   virtual_text = {
+    source = 'if_many',
     current_line = true,
-    severity = { min = 'ERROR', max = 'ERROR' },
+    severity = { min = 'WARN', max = 'ERROR' },
   },
 
   -- Don't update diagnostics when typing
