@@ -31,13 +31,10 @@ now_if_args(function()
     'gotmpl',
     'python',
   }
-  local isnt_installed = function(lang)
-    return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
-  end
-  local to_install = vim.tbl_filter(isnt_installed, languages)
-  if #to_install > 0 then
-    require('nvim-treesitter').install(to_install)
-  end
+  require('nvim-treesitter').setup {
+    ensure_installed = languages,
+    auto_install = true,
+  }
 
   -- Enable tree-sitter after opening a file for a target language
   local filetypes = {}
@@ -69,8 +66,11 @@ now_if_args(function()
     'templ',
     'superhtml',
     'ts_ls', -- typescript
-    'taplo', -- toml
-    'yamlls',
-    'jsonls',
+    -- 'taplo', -- toml
+    -- 'yamlls',
+    -- 'jsonls',
+    'tofu_ls',
+    'ruff',
+    'basedpyright',
   }
 end)
