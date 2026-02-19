@@ -99,10 +99,10 @@ later(function()
 			templ = { "templ" },
 		},
 	})
-	
-	Config.new_autocmd("BufWritePre", "*", function (args)
-			require("conform").format({ bufnr = args.buf })
-	end, 'Format on Save')
+
+	Config.new_autocmd("BufWritePre", "*", function(args)
+		require("conform").format({ bufnr = args.buf })
+	end, "Format on Save")
 end)
 
 later(function()
