@@ -26,15 +26,15 @@ local xmap_leader = function(suffix, rhs, desc)
 end
 
 Config.leader_group_clues = {
-	-- { mode = "n", keys = "<Leader>b", desc = "+Buffer" },
+	{ mode = "n", keys = "<Leader>b", desc = "+Buffer" },
 	-- { mode = "n", keys = "<Leader>e", desc = "+Explore/Edit" },
 	-- { mode = "n", keys = "<Leader>f", desc = "+Find" },
-	-- { mode = "n", keys = "<Leader>g", desc = "+Git" },
+	{ mode = "n", keys = "<Leader>g", desc = "+Git" },
 	-- { mode = "n", keys = "<Leader>l", desc = "+Language" },
 	-- { mode = "n", keys = "<Leader>m", desc = "+Map" },
 	-- { mode = "n", keys = "<Leader>o", desc = "+Other" },
-	-- { mode = "n", keys = "<Leader>s", desc = "+Session" },
-	-- { mode = "n", keys = "<Leader>t", desc = "+Terminal" },
+	{ mode = "n", keys = "<Leader>s", desc = "+Search" },
+	{ mode = "n", keys = "<Leader>t", desc = "+Terminal" },
 	-- { mode = "n", keys = "<Leader>v", desc = "+Visits" },
 	--
 	-- { mode = "x", keys = "<Leader>g", desc = "+Git" },
