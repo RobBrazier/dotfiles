@@ -79,10 +79,9 @@ vim.o.completeopt = 'menuone,noselect,fuzzy,nosort' -- Use custom behavior
 
 -- Don't auto-wrap comments and don't insert comment leader after hitting 'o'.
 -- Do on `FileType` to always override these changes from filetype plugins.
-local f = function()
+Config.new_autocmd('FileType', nil, function()
   vim.cmd 'setlocal formatoptions-=c formatoptions-=o'
-end
-Config.new_autocmd('FileType', nil, f, "Proper 'formatoptions'")
+end, "Proper 'formatoptions'")
 
 -- There are other autocommands created by 'mini.basics'. See 'plugin/30_mini.lua'.
 

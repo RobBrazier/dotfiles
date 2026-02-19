@@ -27,18 +27,11 @@ end
 
 Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>b', desc = '+Buffer' },
-  -- { mode = "n", keys = "<Leader>e", desc = "+Explore/Edit" },
-  -- { mode = "n", keys = "<Leader>f", desc = "+Find" },
+  { mode = 'n', keys = '<Leader>f', desc = '+File' },
   { mode = 'n', keys = '<Leader>g', desc = '+Git' },
-  -- { mode = "n", keys = "<Leader>l", desc = "+Language" },
-  -- { mode = "n", keys = "<Leader>m", desc = "+Map" },
-  -- { mode = "n", keys = "<Leader>o", desc = "+Other" },
+  { mode = 'x', keys = '<Leader>g', desc = '+Git' },
   { mode = 'n', keys = '<Leader>s', desc = '+Search' },
   { mode = 'n', keys = '<Leader>t', desc = '+Terminal' },
-  -- { mode = "n", keys = "<Leader>v", desc = "+Visits" },
-  --
-  -- { mode = "x", keys = "<Leader>g", desc = "+Git" },
-  -- { mode = "x", keys = "<Leader>l", desc = "+Language" },
 }
 
 -- Buffer Mappings
@@ -53,7 +46,7 @@ nmap_leader('bs', new_scratch_buffer, 'Scratch')
 nmap_leader('bw', '<Cmd>lua MiniBufremove.wipeout()<CR>', 'Wipeout')
 nmap_leader('bW', '<Cmd>lua MiniBufremove.wipeout(0, true)<CR>', 'Wipeout!')
 
-nmap_leader('fe', '<Cmd>lua MiniFiles.open()<CR>', 'Directory')
+nmap_leader('fe', '<Cmd>lua MiniFiles.open()<CR>', 'File Explorer')
 
 -- Search Mappings
 nmap_leader('sn', '<Cmd>lua MiniNotify.show_history()<CR>', 'Notifications')
@@ -76,12 +69,8 @@ nmap_leader('sr', '<Cmd>Pick resume<CR>', 'Resume')
 local git_log_cmd = [[Git log --pretty=format:\%h\ \%as\ │\ \%s --topo-order]]
 local git_log_buf_cmd = git_log_cmd .. ' --follow -- %'
 
--- nmap_leader("fc", "<Cmd>Pick git_commits<CR>", "Commits (all)")
--- nmap_leader("fC", '<Cmd>Pick git_commits path="%"<CR>', "Commits (buf)")
--- nmap_leader("fa", '<Cmd>Pick git_hunks scope="staged"<CR>', "Added hunks (all)")
--- nmap_leader("fA", pick_added_hunks_buf, "Added hunks (buf)")
-nmap_leader('fm', '<Cmd>Pick git_hunks<CR>', 'Modified hunks (all)')
-nmap_leader('fM', '<Cmd>Pick git_hunks path="%"<CR>', 'Modified hunks (buf)')
+nmap_leader('gm', '<Cmd>Pick git_hunks<CR>', 'Modified hunks (all)')
+nmap_leader('gM', '<Cmd>Pick git_hunks path="%"<CR>', 'Modified hunks (buf)')
 nmap_leader('ga', '<Cmd>Git diff --cached<CR>', 'Added diff')
 nmap_leader('gA', '<Cmd>Git diff --cached -- %<CR>', 'Added diff buffer')
 nmap_leader('gc', '<Cmd>Git commit<CR>', 'Commit')
