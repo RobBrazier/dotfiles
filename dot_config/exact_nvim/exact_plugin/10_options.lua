@@ -6,6 +6,7 @@ vim.o.mouse = 'a' -- Enable mouse
 vim.o.mousescroll = 'ver:25,hor:6' -- Customize mouse scroll
 vim.o.switchbuf = 'usetab' -- Use already opened buffers when switching
 vim.o.undofile = true -- Enable persistent undo
+vim.o.confirm = true
 
 vim.o.shada = "'100,<50,s10,:1000,/100,@100,h" -- Limit ShaDa file (for startup)
 
@@ -106,6 +107,6 @@ local diagnostic_opts = {
 }
 
 -- Use `later()` to avoid sourcing `vim.diagnostic` on startup
-MiniDeps.later(function()
+Config.later(function()
   vim.diagnostic.config(diagnostic_opts)
 end)

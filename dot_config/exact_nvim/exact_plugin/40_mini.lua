@@ -2,8 +2,7 @@
 -- │ MINI configuration │
 -- └────────────────────┘
 
-local now, later = MiniDeps.now, MiniDeps.later
-local now_if_args = Config.now_if_args
+local now, now_if_args, later = Config.now, Config.now_if_args, Config.later
 
 -- Common configuration presets. Example usage:
 -- - `<C-s>` in Insert mode - save and go to Normal mode

@@ -1,6 +1,10 @@
 return {
   settings = {
-    redhat = { telemetry = { enabled = false } },
+    redhat = {
+      telemetry = {
+        enabled = false,
+      },
+    },
     -- yaml = {
     --   schemaStore = {
     --     enable = false,

@@ -1,9 +1,9 @@
-local add, later = MiniDeps.add, MiniDeps.later
+local add, later, on_event = Config.add, Config.later, Config.on_event
 
 -- Formatting =================================================================
 
-later(function()
-  add 'stevearc/conform.nvim'
+on_event('BufWritePre', function()
+  add 'https://github.com/stevearc/conform.nvim'
 
   require('conform').setup {
     default_format_opts = {
@@ -30,12 +30,12 @@ later(function()
 end)
 
 later(function()
-  add 'nmac427/guess-indent.nvim'
+  add 'https://github.com/nmac427/guess-indent.nvim'
   require('guess-indent').setup()
 end)
 
 -- Snippets ===================================================================
 
 later(function()
-  add 'rafamadriz/friendly-snippets'
+  add 'https://github.com/rafamadriz/friendly-snippets'
 end)
