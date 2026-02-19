@@ -6,4 +6,4 @@ echo "Cleaning nvim files"
 chezmoi_source="$(chezmoi source-path)/dot_config/exact_nvim"
 find "$chezmoi_source" -maxdepth 1 -mindepth 1 | xargs -r rm -r
 echo "Updating files in chezmoi"
-find "$config_dir" -maxdepth 1 -mindepth 1 -not -name lazy-lock.json | xargs -r chezmoi add -r
+chezmoi add -r --exact "$config_dir"

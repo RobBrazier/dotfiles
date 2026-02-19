@@ -56,7 +56,7 @@ end)
 -- Language servers ===========================================================
 
 now_if_args(function()
-  add 'b0o/schemastore.nvim'
+  -- add 'b0o/schemastore.nvim'
   add 'neovim/nvim-lspconfig'
 
   -- Use `:h vim.lsp.enable()` to automatically enable language server based on
