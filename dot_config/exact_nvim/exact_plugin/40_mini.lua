@@ -5,19 +5,6 @@
 local now, now_if_args, later = Config.now, Config.now_if_args, Config.later
 
 now(function()
-  require('mini.basics').setup {
-    -- Manage options in 'plugin/10_options.lua' for didactic purposes
-    options = { basic = false },
-    mappings = {
-      -- Create `<C-hjkl>` mappings for window navigation
-      windows = true,
-      -- Create `<M-hjkl>` mappings for navigation in Insert and Command modes
-      move_with_alt = true,
-    },
-  }
-end)
-
-now(function()
   -- Set up to not prefer extension-based icon for some extensions
   local ext3_blocklist = { scm = true, txt = true, yml = true }
   local ext4_blocklist = { json = true, yaml = true }
@@ -79,7 +66,11 @@ end)
 
 now_if_args(function()
   -- Enable directory/file preview
-  require('mini.files').setup { windows = { preview = true } }
+  require('mini.files').setup {
+    windows = {
+      preview = true,
+    },
+  }
 
   -- Add common bookmarks for every explorer. Example usage inside explorer:
   -- - `'c` to navigate into your config directory
@@ -92,26 +83,6 @@ now_if_args(function()
   end
   Config.new_autocmd('User', 'MiniFilesExplorerOpen', add_marks, 'Add bookmarks')
 end)
-
-now_if_args(function()
-  -- Makes `:h MiniMisc.put()` and `:h MiniMisc.put_text()` public
-  require('mini.misc').setup()
-
-  -- Change current working directory based on the current file path. It
-  -- searches up the file tree until the first root marker ('.git' or 'Makefile')
-  -- and sets their parent directory as a current directory.
-  -- This is helpful when simultaneously dealing with files from several projects.
-  MiniMisc.setup_auto_root()
-
-  -- Restore latest cursor position on file open
-  MiniMisc.setup_restore_cursor()
-
-  -- Synchronize terminal emulator background with Neovim's background to remove
-  -- possibly different color padding around Neovim instance
-  MiniMisc.setup_termbg_sync()
-end)
-
--- Step two ===================================================================
 
 later(function()
   require('mini.extra').setup()
@@ -132,10 +103,6 @@ later(function()
 
     search_method = 'cover',
   }
-end)
-
-later(function()
-  require('mini.bufremove').setup()
 end)
 
 later(function()
@@ -224,14 +191,6 @@ later(function()
 end)
 
 later(function()
-  require('mini.jump').setup()
-end)
-
-later(function()
-  require('mini.move').setup()
-end)
-
-later(function()
   require('mini.pick').setup {
     use_cache = true,
   }
@@ -262,7 +221,7 @@ later(function()
   -- By default snippets available at cursor are not shown as candidates in
   -- 'mini.completion' menu. This requires a dedicated in-process LSP server
   -- that will provide them. To have that, uncomment next line (use `gcc`).
-  -- MiniSnippets.start_lsp_server()
+  MiniSnippets.start_lsp_server()
 end)
 
 later(function()

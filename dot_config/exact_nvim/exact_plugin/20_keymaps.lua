@@ -1,11 +1,19 @@
--- General mappings ===========================================================
+-- General mappings --
+
+local map = function(mode, lhs, rhs, opts)
+  vim.keymap.set(mode, lhs, rhs, opts)
+end
 
 local nmap = function(lhs, rhs, desc)
-  vim.keymap.set('n', lhs, rhs, { desc = desc })
+  map('n', lhs, rhs, { desc = desc })
 end
 
 local xmap = function(lhs, rhs, desc)
-  vim.keymap.set('x', lhs, rhs, { desc = desc })
+  map('x', lhs, rhs, { desc = desc })
+end
+
+local vmap = function(lhs, rhs, desc)
+  map('v', lhs, rhs, { desc = desc })
 end
 
 nmap('[p', '<Cmd>exe "put! " . v:register<CR>', 'Paste Above')
@@ -16,13 +24,41 @@ nmap('<Esc>', '<Cmd>nohlsearch<CR>', 'Clear highlights')
 nmap('<C-u>', '<C-u>zz', 'Move one page [U]p')
 nmap('<C-d>', '<C-d>zz', 'Move one page [D]own')
 
--- Leader mappings ============================================================
+-- Movement mappings --
+nmap('<A-j>', ':m .+1<CR>==', 'Move line down')
+vmap('<A-j>', ":m '>+1<CR>gv=gv", 'Move line down')
+nmap('<A-k>', ':m .-2<CR>==', 'Move line up')
+vmap('<A-k>', ":m '<-2<CR>gv=gv", 'Move line up')
+
+-- Window movement
+nmap('<C-h>', '<C-w>h', 'Focus on left window')
+nmap('<C-j>', '<C-w>j', 'Focus on below window')
+nmap('<C-k>', '<C-w>k', 'Focus on above window')
+nmap('<C-l>', '<C-w>l', 'Focus on right window')
+
+-- Command mode cursor movement
+map('c', '<M-h>', '<Left>', { silent = false, desc = 'Left' })
+map('c', '<M-l>', '<Right>', { silent = false, desc = 'Right' })
+
+-- Insert mode cursor movement
+map('i', '<M-h>', '<Left>', { noremap = false, desc = 'Left' })
+map('i', '<M-j>', '<Down>', { noremap = false, desc = 'Down' })
+map('i', '<M-k>', '<Up>', { noremap = false, desc = 'Up' })
+map('i', '<M-l>', '<Right>', { noremap = false, desc = 'Right' })
+
+-- Terminal mode curos movement
+map('t', '<M-h>', '<Left>', { desc = 'Left' })
+map('t', '<M-j>', '<Down>', { desc = 'Down' })
+map('t', '<M-k>', '<Up>', { desc = 'Up' })
+map('t', '<M-l>', '<Right>', { desc = 'Right' })
+
+-- Leader mappings --
 
 local nmap_leader = function(suffix, rhs, desc)
-  vim.keymap.set('n', '<Leader>' .. suffix, rhs, { desc = desc })
+  nmap('<Leader>' .. suffix, rhs, desc)
 end
 local xmap_leader = function(suffix, rhs, desc)
-  vim.keymap.set('x', '<Leader>' .. suffix, rhs, { desc = desc })
+  xmap('<Leader>' .. suffix, rhs, desc)
 end
 
 Config.leader_group_clues = {
@@ -40,11 +76,11 @@ local new_scratch_buffer = function()
 end
 
 nmap_leader('ba', '<Cmd>b#<CR>', 'Alternate')
-nmap_leader('bd', '<Cmd>lua MiniBufremove.delete()<CR>', 'Delete')
-nmap_leader('bD', '<Cmd>lua MiniBufremove.delete(0, true)<CR>', 'Delete!')
+nmap_leader('bd', '<Cmd>bdelete<CR>', 'Delete')
+nmap_leader('bD', '<Cmd>bdelete!<CR>', 'Delete!')
 nmap_leader('bs', new_scratch_buffer, 'Scratch')
-nmap_leader('bw', '<Cmd>lua MiniBufremove.wipeout()<CR>', 'Wipeout')
-nmap_leader('bW', '<Cmd>lua MiniBufremove.wipeout(0, true)<CR>', 'Wipeout!')
+nmap_leader('bw', '<Cmd>bwipeout<CR>', 'Wipeout')
+nmap_leader('bW', '<Cmd>bwipeout!<CR>', 'Wipeout!')
 
 nmap_leader('fe', '<Cmd>lua MiniFiles.open()<CR>', 'File Explorer')
 

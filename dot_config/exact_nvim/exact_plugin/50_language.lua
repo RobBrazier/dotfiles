@@ -1,6 +1,6 @@
 local add, now_if_args = Config.add, Config.now_if_args
 
--- Tree-sitter ================================================================
+-- Tree-sitter --
 
 now_if_args(function()
   add {
@@ -56,7 +56,7 @@ now_if_args(function()
   Config.new_autocmd('FileType', filetypes, ts_start, 'Start tree-sitter')
 end)
 
--- Language servers ===========================================================
+-- Language servers --
 
 now_if_args(function()
   -- add 'b0o/schemastore.nvim'

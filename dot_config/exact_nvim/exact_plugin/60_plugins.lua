@@ -1,6 +1,6 @@
 local add, later, on_event = Config.add, Config.later, Config.on_event
 
--- Formatting =================================================================
+-- Formatting --
 
 on_event('BufWritePre', function()
   add 'https://github.com/stevearc/conform.nvim'
@@ -34,7 +34,7 @@ later(function()
   require('guess-indent').setup()
 end)
 
--- Snippets ===================================================================
+-- Snippets --
 
 later(function()
   add 'https://github.com/rafamadriz/friendly-snippets'

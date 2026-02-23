@@ -1,4 +1,4 @@
--- General ====================================================================
+-- General --
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -16,7 +16,7 @@ if vim.fn.exists 'syntax_on' ~= 1 then
   vim.cmd 'syntax enable'
 end
 
--- UI =========================================================================
+-- UI --
 vim.o.breakindent = true -- Indent wrapped lines to match line start
 vim.o.breakindentopt = 'list:-1' -- Add padding for lists (if 'wrap' is set)
 vim.o.colorcolumn = '+1' -- Draw column on the right of maximum width
@@ -50,7 +50,7 @@ vim.o.foldmethod = 'indent' -- Fold based on indent level
 vim.o.foldnestmax = 10 -- Limit number of fold levels
 vim.o.foldtext = '' -- Show text under fold with its highlighting
 
--- Editing ====================================================================
+-- Editing --
 vim.o.autoindent = true -- Use auto indent
 vim.o.expandtab = true -- Convert tabs to spaces
 vim.o.formatoptions = 'rqnl1j' -- Improve comment editing
@@ -75,7 +75,7 @@ vim.o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
 vim.o.complete = '.,w,b,kspell' -- Use less sources
 vim.o.completeopt = 'menuone,noselect,fuzzy,nosort' -- Use custom behavior
 
--- Autocommands ===============================================================
+-- Autocommands --
 
 -- Don't auto-wrap comments and don't insert comment leader after hitting 'o'.
 -- Do on `FileType` to always override these changes from filetype plugins.
@@ -85,7 +85,7 @@ end, "Proper 'formatoptions'")
 
 -- There are other autocommands created by 'mini.basics'. See 'plugin/30_mini.lua'.
 
--- Diagnostics ================================================================
+-- Diagnostics --
 -- See `:h vim.diagnostic` and `:h vim.diagnostic.config()`.
 local diagnostic_opts = {
   -- Show signs on top of any other sign, but only for warnings and errors
