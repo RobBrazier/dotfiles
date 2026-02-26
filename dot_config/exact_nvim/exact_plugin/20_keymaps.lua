@@ -133,6 +133,19 @@ nmap('grr', '<Cmd>Pick lsp scope="references"<CR>', 'References')
 nmap('grd', '<Cmd>Pick lsp scope="definition"<CR>', 'Source definition')
 nmap('grt', '<Cmd>Pick lsp scope="type_definition"<CR>', 'Type definition')
 
+-- Clipboard mappings
+map({ 'n', 'x' }, 'gy', '"+y', { desc = 'Copy to system clipboard' })
+nmap('gp', '"+p', 'Paste from system clipboard')
+-- - Paste in Visual with `P` to not copy selected text (`:h v_P`)
+xmap('gp', '"+P', 'Paste from system clipboard')
+
+-- Reselect latest changed, put, or yanked text
+map('n', 'gV', '"g`[" . strpart(getregtype(), 0, 1) . "g`]"', { expr = true, replace_keycodes = false, desc = 'Visually select changed text' })
+
+-- Search inside visually highlighted text. Use `silent = false` for it to
+-- make effect immediately.
+map('x', 'g/', '<esc>/\\%V', { silent = false, desc = 'Search inside visual selection' })
+
 -- Terminal Mappings
 nmap_leader('tT', '<Cmd>horizontal term<CR>', 'Terminal (horizontal)')
 nmap_leader('tt', '<Cmd>vertical term<CR>', 'Terminal (vertical)')
