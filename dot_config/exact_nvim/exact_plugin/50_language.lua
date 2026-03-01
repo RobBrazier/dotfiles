@@ -85,5 +85,6 @@ now_if_args(function()
     'tofu_ls',
     'ruff',
     'basedpyright',
+    'bashls',
   }
 end)
