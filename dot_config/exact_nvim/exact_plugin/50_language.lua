@@ -56,6 +56,12 @@ now_if_args(function()
   Config.new_autocmd('FileType', filetypes, ts_start, 'Start tree-sitter')
 end)
 
+-- Mason: disabled by default --
+-- now_if_args(function()
+--   add 'https://github.com/mason-org/mason.nvim'
+--   require('mason').setup()
+-- end)
+
 -- Language servers --
 
 now_if_args(function()

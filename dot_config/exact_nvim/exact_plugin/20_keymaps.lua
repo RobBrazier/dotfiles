@@ -25,10 +25,14 @@ nmap('<C-u>', '<C-u>zz', 'Move one page [U]p')
 nmap('<C-d>', '<C-d>zz', 'Move one page [D]own')
 
 -- Movement mappings --
+nmap('<A-h>', '<<', 'De-indent line')
+vmap('<A-h>', '<gv', 'De-indent selection')
 nmap('<A-j>', ':m .+1<CR>==', 'Move line down')
 vmap('<A-j>', ":m '>+1<CR>gv=gv", 'Move line down')
 nmap('<A-k>', ':m .-2<CR>==', 'Move line up')
 vmap('<A-k>', ":m '<-2<CR>gv=gv", 'Move line up')
+nmap('<A-l>', '>>', 'Indent line')
+vmap('<A-l>', '>gv', 'Indent selection')
 
 -- Window movement
 nmap('<C-h>', '<C-w>h', 'Focus on left window')
