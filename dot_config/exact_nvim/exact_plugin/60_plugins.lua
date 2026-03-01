@@ -1,8 +1,8 @@
-local add, later, on_event = Config.add, Config.later, Config.on_event
+local add, later = Config.add, Config.later
 
 -- Formatting --
 
-on_event('BufWritePre', function()
+later(function()
   add 'https://github.com/stevearc/conform.nvim'
 
   require('conform').setup {
