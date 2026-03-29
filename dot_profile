@@ -11,7 +11,7 @@ add_to_path() {
 add_to_path "$HOME/.local/bin" 
 add_to_path "$HOME/.cargo/bin"
 add_to_path "$HOME/.local/share/npm/bin"
-add_to_path "$HOME/.local/share/bob/nvim-bin"
+# add_to_path "$HOME/.local/share/bob/nvim-bin"
 
 export PATH
 
