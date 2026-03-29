@@ -2,7 +2,9 @@ local add, now = Config.add, Config.now
 
 now(function()
   -- Install only those that you need
-  add { source = 'catppuccin/nvim', name = 'catppuccin' }
+  add {
+    { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' },
+  }
 
   require('catppuccin').setup {
     compile_path = vim.fn.stdpath 'cache' .. '/catppuccin',

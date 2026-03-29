@@ -3,17 +3,16 @@ local add, now_if_args = Config.add, Config.now_if_args
 -- Tree-sitter --
 
 now_if_args(function()
+  local ts_update = function()
+    vim.cmd 'TSUpdate'
+  end
+  Config.on_packchanged('nvim-treesitter', { 'update' }, ts_update, ':TSUpdate')
+
   add {
-    source = 'https://github.com/nvim-treesitter/nvim-treesitter',
-    -- Update tree-sitter parser after plugin is updated
-    hooks = {
-      post_checkout = function()
-        vim.cmd 'TSUpdate'
-      end,
-    },
+    'https://github.com/nvim-treesitter/nvim-treesitter',
+    'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
+    'https://github.com/nvim-treesitter/nvim-treesitter-context',
   }
-  add 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
-  add 'https://github.com/nvim-treesitter/nvim-treesitter-context'
 
   -- Define languages which will have parsers installed and auto enabled
   -- After changing this, restart Neovim once to install necessary parsers. Wait
@@ -66,7 +65,7 @@ end)
 
 now_if_args(function()
   -- add 'b0o/schemastore.nvim'
-  add 'https://github.com/neovim/nvim-lspconfig'
+  add { 'https://github.com/neovim/nvim-lspconfig' }
 
   -- Use `:h vim.lsp.enable()` to automatically enable language server based on
   -- the rules provided by 'nvim-lspconfig'.

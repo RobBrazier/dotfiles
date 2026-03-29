@@ -3,7 +3,7 @@ local add, later = Config.add, Config.later
 -- Formatting --
 
 later(function()
-  add 'https://github.com/stevearc/conform.nvim'
+  add { 'https://github.com/stevearc/conform.nvim' }
 
   require('conform').setup {
     default_format_opts = {
@@ -24,12 +24,12 @@ later(function()
 end)
 
 later(function()
-  add 'https://github.com/nmac427/guess-indent.nvim'
+  add { 'https://github.com/nmac427/guess-indent.nvim' }
   require('guess-indent').setup()
 end)
 
 -- Snippets --
 
 later(function()
-  add 'https://github.com/rafamadriz/friendly-snippets'
+  add { 'https://github.com/rafamadriz/friendly-snippets' }
 end)
