@@ -17,14 +17,7 @@ Config.on_filetype = function(ft, f)
   misc.safely('filetype:' .. ft, f)
 end
 
---- @param specs (string|vim.pack.Spec)[] List of plugin specifications. String item
---- is treated as `src`.
---- @param opts? vim.pack.keyset.add
-Config.add = function(specs, opts)
-  local default_opts = { confirm = false }
-  local final_opts = vim.tbl_extend('force', default_opts, opts or {})
-  vim.pack.add(specs, final_opts)
-end
+Config.add = vim.pack.add
 
 local gr = vim.api.nvim_create_augroup('custom-config', {})
 Config.new_autocmd = function(event, pattern, callback, desc)
@@ -51,6 +44,18 @@ end, {
   desc = 'Update packages',
   nargs = '*',
   bang = true,
+  complete = complete_packages,
+})
+
+vim.api.nvim_create_user_command('PackUpdateOffline', function(info)
+  if #info.fargs ~= 0 then
+    vim.pack.update(info.fargs, { offline = true })
+  else
+    vim.pack.update(nil, { offline = true })
+  end
+end, {
+  desc = 'Update packages (offline)',
+  nargs = '*',
   complete = complete_packages,
 })
 

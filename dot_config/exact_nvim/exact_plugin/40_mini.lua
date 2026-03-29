@@ -77,8 +77,6 @@ now_if_args(function()
   -- - `g?` to see available bookmarks
   local add_marks = function()
     MiniFiles.set_bookmark('c', vim.fn.stdpath 'config', { desc = 'Config' })
-    local minideps_plugins = vim.fn.stdpath 'data' .. '/site/pack/deps/opt'
-    MiniFiles.set_bookmark('p', minideps_plugins, { desc = 'Plugins' })
     MiniFiles.set_bookmark('w', vim.fn.getcwd, { desc = 'Working directory' })
   end
   Config.new_autocmd('User', 'MiniFilesExplorerOpen', add_marks, 'Add bookmarks')
