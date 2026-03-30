@@ -67,6 +67,7 @@ end, {
   bang = true,
   complete = complete_packages,
 })
+
 Config.on_packchanged = function(plugin_name, kinds, callback, desc)
   local f = function(ev)
     local name, kind = ev.data.spec.name, ev.data.kind
