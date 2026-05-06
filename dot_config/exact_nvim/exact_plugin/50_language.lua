@@ -50,7 +50,7 @@ now_if_args(function()
     end
   end
   local ts_start = function(ev)
-    vim.treesitter.start(ev.buf)
+    pcall(vim.treesitter.start, ev.buf)
   end
   Config.new_autocmd('FileType', filetypes, ts_start, 'Start tree-sitter')
 end)
