@@ -85,5 +85,6 @@ now_if_args(function()
     'ruff',
     'basedpyright',
     'bashls',
+    'openscad_lsp',
   }
 end)

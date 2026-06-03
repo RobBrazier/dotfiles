@@ -1,10 +1,11 @@
 [tools]
+"cargo:openscad-lsp" = "latest"
 "github:opentofu/tofu-ls" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "npm:@tailwindcss/language-server" = "latest"
+"npm:bash-language-server" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
 "npm:yaml-language-server" = "latest"
-"npm:bash-language-server" = "latest"
 "pipx:basedpyright" = "latest"
 gofumpt = "latest"
 golangci-lint = "latest"

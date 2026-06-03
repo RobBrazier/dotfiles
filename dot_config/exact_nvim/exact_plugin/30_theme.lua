@@ -10,8 +10,12 @@ now(function()
     compile_path = vim.fn.stdpath 'cache' .. '/catppuccin',
     default_integrations = false,
     auto_integrations = true,
+    background = {
+      dark = 'mocha',
+      light = 'latte',
+    },
   }
 
   -- Enable only one
-  vim.cmd 'color catppuccin-mocha'
+  vim.cmd 'color catppuccin'
 end)
