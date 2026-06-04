@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
+if command -v mise >/dev/null 2>&1; then
+  eval $(mise activate --shims)
+fi
+
 # Check dependencies are installed
 program="$(basename $0)"
-dependencies=(jq curl grep)
+dependencies=(jq curl grep gh)
 missingDeps=0
 for dependency in ${dependencies[@]}; do
 	if ! command -v $dependency >/dev/null 2>&1; then
