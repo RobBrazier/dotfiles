@@ -4,12 +4,13 @@ local add, now_if_args = Config.add, Config.now_if_args
 
 now_if_args(function()
   local ts_update = function()
-    vim.cmd 'TSUpdate'
+    vim.cmd 'ArboristUpdate'
   end
-  Config.on_packchanged('nvim-treesitter', { 'update' }, ts_update, ':TSUpdate')
+  Config.on_packchanged('arborist', { 'update' }, ts_update, ':ArboristUpdate')
 
   add {
-    'https://github.com/nvim-treesitter/nvim-treesitter',
+    -- 'https://github.com/nvim-treesitter/nvim-treesitter',
+    'https://github.com/arborist-ts/arborist.nvim',
     'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
     'https://github.com/nvim-treesitter/nvim-treesitter-context',
   }
@@ -34,13 +35,18 @@ now_if_args(function()
     'javascript',
   }
 
-  local isnt_installed = function(lang)
-    return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
-  end
-  local to_install = vim.tbl_filter(isnt_installed, languages)
-  if #to_install > 0 then
-    require('nvim-treesitter').install(to_install)
-  end
+  -- local isnt_installed = function(lang)
+  --   return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
+  -- end
+  -- local to_install = vim.tbl_filter(isnt_installed, languages)
+  -- if #to_install > 0 then
+  --   require('nvim-treesitter').install(to_install)
+  -- end
+  require('arborist').setup {
+    update_cadence = 'weekly',
+    install_popular = true,
+    ensure_installed = languages,
+  }
 
   -- Enable tree-sitter after opening a file for a target language
   local filetypes = {}
