@@ -2,8 +2,4 @@
 
 config_dir="$HOME/.config/nvim"
 nvim --cmd "cd $config_dir" $@
-echo "Cleaning nvim files"
-chezmoi_source="$(chezmoi source-path)/dot_config/exact_nvim"
-find "$chezmoi_source" -maxdepth 1 -mindepth 1 | xargs -r rm -r
-echo "Updating files in chezmoi"
-chezmoi add -r --exact "$config_dir"
+chezmoi add --recursive --exact --quiet "$config_dir"
