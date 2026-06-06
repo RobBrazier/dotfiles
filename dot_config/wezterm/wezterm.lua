@@ -11,11 +11,11 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 end
 
 local function get_theme()
-	if wezterm.gui.get_appearance():find("Dark") then
-		return "Catppuccin Mocha"
-	else
-		return "Catppuccin Latte"
-	end
+	-- if wezterm.gui.get_appearance():find("Dark") then
+	return "Catppuccin Mocha"
+	-- else
+	-- 	return "Catppuccin Latte"
+	-- end
 end
 
 config.color_scheme = get_theme()

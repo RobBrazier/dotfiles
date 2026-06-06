@@ -27,3 +27,11 @@ include = ["*/themes/**"]
 type = "file"
 url = "https://raw.githubusercontent.com/catppuccin/bat/refs/heads/main/themes/Catppuccin%20Mocha.tmTheme"
 refreshPeriod = "168h"
+
+[".config/yazi/flavors"]
+type = "archive"
+url = "https://api.github.com/repos/yazi-rs/flavors/tarball"
+stripComponents = 1
+include = ["*/*.yazi/**"]
+refreshPeriod = "168h"
+exact = true

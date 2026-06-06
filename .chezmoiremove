@@ -2,3 +2,4 @@
 .local/bin/install-calibre
 .local/bin/wezterm
 .local/bin/chezmoi
+.config/nvim-kickstart
