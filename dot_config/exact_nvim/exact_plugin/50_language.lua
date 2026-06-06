@@ -46,6 +46,9 @@ now_if_args(function()
     update_cadence = 'weekly',
     install_popular = true,
     ensure_installed = languages,
+    ignore = {
+      'conf',
+    },
   }
 
   -- Enable tree-sitter after opening a file for a target language

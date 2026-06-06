@@ -1,30 +1,30 @@
-local wezterm = require 'wezterm'
-local bar = wezterm.plugin.require 'https://github.com/adriankarlen/bar.wezterm'
+local wezterm = require("wezterm")
+local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
 local config = {}
 
 if wezterm.config_builder then
-  config = wezterm.config_builder()
+	config = wezterm.config_builder()
 end
 
-if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
-  config.default_prog = { 'wsl.exe', '~', '-d', 'Ubuntu-22.04' }
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	config.default_prog = { "wsl.exe", "~", "-d", "Ubuntu-22.04" }
 end
 
 local function get_theme()
-  if wezterm.gui.get_appearance():find 'Dark' then
-    return 'Catppuccin Mocha'
-  else
-    return 'Catppuccin Latte'
-  end
+	if wezterm.gui.get_appearance():find("Dark") then
+		return "Catppuccin Mocha"
+	else
+		return "Catppuccin Latte"
+	end
 end
 
 config.color_scheme = get_theme()
 
--- config.window_background_opacity = 0.95
+config.window_background_opacity = 0.85
 
-config.font = wezterm.font_with_fallback {
-  'JetBrains Mono',
-}
+config.font = wezterm.font_with_fallback({
+	"JetBrains Mono",
+})
 config.font_size = 10
 
 config.automatically_reload_config = true
@@ -33,27 +33,27 @@ config.automatically_reload_config = true
 config.use_fancy_tab_bar = false
 
 config.keys = {
-  {
-    key = 'W',
-    mods = 'CTRL',
-    action = wezterm.action.CloseCurrentTab { confirm = false },
-  },
+	{
+		key = "W",
+		mods = "CTRL",
+		action = wezterm.action.CloseCurrentTab({ confirm = false }),
+	},
 }
 -- config.window_decorations = "INTEGRATED_BUTTONS"
 
-config.window_close_confirmation = 'NeverPrompt'
+config.window_close_confirmation = "NeverPrompt"
 
 config.window_padding = {
-  left = 5,
-  right = 5,
-  top = 0,
-  bottom = 0,
+	left = 5,
+	right = 5,
+	top = 0,
+	bottom = 0,
 }
 
 config.initial_rows = 38
 config.initial_cols = 149
 
-config.default_cursor_style = 'SteadyBar'
+config.default_cursor_style = "SteadyBar"
 
 -- local get_transparent_color = function(hex)
 -- 	local background = wezterm.color.parse(hex)
@@ -87,15 +87,15 @@ config.default_cursor_style = 'SteadyBar'
 -- 	end)
 -- end
 bar.apply_to_config(config, {
-  position = 'top',
-  modules = {
-    username = {
-      enabled = false,
-    },
-    hostname = {
-      enabled = false,
-    },
-  },
+	position = "top",
+	modules = {
+		username = {
+			enabled = false,
+		},
+		hostname = {
+			enabled = false,
+		},
+	},
 })
 
 return config
