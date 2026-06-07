@@ -23,8 +23,9 @@ now(function()
 end)
 
 now(function()
-  require('mini.notify').setup()
-  vim.notify = MiniNotify.make_notify {
+  local notify = require 'mini.notify'
+  notify.setup()
+  vim.notify = notify.make_notify {
     ERROR = { duration = 5000 },
     WARN = { duration = 4000 },
     INFO = { duration = 3000 },
@@ -39,10 +40,11 @@ now_if_args(function()
   -- Customize post-processing of LSP responses for a better user experience.
   -- Don't show 'Text' suggestions (usually noisy) and show snippets last.
   local process_items_opts = { kind_priority = { Text = -1, Snippet = 99 } }
+  local completion = require 'mini.completion'
   local process_items = function(items, base)
-    return MiniCompletion.default_process_items(items, base, process_items_opts)
+    return completion.default_process_items(items, base, process_items_opts)
   end
-  require('mini.completion').setup {
+  completion.setup {
     lsp_completion = {
       -- Without this config autocompletion is set up through `:h 'completefunc'`.
       -- Although not needed, setting up through `:h 'omnifunc'` is cleaner
@@ -61,14 +63,15 @@ now_if_args(function()
 
   -- Advertise to servers that Neovim now supports certain set of completion and
   -- signature features through 'mini.completion'.
-  vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
+  vim.lsp.config('*', { capabilities = completion.get_lsp_capabilities() })
 end)
 
 now_if_args(function()
   -- Enable directory/file preview
-  require('mini.files').setup {
+  local files = require 'mini.files'
+  files.setup {
     windows = {
-      preview = true,
+      preview = false,
     },
   }
 
@@ -76,8 +79,8 @@ now_if_args(function()
   -- - `'c` to navigate into your config directory
   -- - `g?` to see available bookmarks
   local add_marks = function()
-    MiniFiles.set_bookmark('c', vim.fn.stdpath 'config', { desc = 'Config' })
-    MiniFiles.set_bookmark('w', vim.fn.getcwd, { desc = 'Working directory' })
+    files.set_bookmark('c', vim.fn.stdpath 'config', { desc = 'Config' })
+    files.set_bookmark('w', vim.fn.getcwd, { desc = 'Working directory' })
   end
   Config.new_autocmd('User', 'MiniFilesExplorerOpen', add_marks, 'Add bookmarks')
 end)
@@ -176,11 +179,12 @@ later(function()
 end)
 
 later(function()
-  require('mini.indentscope').setup {
+  local indentscope = require 'mini.indentscope'
+  indentscope.setup {
     symbol = '│',
     draw = {
       delay = 50,
-      animation = require('mini.indentscope').gen_animation.none(),
+      animation = indentscope.gen_animation.none(),
     },
     options = {
       try_as_border = true,
@@ -189,10 +193,11 @@ later(function()
 end)
 
 later(function()
-  require('mini.pick').setup {
+  local pick = require 'mini.pick'
+  pick.setup {
     use_cache = true,
   }
-  vim.ui.select = MiniPick.ui_select
+  vim.ui.select = pick.ui_select
 end)
 
 later(function()
@@ -206,7 +211,7 @@ later(function()
   }
 
   local snippets = require 'mini.snippets'
-  local config_path = vim.fn.stdpath 'config'
+  -- local config_path = vim.fn.stdpath 'config'
   snippets.setup {
     snippets = {
       -- Always load 'snippets/global.json' from config directory
@@ -219,7 +224,7 @@ later(function()
   -- By default snippets available at cursor are not shown as candidates in
   -- 'mini.completion' menu. This requires a dedicated in-process LSP server
   -- that will provide them. To have that, uncomment next line (use `gcc`).
-  MiniSnippets.start_lsp_server()
+  snippets.start_lsp_server()
 end)
 
 later(function()

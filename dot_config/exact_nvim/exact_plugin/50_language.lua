@@ -4,13 +4,12 @@ local add, now_if_args = Config.add, Config.now_if_args
 
 now_if_args(function()
   local ts_update = function()
-    vim.cmd 'ArboristUpdate'
+    vim.cmd 'TSUpdate'
   end
-  Config.on_packchanged('arborist', { 'update' }, ts_update, ':ArboristUpdate')
+  Config.on_packchanged('nvim-treesitter', { 'update' }, ts_update, ':TSUpdate')
 
   add {
-    -- 'https://github.com/nvim-treesitter/nvim-treesitter',
-    'https://github.com/arborist-ts/arborist.nvim',
+    'https://github.com/nvim-treesitter/nvim-treesitter',
     'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
     'https://github.com/nvim-treesitter/nvim-treesitter-context',
   }
@@ -18,39 +17,51 @@ now_if_args(function()
   -- Define languages which will have parsers installed and auto enabled
   -- After changing this, restart Neovim once to install necessary parsers. Wait
   -- for the installation to finish before opening a file for added language(s).
-  local languages = {
-    -- These are already pre-installed with Neovim. Used as an example.
-    'lua',
-    'vimdoc',
-    'markdown',
-    -- Additional parsers
+  local popular_languages = {
     'bash',
+    'c',
+    'cpp',
+    'css',
+    'diff',
+    'dockerfile',
+    'go',
     'html',
-    'go',
-    'templ',
-    'go',
-    'gotmpl',
-    'python',
-    'terraform',
+    'ini',
+    'java',
     'javascript',
+    'json',
+    'latex',
+    'lua',
+    'make',
+    'markdown',
+    'markdown_inline',
+    'python',
+    'regex',
+    'ruby',
+    'rust',
+    'toml',
+    'tsx',
+    'typescript',
+    'vim',
+    'vimdoc',
+    'xml',
+    'yaml',
+  }
+  local languages = {
+    'templ',
+    'gotmpl',
+    'terraform',
   }
 
-  -- local isnt_installed = function(lang)
-  --   return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
-  -- end
-  -- local to_install = vim.tbl_filter(isnt_installed, languages)
-  -- if #to_install > 0 then
-  --   require('nvim-treesitter').install(to_install)
-  -- end
-  require('arborist').setup {
-    update_cadence = 'weekly',
-    install_popular = true,
-    ensure_installed = languages,
-    ignore = {
-      'conf',
-      'template',
-    },
-  }
+  vim.list_extend(languages, popular_languages)
+
+  local isnt_installed = function(lang)
+    return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
+  end
+  local to_install = vim.tbl_filter(isnt_installed, languages)
+  if #to_install > 0 then
+    require('nvim-treesitter').install(to_install)
+  end
 
   -- Enable tree-sitter after opening a file for a target language
   local filetypes = {}
