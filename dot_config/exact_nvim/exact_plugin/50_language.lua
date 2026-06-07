@@ -48,6 +48,7 @@ now_if_args(function()
     ensure_installed = languages,
     ignore = {
       'conf',
+      'template',
     },
   }
 
