@@ -11,7 +11,7 @@ install_packages {{ .packages | join " " }} btop util-linux-user perl-File-Compa
 
 copr_repos=(wezfurlong/wezterm-nightly lihaohong/yazi scottames/ghostty)
 for repo in "${copr_repos[@]}"; do
-    if dnf copr list | grep -qv "$repo"; then
+    if ! dnf copr list | grep -qF "$repo"; then
         sudo dnf copr enable "$repo"
     fi
 done
