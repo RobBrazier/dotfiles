@@ -6,7 +6,7 @@ fi
 
 # Check dependencies are installed
 program="$(basename $0)"
-dependencies=(jq curl grep gh)
+dependencies=(jq curl grep)
 missingDeps=0
 for dependency in ${dependencies[@]}; do
 	if ! command -v $dependency >/dev/null 2>&1; then
@@ -46,7 +46,7 @@ parse_version() {
 }
 
 get_latest_version() {
-	tag_name=$(gh release -R kovidgoyal/calibre list -L 1 --json tagName | jq -r '.[].tagName')
+	tag_name=$(curl -s https://api.github.com/repos/kovidgoyal/calibre/releases/latest | jq -r .tag_name)
 	extract_version "$tag_name"
 }
 
