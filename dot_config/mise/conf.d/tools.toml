@@ -6,6 +6,7 @@
 "aqua:rossmacarthur/sheldon" = "latest"
 "aqua:topgrade-rs/topgrade" = "latest"
 "cargo:cargo-info" = "latest"
+aube = "latest"
 bat = "latest"
 cargo-binstall = "latest"
 chezmoi = "latest"
