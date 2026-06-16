@@ -2,4 +2,3 @@
 experimental = true
 disable_hints = ["outdated_bump"]
 use_versions_host_track = false
-minimum_release_age = "7d"
