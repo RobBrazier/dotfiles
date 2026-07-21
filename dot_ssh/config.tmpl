@@ -1,4 +1,5 @@
 # Git Hosts
+SetEnv TERM=xterm-256color
 {{ range $host := .gitHosts -}}
 {{ $hostname := .name -}}
 {{ if not (eq (get . "hostname") "") -}}
