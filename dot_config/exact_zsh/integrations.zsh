@@ -10,8 +10,8 @@ if command_exists 'mise'; then
 	eval "$(mise activate zsh)"
 fi
 
-if mise_exists 'sheldon'; then
-	eval "$(mise x -- sheldon source)"
+if command_exists 'sheldon'; then
+	eval "$(sheldon source)"
 	smartcache comp sheldon completions --shell zsh
 fi
 
@@ -28,15 +28,15 @@ if command_exists 'wezterm'; then
 	smartcache comp wezterm shell-completion --shell zsh
 fi
 
+if command_exists 'bin'; then
+	smartcache comp bin completion zsh
+fi
+
 if command_exists 'rbw'; then
 	if ! pgrep rbw-agent &>/dev/null; then
 		echo "Starting rbw-agent"
 		rbw unlock
 	fi
-fi
-
-if command_exists 'crush'; then
-	smartcache comp crush completion zsh
 fi
 
 if command_exists 'bat'; then

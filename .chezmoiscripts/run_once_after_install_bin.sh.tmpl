@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if ! type bin > /dev/null; then
+  wget -O ~/.local/bin/bin '{{ gitHubLatestReleaseAssetURL "marcosnils/bin" (printf "bin_*_%s_%s" .chezmoi.os .chezmoi.arch) }}'
+fi
+
+echo "Installing bin packages"
+
+bin update -y
+{{ range .binPackages -}}
+if ! grep -qF {{. | quote}} ~/.config/bin/config.json; then
+  bin install {{. | quote}}
+fi
+bin ensure
+{{ end -}}
+
+# vim: set syntax=bash:

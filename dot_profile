@@ -10,6 +10,7 @@ add_to_path() {
 
 add_to_path "$HOME/.local/bin" 
 add_to_path "$HOME/.local/share/npm/bin"
+add_to_path "$HOME/.local/share/bob/nvim-bin"
 
 
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
@@ -24,5 +25,7 @@ add_to_path "$CARGO_HOME"/bin
 
 export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME"/npm/config/npm-init.js
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
+
+export AQUA_GLOBAL_CONFIG="$XDG_CONFIG_HOME"/aquaproj-aqua/aqua.yaml
 
 export PATH

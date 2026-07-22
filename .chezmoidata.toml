@@ -1,18 +1,19 @@
 packages = [
-	"git",
+	"bat",
 	"curl",
-	"wget",
-	"jq",
+	"fd-find",
 	"flatpak",
-	"zsh",
+	"fzf",
+	"git",
+	"jq",
 	"luajit",
 	"neovim",
-	"tmux",
-	"fzf",
-	"fd-find",
-	"ripgrep",
-	"bat",
 	"rbw",
+	"ripgrep",
+	"tmux",
+	"wget",
+	"zsh",
+  "chezmoi",
 ]
 flatpakPackages = [
 	"it.mijorus.gearlever",
@@ -21,6 +22,11 @@ flatpakPackages = [
 	"org.localsend.localsend_app",
 	"dev.vencord.Vesktop",
 	"io.missioncenter.MissionCenter",
+]
+binPackages = [
+  "github.com/rossmacarthur/sheldon",
+	"github.com/topgrade-rs/topgrade",
+	"github.com/jj-vcs/jj",
 ]
 shell = "zsh"
 
@@ -34,9 +40,6 @@ hostname = "github.com"
 
 [[gitHosts]]
 name = "codeberg.org"
-
-[[gitHosts]]
-name = "git.sr.ht"
 
 [[gitHosts]]
 name = "alter.github.com"
