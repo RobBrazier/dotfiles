@@ -9,7 +9,7 @@ sudo dnf update -y
 # System Utilities
 install_packages {{ .packages | join " " }} btop util-linux-user perl-File-Compare openssl-devel gcc g++
 
-copr_repos=(wezfurlong/wezterm-nightly lihaohong/yazi scottames/ghostty)
+copr_repos=(lihaohong/yazi scottames/ghostty)
 for repo in "${copr_repos[@]}"; do
     if ! dnf copr list | grep -qF "$repo"; then
         sudo dnf copr enable "$repo"
@@ -17,6 +17,9 @@ for repo in "${copr_repos[@]}"; do
 done
 
 # GUI applications
-install_packages firefox wezterm ghostty yazi
+install_packages ghostty yazi
+
+sudo dnf remove -y wezterm || true
+sudo dnf copr remove copr.fedorainfracloud.org/wezfurlong/wezterm-nightly -y || true
 
 # vim: set syntax=bash:

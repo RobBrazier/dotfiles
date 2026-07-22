@@ -24,10 +24,6 @@ if command_exists 'chezmoi'; then
 fi
 
 
-if command_exists 'wezterm'; then
-	smartcache comp wezterm shell-completion --shell zsh
-fi
-
 if command_exists 'bin'; then
 	smartcache comp bin completion zsh
 fi
