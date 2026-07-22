@@ -3,12 +3,21 @@
 # Installs standalone binary managers (bin + mise) so subsequent after_ scripts
 # can install packages via them. Only prerequisite: curl/wget from before_00.
 
+{{ include "dot_profile" }}
+
 if ! type bin > /dev/null; then
+  echo "Installing marcosnils/bin..."
   wget -O ~/.local/bin/bin '{{ gitHubLatestReleaseAssetURL "marcosnils/bin" (printf "bin_*_%s_%s" .chezmoi.os .chezmoi.arch) }}'
 fi
 
 if ! type mise > /dev/null; then
+  echo "Installing mise..."
   curl https://mise.run | sh
+fi
+
+if ! type rustup > /dev/null; then
+  echo "Installing rust..."
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
 fi
 
 mise self-update --no-plugins

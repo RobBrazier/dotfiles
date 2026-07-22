@@ -2,8 +2,6 @@
 
 echo "Installing mise plugins and tools"
 
-{{ include "dot_profile" }}
-
 # .config/mise/conf.d/tools.toml hash: {{ include "dot_config/mise/conf.d/tools.toml" | sha256sum }}
 # .config/mise/conf.d/lsp.toml hash: {{ include "dot_config/mise/conf.d/lsp.toml" | sha256sum }}
 mise plugins uninstall -ap
