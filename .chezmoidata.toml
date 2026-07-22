@@ -16,17 +16,17 @@ packages = [
   "chezmoi",
 ]
 flatpakPackages = [
-	"it.mijorus.gearlever",
-	"io.github.giantpinkrobots.flatsweep",
 	"com.github.tchx84.Flatseal",
-	"org.localsend.localsend_app",
 	"dev.vencord.Vesktop",
+	"io.github.giantpinkrobots.flatsweep",
 	"io.missioncenter.MissionCenter",
+	"it.mijorus.gearlever",
+	"org.localsend.localsend_app",
 ]
 binPackages = [
-  "github.com/rossmacarthur/sheldon",
-	"github.com/topgrade-rs/topgrade",
 	"github.com/jj-vcs/jj",
+	"github.com/topgrade-rs/topgrade",
+  "github.com/rossmacarthur/sheldon",
 ]
 shell = "zsh"
 
@@ -53,7 +53,7 @@ fedora = ["fedora", "nobara"]
 
 [ssh]
 [ssh.lanUsers]
-jellyfin = "jellyfin"
+# jellyfin = "jellyfin"
 
 [nerdfonts]
 fonts = ["SourceCodePro", "JetBrainsMono", "FiraCode", "CascadiaCode"]

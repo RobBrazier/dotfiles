@@ -4,7 +4,7 @@ no_self_update = true
 pre_sudo = true
 assume_yes = true
 
-disable = ["bun", "nix", "cargo", "rustup", "uv", "yarn", "pnpm"]
+disable = ["bun", "nix", "rustup", "uv", "yarn", "pnpm"]
 
 [commands]
 "mise upgrade" = "mise self-update --yes"

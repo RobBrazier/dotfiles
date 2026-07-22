@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Installs standalone binary managers (bin + mise) so subsequent after_ scripts
+# can install packages via them. Only prerequisite: curl/wget from before_00.
+
+if ! type bin > /dev/null; then
+  wget -O ~/.local/bin/bin '{{ gitHubLatestReleaseAssetURL "marcosnils/bin" (printf "bin_*_%s_%s" .chezmoi.os .chezmoi.arch) }}'
+fi
+
+if ! type mise > /dev/null; then
+  curl https://mise.run | sh
+fi
+
+mise self-update --no-plugins
+
+# vim: set syntax=bash:

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# .config/mise/conf.d/tools.toml hash: {{ include "dot_config/mise/conf.d/tools.toml" | sha256sum }}
+
+if [ -z "$MISE_SHELL" ]; then
+  eval "$(mise activate bash)"
+fi
+
+cargo binstall bob-nvim -y
+
+bob use stable
+
+# vim: set syntax=bash:

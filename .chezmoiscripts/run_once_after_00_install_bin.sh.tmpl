@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-if ! type bin > /dev/null; then
-  wget -O ~/.local/bin/bin '{{ gitHubLatestReleaseAssetURL "marcosnils/bin" (printf "bin_*_%s_%s" .chezmoi.os .chezmoi.arch) }}'
-fi
-
+# binPackages hash: {{ .binPackages | toJson | sha256sum }}
 echo "Installing bin packages"
 
 bin update -y
