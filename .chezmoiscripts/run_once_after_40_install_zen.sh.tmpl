@@ -16,3 +16,5 @@ fi
 wget -qO- '{{ $downloadUrl }}' | sudo tar xJ -C /opt
 sudo ln -sf /opt/zen/zen /usr/local/bin/zen
 echo 'Successfully installed Zen v{{ $latestVersion }}'
+
+# vim: set syntax=bash:

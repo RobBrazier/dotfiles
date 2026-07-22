@@ -1,7 +1,5 @@
 [tools]
 "aqua:doy/rbw" = "latest"
-"cargo:cargo-info" = "latest"
-cargo-binstall = "latest"
 opencode = "latest"
 gh = "latest"
 git-cliff = "latest"

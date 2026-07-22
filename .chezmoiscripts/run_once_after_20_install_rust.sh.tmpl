@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+source $HOME/.profile
+
+cargo install cargo-binstall
+
+{{ range .cargoPackages -}}
+cargo binstall {{ . }} -y
+{{ end -}}
+
+# vim: set syntax=bash:

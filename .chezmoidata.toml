@@ -28,6 +28,11 @@ binPackages = [
 	"github.com/topgrade-rs/topgrade",
   "github.com/rossmacarthur/sheldon",
 ]
+cargoPackages = [
+	"cargo-update",
+	"cargo-info",
+	"bob-nvim",
+]
 shell = "zsh"
 
 [git]

@@ -3,6 +3,8 @@
 # binPackages hash: {{ .binPackages | toJson | sha256sum }}
 echo "Installing bin packages"
 
+source $HOME/.profile
+
 bin update -y
 {{ range .binPackages -}}
 if ! grep -qF {{. | quote}} ~/.config/bin/config.json; then
