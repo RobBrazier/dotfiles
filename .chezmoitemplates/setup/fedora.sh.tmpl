@@ -4,7 +4,11 @@ install_packages() {
     sudo dnf -y install $@
 }
 
+{{ if eq .chezmoi.osRelease.id "nobara" -}}
+nobara-sync cli
+{{ else -}}
 sudo dnf update -y
+{{ end -}}
 
 # System Utilities
 install_packages {{ .packages | join " " }} btop util-linux-user perl-File-Compare openssl-devel gcc g++
